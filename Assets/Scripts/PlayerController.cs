@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     [SerializeField]
     private Transform model;
-    [SerializeField] 
-    private float speed = 5, turnSpeed = 360, dashSpeed = 10, dashDistance = 1;
-    private Vector3 input, newPosition;
+    [SerializeField]
+    private float speed = 5, turnSpeed = 360, dashSpeed = 10, dashPeriod = 1, dashTime = 0;
+    private Vector3 input;
     [SerializeField]
     private Animator playerController;
 
@@ -24,17 +24,17 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         if (playerController.GetBool("IsDashing"))
-            Dash(newPosition);
+            Dash();
+        else
+            dashTime = 0;
     }
 
     private void GatherInput()
     {
+        dashTime += Time.deltaTime;
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         if (Input.GetKeyDown(KeyCode.Space) && !playerController.GetBool("IsDashing"))
-        {
-            newPosition = transform.position + (input.ToIso() * dashDistance);
             playerController.SetBool("IsDashing", true);
-        }
     }
 
     private void Look()
@@ -58,10 +58,10 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(transform.position + input.ToIso().normalized * speed * Time.deltaTime);
     }
 
-    private void Dash(Vector3 newPosition)
+    private void Dash()
     {
-        if (Vector3.Distance(transform.position, newPosition) > 0.1f)
-            rb.MovePosition(Vector3.MoveTowards(transform.position, newPosition, Time.deltaTime * dashSpeed));
+        if (dashTime < dashPeriod)
+            rb.MovePosition(transform.position + input.ToIso().normalized * dashSpeed * Time.deltaTime);
         else
             playerController.SetBool("IsDashing", false);
     }
