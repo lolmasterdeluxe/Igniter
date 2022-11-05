@@ -8,7 +8,7 @@ public class LincolnMechanics : MonoBehaviour
     [SerializeField]
     private Animator playerController;
     [SerializeField]
-    private float delay = 0.5f, delay_time = 0;
+    private float delay = 1f, delay_time = 0;
 
     private void Update()
     {
@@ -27,9 +27,11 @@ public class LincolnMechanics : MonoBehaviour
         {
             delay_time = 0;
             attack_increment++;
+            if (attack_increment > 3)
+                attack_increment = 0;
         }
 
-        if (attack_increment > 3 || delay_time > delay)
+        if (delay_time > delay)
             attack_increment = 0;
 
         playerController.SetInteger("Attack", attack_increment);

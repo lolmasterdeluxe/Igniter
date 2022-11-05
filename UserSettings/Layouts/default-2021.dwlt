@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: GitHub
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 333
+  controlID: 143
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: Window
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -68,14 +68,14 @@ MonoBehaviour:
     y: 0
     width: 574
     height: 947
-  m_MinSize: {x: 276, y: 71}
+  m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 16}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,7 +94,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 422
-    height: 561
+    height: 560
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 561
+    y: 560
     width: 1346
-    height: 386
+    height: 387
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 15}
@@ -129,7 +129,7 @@ MonoBehaviour:
   - {fileID: 20}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 2
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 266
+  controlID: 72
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,11 +246,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1346
-    height: 561
+    height: 560
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 267
+  controlID: 73
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimatorControllerTool
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -269,16 +269,16 @@ MonoBehaviour:
     x: 422
     y: 0
     width: 924
-    height: 561
-  m_MinSize: {x: 102, y: 121}
+    height: 560
+  m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
   - {fileID: 13}
-  m_Selected: 2
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -309,7 +309,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -674322
+  m_LastSelectedObjectID: 24124
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -333,7 +333,7 @@ MonoBehaviour:
     x: 422
     y: 73
     width: 922
-    height: 540
+    height: 539
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -342,14 +342,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: -4570381539048408686, guid: 0964565dbc2e51c4e9fc463fe12c9676, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.8087912
+    - e00: 1.1753398
       e01: 0
       e02: 0
-      e03: -25.439575
+      e03: -82.27377
       e10: 0
-      e11: 0.8087912
+      e11: 1.1753398
       e12: 0
-      e13: 101.278015
+      e13: 89.40599
       e20: 0
       e21: 0
       e22: 1
@@ -402,14 +402,14 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  progressMessageClearTime: -1
+  progressMessageClearTime: 4470.558462700001
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
-  currentTrackingStatusHasUpdate: 1
-  currentStatusEntriesHasUpdate: 1
+  currentTrackingStatusHasUpdate: 0
+  currentStatusEntriesHasUpdate: 0
   repositoryProgressHasUpdate: 1
-  appManagerProgressHasUpdate: 1
+  appManagerProgressHasUpdate: 0
   changeTab: 3
   activeTab: 3
   initProjectView:
@@ -548,777 +548,20 @@ MonoBehaviour:
       tracking: 
     remoteBranches: []
   changesView:
-    currentBranchHasUpdate: 1
-    currentStatusEntriesHasUpdate: 1
-    currentLocksHasUpdate: 1
+    currentBranchHasUpdate: 0
+    currentStatusEntriesHasUpdate: 0
+    currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
     currentBranch: '[master]'
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys:
-        - 00000000000000001000000000000000
-        - 2bff9b6231ed7434ab9906f2c90660b4
-        - 4b217b002536ffb489f43f53ea595404
-        - e5555409ee87e0b41b7480bb60e736d2
-        - 0ac026bc535fab248a8e31fbac756dc1
-        - 785a810444c2e414c945f436cbcce024
-        - eed06740d41edba42acbe74890788034
-        - 85327f8db13d108428773c10388d0e58
-        - d7c09ec1951459546b55c77db54684c1
-        - acf9add10b7ffaa45a10fed0de0d13b5
-        - fe391f21e854cea4c91bafec94b95423
-        - fa7df00087481954db205c27c9856b76
-        - c64878e08083112419a8c7fb27ca9064
-        - 2db7e17401e08b94697ecd7acce75ab1
-        - ea1739855616a8641979f4626da2e394
-        - 06e5d878f6254cb4da625716f78a57f4
-        - 35b88df3827f30140b2c3955278ba8b3
-        - df17468a5a3ff4540a67b973b0b0cce7
-        - bea8f9d7beb292a45ba43e1a4b5dd301
-        - 21f4627148db0514fbdf35e44904a348
-        - a64faae1d36070b46bbf4661692e5faf
-        - a938caa1ffe469746b7756cc25a3d07a
-        - 65cf960b0a116654bbd4a2d8bf1e8735
-        - db301ba1ce6f9cb4a85f049d434185f3
-        values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Character 2
-          label: Animated Character 2
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters
-          label: Animated Characters
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Animations
-          label: Animations
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Animations\idle.fbx
-          label: idle.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\idle.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\idle.fbx
-            projectPath: Assets\Animated Characters\Animations\idle.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Animations\jump.fbx
-          label: jump.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\jump.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\jump.fbx
-            projectPath: Assets\Animated Characters\Animations\jump.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Animations\run.fbx
-          label: run.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\run.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\run.fbx
-            projectPath: Assets\Animated Characters\Animations\run.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx
-          label: X Bot@Female Locomotion Pose.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-              Bot@Female Locomotion Pose.fbx
-            projectPath: Assets\Animated Characters\Animations\X Bot@Female Locomotion
-              Pose.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx
-          label: X Bot@Male Action Pose.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-              Bot@Male Action Pose.fbx
-            projectPath: Assets\Animated Characters\Animations\X Bot@Male Action
-              Pose.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack
-            Horizontal.fbx
-          label: X Bot@Standing Melee Attack Horizontal.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack
-              Horizontal.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-              Bot@Standing Melee Attack Horizontal.fbx
-            projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-              Attack Horizontal.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-            Attack Ver. 2.fbx
-          label: X Bot@Standing Melee Combo Attack Ver. 2.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-              Attack Ver. 2.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-              Bot@Standing Melee Combo Attack Ver. 2.fbx
-            projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-              Combo Attack Ver. 2.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-            Attack Ver. 3.fbx
-          label: X Bot@Standing Melee Combo Attack Ver. 3.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-              Attack Ver. 3.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-              Bot@Standing Melee Combo Attack Ver. 3.fbx
-            projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-              Combo Attack Ver. 3.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Models
-          label: Models
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Models\characterMedium.fbx
-          label: characterMedium.fbx
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Models\characterMedium.fbx
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\characterMedium.fbx
-            projectPath: Assets\Animated Characters\Models\characterMedium.fbx
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Models\Materials
-          label: Materials
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Models\Materials\skin.mat
-          label: skin.mat
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Models\Materials\skin.mat
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\Materials\skin.mat
-            projectPath: Assets\Animated Characters\Models\Materials\skin.mat
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Skins
-          label: Skins
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Skins\criminalMaleA.png
-          label: criminalMaleA.png
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Skins\criminalMaleA.png
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\criminalMaleA.png
-            projectPath: Assets\Animated Characters\Skins\criminalMaleA.png
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Skins\cyborgFemaleA.png
-          label: cyborgFemaleA.png
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Skins\cyborgFemaleA.png
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\cyborgFemaleA.png
-            projectPath: Assets\Animated Characters\Skins\cyborgFemaleA.png
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Skins\Materials
-          label: Materials
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-          label: cyborgFemaleA.mat
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-            projectPath: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-          label: skaterFemaleA.mat
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-            projectPath: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Skins\skaterFemaleA.png
-          label: skaterFemaleA.png
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Skins\skaterFemaleA.png
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterFemaleA.png
-            projectPath: Assets\Animated Characters\Skins\skaterFemaleA.png
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Animated Characters\Skins\skaterMaleA.png
-          label: skaterMaleA.png
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animated Characters\Skins\skaterMaleA.png
-            fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterMaleA.png
-            projectPath: Assets\Animated Characters\Skins\skaterMaleA.png
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
+        keys: []
+        values: []
       folders:
-        keys:
-        - Assets
-        - Assets\Animated Character 2
-        - Assets\Animated Character 2\Animations
-        - Assets\Animated Character 2\Models
-        - Assets\Animated Character 2\Models\Materials
-        - Assets\Animated Character 2\Skins
-        - Assets\Animated Character 2\Skins\Materials
-        - Assets\Animated Characters
-        - Assets\Animated Characters\Animations
-        - Assets\Animated Characters\Models
-        - Assets\Animated Characters\Models\Materials
-        - Assets\Animated Characters\Skins
-        - Assets\Animated Characters\Skins\Materials
-        - UserSettings
-        - UserSettings\Layouts
-        values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Character 2
-          label: Animated Character 2
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Character 2\Animations
-          label: Animations
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Character 2\Models
-          label: Models
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Character 2\Models\Materials
-          label: Materials
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Character 2\Skins
-          label: Skins
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Character 2\Skins\Materials
-          label: Materials
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters
-          label: Animated Characters
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Animations
-          label: Animations
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Models
-          label: Models
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Models\Materials
-          label: Materials
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Skins
-          label: Skins
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Animated Characters\Skins\Materials
-          label: Materials
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: UserSettings
-          label: UserSettings
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: UserSettings\Layouts
-          label: Layouts
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
+        keys: []
+        values: []
       checkedFileNodes:
         keys: []
         values: []
@@ -1347,1588 +590,6 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets
-        label: Assets
-        level: 0
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Character 2.meta
-        label: Animated Character 2.meta
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2.meta
-          projectPath: Assets\Animated Character 2.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2
-        label: Animated Character 2
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Character 2\Animations.meta
-        label: Animations.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations.meta
-          projectPath: Assets\Animated Character 2\Animations.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations
-        label: Animations
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Character 2\Animations\idle.fbx
-        label: idle.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\idle.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\idle.fbx
-          projectPath: Assets\Animated Character 2\Animations\idle.fbx
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\idle.fbx.meta
-        label: idle.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\idle.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\idle.fbx.meta
-          projectPath: Assets\Animated Character 2\Animations\idle.fbx.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\jump.fbx
-        label: jump.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\jump.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\jump.fbx
-          projectPath: Assets\Animated Character 2\Animations\jump.fbx
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\jump.fbx.meta
-        label: jump.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\jump.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\jump.fbx.meta
-          projectPath: Assets\Animated Character 2\Animations\jump.fbx.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\run.fbx
-        label: run.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\run.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\run.fbx
-          projectPath: Assets\Animated Character 2\Animations\run.fbx
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\run.fbx.meta
-        label: run.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\run.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\run.fbx.meta
-          projectPath: Assets\Animated Character 2\Animations\run.fbx.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\X Bot@Female Locomotion Pose.fbx
-        label: X Bot@Female Locomotion Pose.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\X Bot@Female Locomotion Pose.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-            Bot@Female Locomotion Pose.fbx
-          projectPath: Assets\Animated Character 2\Animations\X Bot@Female Locomotion
-            Pose.fbx
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\X Bot@Female Locomotion Pose.fbx.meta
-        label: X Bot@Female Locomotion Pose.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\X Bot@Female Locomotion Pose.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-            Bot@Female Locomotion Pose.fbx.meta
-          projectPath: Assets\Animated Character 2\Animations\X Bot@Female Locomotion
-            Pose.fbx.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx
-        label: X Bot@Male Action Pose.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-            Bot@Male Action Pose.fbx
-          projectPath: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx.meta
-        label: X Bot@Male Action Pose.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-            Bot@Male Action Pose.fbx.meta
-          projectPath: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Models.meta
-        label: Models.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Models.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models.meta
-          projectPath: Assets\Animated Character 2\Models.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Models
-        label: Models
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Character 2\Models\characterMedium.fbx
-        label: characterMedium.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Models\characterMedium.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\characterMedium.fbx
-          projectPath: Assets\Animated Character 2\Models\characterMedium.fbx
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Models\characterMedium.fbx.meta
-        label: characterMedium.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Models\characterMedium.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\characterMedium.fbx.meta
-          projectPath: Assets\Animated Character 2\Models\characterMedium.fbx.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Models\Materials.meta
-        label: Materials.meta
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Models\Materials.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\Materials.meta
-          projectPath: Assets\Animated Character 2\Models\Materials.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Models\Materials
-        label: Materials
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Character 2\Models\Materials\skin.mat
-        label: skin.mat
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Models\Materials\skin.mat
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\Materials\skin.mat
-          projectPath: Assets\Animated Character 2\Models\Materials\skin.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Models\Materials\skin.mat.meta
-        label: skin.mat.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Models\Materials\skin.mat.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\Materials\skin.mat.meta
-          projectPath: Assets\Animated Character 2\Models\Materials\skin.mat.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins.meta
-        label: Skins.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins.meta
-          projectPath: Assets\Animated Character 2\Skins.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins
-        label: Skins
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Character 2\Skins\criminalMaleA.png
-        label: criminalMaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\criminalMaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\criminalMaleA.png
-          projectPath: Assets\Animated Character 2\Skins\criminalMaleA.png
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\criminalMaleA.png.meta
-        label: criminalMaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\criminalMaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\criminalMaleA.png.meta
-          projectPath: Assets\Animated Character 2\Skins\criminalMaleA.png.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\cyborgFemaleA.png
-        label: cyborgFemaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\cyborgFemaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\cyborgFemaleA.png
-          projectPath: Assets\Animated Character 2\Skins\cyborgFemaleA.png
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\cyborgFemaleA.png.meta
-        label: cyborgFemaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\cyborgFemaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\cyborgFemaleA.png.meta
-          projectPath: Assets\Animated Character 2\Skins\cyborgFemaleA.png.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\Materials.meta
-        label: Materials.meta
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\Materials.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials.meta
-          projectPath: Assets\Animated Character 2\Skins\Materials.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\Materials
-        label: Materials
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat
-        label: cyborgFemaleA.mat
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat
-          projectPath: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat.meta
-        label: cyborgFemaleA.mat.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat.meta
-          projectPath: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat
-        label: skaterFemaleA.mat
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat
-          projectPath: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat.meta
-        label: skaterFemaleA.mat.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat.meta
-          projectPath: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\skaterFemaleA.png
-        label: skaterFemaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\skaterFemaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterFemaleA.png
-          projectPath: Assets\Animated Character 2\Skins\skaterFemaleA.png
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\skaterFemaleA.png.meta
-        label: skaterFemaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\skaterFemaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterFemaleA.png.meta
-          projectPath: Assets\Animated Character 2\Skins\skaterFemaleA.png.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\skaterMaleA.png
-        label: skaterMaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\skaterMaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterMaleA.png
-          projectPath: Assets\Animated Character 2\Skins\skaterMaleA.png
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Character 2\Skins\skaterMaleA.png.meta
-        label: skaterMaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Character 2\Skins\skaterMaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterMaleA.png.meta
-          projectPath: Assets\Animated Character 2\Skins\skaterMaleA.png.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Animated Characters.meta
-        label: Animated Characters.meta
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters.meta
-          projectPath: Assets\Animated Characters.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters
-        label: Animated Characters
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Characters\Animations.meta
-        label: Animations.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations.meta
-          projectPath: Assets\Animated Characters\Animations.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations
-        label: Animations
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Characters\Animations\idle.fbx
-        label: idle.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\idle.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\idle.fbx
-          projectPath: Assets\Animated Characters\Animations\idle.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\idle.fbx.meta
-        label: idle.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\idle.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\idle.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\idle.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\jump.fbx
-        label: jump.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\jump.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\jump.fbx
-          projectPath: Assets\Animated Characters\Animations\jump.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\jump.fbx.meta
-        label: jump.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\jump.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\jump.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\jump.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\run.fbx
-        label: run.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\run.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\run.fbx
-          projectPath: Assets\Animated Characters\Animations\run.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\run.fbx.meta
-        label: run.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\run.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\run.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\run.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx
-        label: X Bot@Female Locomotion Pose.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Female Locomotion Pose.fbx
-          projectPath: Assets\Animated Characters\Animations\X Bot@Female Locomotion
-            Pose.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx.meta
-        label: X Bot@Female Locomotion Pose.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Female Locomotion Pose.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\X Bot@Female Locomotion
-            Pose.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx
-        label: X Bot@Male Action Pose.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Male Action Pose.fbx
-          projectPath: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx.meta
-        label: X Bot@Male Action Pose.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Male Action Pose.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack Horizontal.fbx
-        label: X Bot@Standing Melee Attack Horizontal.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack
-            Horizontal.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Standing Melee Attack Horizontal.fbx
-          projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-            Attack Horizontal.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack Horizontal.fbx.meta
-        label: X Bot@Standing Melee Attack Horizontal.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack
-            Horizontal.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Standing Melee Attack Horizontal.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-            Attack Horizontal.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-          Ver. 2.fbx
-        label: X Bot@Standing Melee Combo Attack Ver. 2.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-            Attack Ver. 2.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Standing Melee Combo Attack Ver. 2.fbx
-          projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-            Combo Attack Ver. 2.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-          Ver. 2.fbx.meta
-        label: X Bot@Standing Melee Combo Attack Ver. 2.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-            Attack Ver. 2.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Standing Melee Combo Attack Ver. 2.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-            Combo Attack Ver. 2.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-          Ver. 3.fbx
-        label: X Bot@Standing Melee Combo Attack Ver. 3.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-            Attack Ver. 3.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Standing Melee Combo Attack Ver. 3.fbx
-          projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-            Combo Attack Ver. 3.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-          Ver. 3.fbx.meta
-        label: X Bot@Standing Melee Combo Attack Ver. 3.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-            Attack Ver. 3.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X
-            Bot@Standing Melee Combo Attack Ver. 3.fbx.meta
-          projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee
-            Combo Attack Ver. 3.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Models.meta
-        label: Models.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Models.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models.meta
-          projectPath: Assets\Animated Characters\Models.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Models
-        label: Models
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Characters\Models\characterMedium.fbx
-        label: characterMedium.fbx
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Models\characterMedium.fbx
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\characterMedium.fbx
-          projectPath: Assets\Animated Characters\Models\characterMedium.fbx
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Models\characterMedium.fbx.meta
-        label: characterMedium.fbx.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Models\characterMedium.fbx.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\characterMedium.fbx.meta
-          projectPath: Assets\Animated Characters\Models\characterMedium.fbx.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Models\Materials.meta
-        label: Materials.meta
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Models\Materials.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\Materials.meta
-          projectPath: Assets\Animated Characters\Models\Materials.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Models\Materials
-        label: Materials
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Characters\Models\Materials\skin.mat
-        label: skin.mat
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Models\Materials\skin.mat
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\Materials\skin.mat
-          projectPath: Assets\Animated Characters\Models\Materials\skin.mat
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Models\Materials\skin.mat.meta
-        label: skin.mat.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Models\Materials\skin.mat.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\Materials\skin.mat.meta
-          projectPath: Assets\Animated Characters\Models\Materials\skin.mat.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins.meta
-        label: Skins.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins.meta
-          projectPath: Assets\Animated Characters\Skins.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins
-        label: Skins
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Characters\Skins\criminalMaleA.png
-        label: criminalMaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\criminalMaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\criminalMaleA.png
-          projectPath: Assets\Animated Characters\Skins\criminalMaleA.png
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\criminalMaleA.png.meta
-        label: criminalMaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\criminalMaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\criminalMaleA.png.meta
-          projectPath: Assets\Animated Characters\Skins\criminalMaleA.png.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\cyborgFemaleA.png
-        label: cyborgFemaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\cyborgFemaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\cyborgFemaleA.png
-          projectPath: Assets\Animated Characters\Skins\cyborgFemaleA.png
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\cyborgFemaleA.png.meta
-        label: cyborgFemaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\cyborgFemaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\cyborgFemaleA.png.meta
-          projectPath: Assets\Animated Characters\Skins\cyborgFemaleA.png.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\Materials.meta
-        label: Materials.meta
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\Materials.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials.meta
-          projectPath: Assets\Animated Characters\Skins\Materials.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\Materials
-        label: Materials
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-        label: cyborgFemaleA.mat
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-          projectPath: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat.meta
-        label: cyborgFemaleA.mat.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat.meta
-          projectPath: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-        label: skaterFemaleA.mat
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-          projectPath: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat.meta
-        label: skaterFemaleA.mat.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat.meta
-          projectPath: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\skaterFemaleA.png
-        label: skaterFemaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\skaterFemaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterFemaleA.png
-          projectPath: Assets\Animated Characters\Skins\skaterFemaleA.png
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\skaterFemaleA.png.meta
-        label: skaterFemaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\skaterFemaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterFemaleA.png.meta
-          projectPath: Assets\Animated Characters\Skins\skaterFemaleA.png.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\skaterMaleA.png
-        label: skaterMaleA.png
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\skaterMaleA.png
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterMaleA.png
-          projectPath: Assets\Animated Characters\Skins\skaterMaleA.png
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Animated Characters\Skins\skaterMaleA.png.meta
-        label: skaterMaleA.png.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animated Characters\Skins\skaterMaleA.png.meta
-          fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterMaleA.png.meta
-          projectPath: Assets\Animated Characters\Skins\skaterMaleA.png.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: UserSettings
-        label: UserSettings
-        level: 0
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: UserSettings\Layouts
-        label: Layouts
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: UserSettings\Layouts\default-2021.dwlt
-        label: default-2021.dwlt
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: UserSettings\Layouts\default-2021.dwlt
-          fullPath: D:\Repositories\Igniter\UserSettings\Layouts\default-2021.dwlt
-          projectPath: UserSettings\Layouts\default-2021.dwlt
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -2948,470 +609,16 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-    gitStatusEntries:
-    - path: Assets\Animated Character 2.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2.meta
-      projectPath: Assets\Animated Character 2.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations.meta
-      projectPath: Assets\Animated Character 2\Animations.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\idle.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\idle.fbx
-      projectPath: Assets\Animated Character 2\Animations\idle.fbx
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\idle.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\idle.fbx.meta
-      projectPath: Assets\Animated Character 2\Animations\idle.fbx.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\jump.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\jump.fbx
-      projectPath: Assets\Animated Character 2\Animations\jump.fbx
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\jump.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\jump.fbx.meta
-      projectPath: Assets\Animated Character 2\Animations\jump.fbx.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\run.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\run.fbx
-      projectPath: Assets\Animated Character 2\Animations\run.fbx
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\run.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\run.fbx.meta
-      projectPath: Assets\Animated Character 2\Animations\run.fbx.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\X Bot@Female Locomotion Pose.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-        Bot@Female Locomotion Pose.fbx
-      projectPath: Assets\Animated Character 2\Animations\X Bot@Female Locomotion
-        Pose.fbx
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\X Bot@Female Locomotion Pose.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-        Bot@Female Locomotion Pose.fbx.meta
-      projectPath: Assets\Animated Character 2\Animations\X Bot@Female Locomotion
-        Pose.fbx.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-        Bot@Male Action Pose.fbx
-      projectPath: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Animations\X
-        Bot@Male Action Pose.fbx.meta
-      projectPath: Assets\Animated Character 2\Animations\X Bot@Male Action Pose.fbx.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Models.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models.meta
-      projectPath: Assets\Animated Character 2\Models.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Models\characterMedium.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\characterMedium.fbx
-      projectPath: Assets\Animated Character 2\Models\characterMedium.fbx
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Models\characterMedium.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\characterMedium.fbx.meta
-      projectPath: Assets\Animated Character 2\Models\characterMedium.fbx.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Models\Materials.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\Materials.meta
-      projectPath: Assets\Animated Character 2\Models\Materials.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Models\Materials\skin.mat
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\Materials\skin.mat
-      projectPath: Assets\Animated Character 2\Models\Materials\skin.mat
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Models\Materials\skin.mat.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Models\Materials\skin.mat.meta
-      projectPath: Assets\Animated Character 2\Models\Materials\skin.mat.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins.meta
-      projectPath: Assets\Animated Character 2\Skins.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\criminalMaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\criminalMaleA.png
-      projectPath: Assets\Animated Character 2\Skins\criminalMaleA.png
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\criminalMaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\criminalMaleA.png.meta
-      projectPath: Assets\Animated Character 2\Skins\criminalMaleA.png.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\cyborgFemaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\cyborgFemaleA.png
-      projectPath: Assets\Animated Character 2\Skins\cyborgFemaleA.png
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\cyborgFemaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\cyborgFemaleA.png.meta
-      projectPath: Assets\Animated Character 2\Skins\cyborgFemaleA.png.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\Materials.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials.meta
-      projectPath: Assets\Animated Character 2\Skins\Materials.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat
-      projectPath: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat.meta
-      projectPath: Assets\Animated Character 2\Skins\Materials\cyborgFemaleA.mat.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat
-      projectPath: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat.meta
-      projectPath: Assets\Animated Character 2\Skins\Materials\skaterFemaleA.mat.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\skaterFemaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterFemaleA.png
-      projectPath: Assets\Animated Character 2\Skins\skaterFemaleA.png
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\skaterFemaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterFemaleA.png.meta
-      projectPath: Assets\Animated Character 2\Skins\skaterFemaleA.png.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\skaterMaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterMaleA.png
-      projectPath: Assets\Animated Character 2\Skins\skaterMaleA.png
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Character 2\Skins\skaterMaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Character 2\Skins\skaterMaleA.png.meta
-      projectPath: Assets\Animated Character 2\Skins\skaterMaleA.png.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Animated Characters.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters.meta
-      projectPath: Assets\Animated Characters.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations.meta
-      projectPath: Assets\Animated Characters\Animations.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\idle.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\idle.fbx
-      projectPath: Assets\Animated Characters\Animations\idle.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\idle.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\idle.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\idle.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\jump.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\jump.fbx
-      projectPath: Assets\Animated Characters\Animations\jump.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\jump.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\jump.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\jump.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\run.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\run.fbx
-      projectPath: Assets\Animated Characters\Animations\run.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\run.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\run.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\run.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Female
-        Locomotion Pose.fbx
-      projectPath: Assets\Animated Characters\Animations\X Bot@Female Locomotion
-        Pose.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Female Locomotion Pose.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Female
-        Locomotion Pose.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\X Bot@Female Locomotion
-        Pose.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Male
-        Action Pose.fbx
-      projectPath: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Male
-        Action Pose.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\X Bot@Male Action Pose.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack Horizontal.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Standing
-        Melee Attack Horizontal.fbx
-      projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack
-        Horizontal.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack Horizontal.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Standing
-        Melee Attack Horizontal.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee Attack
-        Horizontal.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-        Ver. 2.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Standing
-        Melee Combo Attack Ver. 2.fbx
-      projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-        Attack Ver. 2.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-        Ver. 2.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Standing
-        Melee Combo Attack Ver. 2.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-        Attack Ver. 2.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-        Ver. 3.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Standing
-        Melee Combo Attack Ver. 3.fbx
-      projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-        Attack Ver. 3.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo Attack
-        Ver. 3.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Animations\X Bot@Standing
-        Melee Combo Attack Ver. 3.fbx.meta
-      projectPath: Assets\Animated Characters\Animations\X Bot@Standing Melee Combo
-        Attack Ver. 3.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Models.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models.meta
-      projectPath: Assets\Animated Characters\Models.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Models\characterMedium.fbx
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\characterMedium.fbx
-      projectPath: Assets\Animated Characters\Models\characterMedium.fbx
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Models\characterMedium.fbx.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\characterMedium.fbx.meta
-      projectPath: Assets\Animated Characters\Models\characterMedium.fbx.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Models\Materials.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\Materials.meta
-      projectPath: Assets\Animated Characters\Models\Materials.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Models\Materials\skin.mat
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\Materials\skin.mat
-      projectPath: Assets\Animated Characters\Models\Materials\skin.mat
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Models\Materials\skin.mat.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Models\Materials\skin.mat.meta
-      projectPath: Assets\Animated Characters\Models\Materials\skin.mat.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins.meta
-      projectPath: Assets\Animated Characters\Skins.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\criminalMaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\criminalMaleA.png
-      projectPath: Assets\Animated Characters\Skins\criminalMaleA.png
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\criminalMaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\criminalMaleA.png.meta
-      projectPath: Assets\Animated Characters\Skins\criminalMaleA.png.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\cyborgFemaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\cyborgFemaleA.png
-      projectPath: Assets\Animated Characters\Skins\cyborgFemaleA.png
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\cyborgFemaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\cyborgFemaleA.png.meta
-      projectPath: Assets\Animated Characters\Skins\cyborgFemaleA.png.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\Materials.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials.meta
-      projectPath: Assets\Animated Characters\Skins\Materials.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-      projectPath: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat.meta
-      projectPath: Assets\Animated Characters\Skins\Materials\cyborgFemaleA.mat.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-      projectPath: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat.meta
-      projectPath: Assets\Animated Characters\Skins\Materials\skaterFemaleA.mat.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\skaterFemaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterFemaleA.png
-      projectPath: Assets\Animated Characters\Skins\skaterFemaleA.png
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\skaterFemaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterFemaleA.png.meta
-      projectPath: Assets\Animated Characters\Skins\skaterFemaleA.png.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\skaterMaleA.png
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterMaleA.png
-      projectPath: Assets\Animated Characters\Skins\skaterMaleA.png
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Animated Characters\Skins\skaterMaleA.png.meta
-      fullPath: D:\Repositories\Igniter\Assets\Animated Characters\Skins\skaterMaleA.png.meta
-      projectPath: Assets\Animated Characters\Skins\skaterMaleA.png.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: UserSettings\Layouts\default-2021.dwlt
-      fullPath: D:\Repositories\Igniter\UserSettings\Layouts\default-2021.dwlt
-      projectPath: UserSettings\Layouts\default-2021.dwlt
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    changedFilesText: 71 changed files
+    gitStatusEntries: []
+    changedFilesText: No changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2022-11-05T15:42:39.908+08:00
+      updatedTimeString: 2022-11-05T17:22:42.421+08:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2022-11-05T16:20:27.182+08:00
+      updatedTimeString: 2022-11-05T17:35:00.537+08:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2022-11-05T15:45:57.047+08:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -4109,7 +1316,7 @@ MonoBehaviour:
   currentRemoteUrl: https://github.com/lolmasterdeluxe/Igniter
   statusAhead: 0
   statusBehind: 0
-  hasItemsToCommit: 1
+  hasItemsToCommit: 0
   isTrackingRemoteBranch: 1
   currentBranchContent:
     m_Text: master
@@ -4120,13 +1327,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2022-11-05T14:46:02.397+08:00
+    updatedTimeString: 2022-11-05T17:22:42.421+08:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2022-11-05T14:46:36.332+08:00
+    updatedTimeString: 2022-11-05T17:35:00.554+08:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2022-11-05T14:46:36.320+08:00
+    updatedTimeString: 2022-11-05T17:35:00.537+08:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -4144,7 +1351,7 @@ MonoBehaviour:
     m_Text: Fetch
     m_Image: {fileID: 0}
     m_Tooltip: 
-  repositoryProgressValue: 1
+  repositoryProgressValue: 0.5
   repositoryProgressMessage: Listing changed files...
   appManagerProgressValue: 1
   appManagerProgressMessage: Initialized
@@ -4171,9 +1378,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 634
+    y: 633
     width: 1345
-    height: 365
+    height: 366
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -4204,9 +1411,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 96610000
-    m_LastClickedID: 24982
-    m_ExpandedIDs: 00000000fc6000000861000000ca9a3bffffff7f
+    m_SelectedIDs: f85e0000
+    m_LastClickedID: 24312
+    m_ExpandedIDs: 00000000ee5e0000f05e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -4234,7 +1441,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc600000
+    m_ExpandedIDs: 00000000ee5e0000f05e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -4321,7 +1528,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: -160
+    m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -4354,7 +1561,7 @@ MonoBehaviour:
     x: 0
     y: 73
     width: 421
-    height: 540
+    height: 539
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -4362,23 +1569,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7441f5ff
+      m_SelectedIDs: 9c5e0000
       m_LastClickedID: 0
-      m_ExpandedIDs: c6f7ffff9a5f00003e600000
+      m_ExpandedIDs: ecf9ffff645d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Ch36_nonPBR
-        m_OriginalName: Ch36_nonPBR
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -674322
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -4411,7 +1618,7 @@ MonoBehaviour:
     x: 422
     y: 73
     width: 922
-    height: 540
+    height: 539
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -4615,7 +1822,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 3.0342495, y: -0.6736241, z: 1.9722141}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 3.0342495, y: -0.6736241, z: 1.9722141}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -4668,7 +1875,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 2.947974
     speed: 2
-    m_Value: 10
+    m_Value: 2.947974
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -4716,7 +1923,7 @@ MonoBehaviour:
     x: 422
     y: 73
     width: 922
-    height: 540
+    height: 539
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -4764,9 +1971,9 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 922
-      height: 519
+      height: 518
     m_Scale: {x: 0.5646837, y: 0.5646837}
-    m_Translation: {x: 486.1382, y: 279.11932}
+    m_Translation: {x: 486.1382, y: 278.61932}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -4774,12 +1981,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -860.9036
-      y: -494.29324
+      y: -493.40778
       width: 1632.7726
-      height: 919.09863
+      height: 917.32776
     m_MinimalGUI: 1
-  m_defaultScale: 0.48020834
-  m_LastWindowPixelSize: {x: 922, y: 540}
+  m_defaultScale: 0.47962964
+  m_LastWindowPixelSize: {x: 922, y: 539}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
