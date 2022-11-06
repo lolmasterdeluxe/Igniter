@@ -841,8 +841,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 4740692156807304839}
-  delay: 1
-  delay_time: 0
+  attackDelay: 1
+  lungePeriod: 0.1
+  lungeSpeed: 15
+  rb: {fileID: 1693405243}
 --- !u!4 &4338512599878418
 Transform:
   m_ObjectHideFlags: 0
@@ -1677,7 +1679,7 @@ GameObject:
   - component: {fileID: 1669285918059990269}
   - component: {fileID: 4740692156807304839}
   m_Layer: 0
-  m_Name: Cot
+  m_Name: PeakyBlinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

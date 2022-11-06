@@ -32,20 +32,25 @@ public class PlayerController : MonoBehaviour
     private void GatherInput()
     {
         dashTime += Time.deltaTime;
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        if (Input.GetKeyDown(KeyCode.Space) && !playerController.GetBool("IsDashing"))
+
+        if (playerController.GetInteger("Attack") == 0)
+            input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        else
+            input = Vector3.zero;
+
+        if (input == Vector3.zero)
+            playerController.SetBool("IsRunning", false);
+        else
+            playerController.SetBool("IsRunning", true);
+
+        if (Input.GetKeyDown(KeyCode.Space) && !playerController.GetBool("IsDashing") && playerController.GetBool("IsRunning"))
             playerController.SetBool("IsDashing", true);
     }
 
     private void Look()
     {
         if (input == Vector3.zero)
-        {
-            playerController.SetBool("IsRunning", false);
             return;
-        }
-
-        playerController.SetBool("IsRunning", true);
 
         Quaternion rot = Quaternion.LookRotation(input.ToIso(), Vector3.up);
 
