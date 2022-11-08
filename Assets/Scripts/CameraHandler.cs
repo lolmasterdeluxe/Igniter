@@ -42,6 +42,7 @@ namespace IG
             myTransform = transform;
             defaultPosition = cameraTransform.localPosition.z;
             ignoreLayers = ~(1 << 8 | 1 << 9 | 1 << 10);
+            Application.targetFrameRate = Screen.currentResolution.refreshRate;
         }
 
         public void FollowTarget(float delta)

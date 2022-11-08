@@ -1043,6 +1043,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1693405243}
   normalCamera: {fileID: 963194225}
   movementSpeed: 5
+  sprintSpeed: 7
   rotationSpeed: 10
 --- !u!114 &1693405245
 MonoBehaviour:
@@ -1063,7 +1064,8 @@ MonoBehaviour:
   mouseY: 0
   b_input: 0
   rollFlag: 0
-  isInteracting: 0
+  sprintFlag: 0
+  rollInputTimer: 0
 --- !u!136 &1693405246
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1090,6 +1092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358d0ed9cfe05474a9d5216f684f35f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteracting: 0
+  isSprinting: 0
 --- !u!114 &1827864934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1103,8 +1107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 5443821287405186725}
-  inputHandler: {fileID: 0}
-  playerLocomotion: {fileID: 0}
   canRotate: 1
 --- !u!1 &2138910023
 GameObject:
