@@ -12,8 +12,11 @@ namespace IG
         PlayerLocomotion playerLocomotion;
 
         public bool isInteracting;
+
         [Header("Player Flags")]
         public bool isSprinting;
+        public bool isInAir;
+        public bool isGrounded;
 
         private void Start()
         {
@@ -32,6 +35,7 @@ namespace IG
             inputHandler.TickInput(delta);
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleRollingAndSprinting(delta);
+            playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
         }
 
         private void FixedUpdate()
@@ -50,6 +54,11 @@ namespace IG
             inputHandler.rollFlag = false;
             inputHandler.sprintFlag = false;
             isSprinting = inputHandler.b_input;
+
+            if (isInAir)
+            {
+                playerLocomotion.inAirTimer = playerLocomotion.inAirTimer + Time.deltaTime;
+            }
         }
     }
 }
