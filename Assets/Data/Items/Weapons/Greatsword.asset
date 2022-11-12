@@ -16,3 +16,5 @@ MonoBehaviour:
   itemName: Greatsword
   modelPrefab: {fileID: 8302401256556799076, guid: 4a65f174a7c0e4849b10b65e5e16f8f4, type: 3}
   isUnarmed: 0
+  OH_Light_Attack_1: Sword-Attack-R1
+  OH_Heavy_Attack_1: Sword-Attack-R4
