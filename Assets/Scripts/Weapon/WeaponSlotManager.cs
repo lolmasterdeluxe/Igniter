@@ -6,24 +6,24 @@ namespace IG
 {
     public class WeaponSlotManager : MonoBehaviour
     {
-        WeaponHolderSlot leftHandSlot;
-        WeaponHolderSlot rightHandSlot;
+        WeaponHolderSlot primarySlot;
+        WeaponHolderSlot secondarySlot;
 
-        DamageCollider leftHandDamageCollider;
-        DamageCollider rightHandDamageCollider;
+        DamageCollider primaryDamageCollider;
+        DamageCollider secondaryDamageCollider;
 
         private void Awake()
         {
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
             {
-                if (weaponSlot.isLeftHandSlot)
+                if (weaponSlot.isPrimarySlot)
                 {
-                    leftHandSlot = weaponSlot;
+                    primarySlot = weaponSlot;
                 }
-                else if (weaponSlot.isRightHandSlot)
+                else if (weaponSlot.isSecondarySlot)
                 {
-                    rightHandSlot = weaponSlot;
+                    secondarySlot = weaponSlot;
                 }
             }
         }
@@ -32,46 +32,46 @@ namespace IG
         {
             if (isPrimary)
             {
-                leftHandSlot.LoadWeaponModel(weaponItem);
-                LoadLeftWeaponDamageCollider();
+                primarySlot.LoadWeaponModel(weaponItem);
+                LoadPrimaryWeaponDamageCollider();
             }
             else
             {
-                rightHandSlot.LoadWeaponModel(weaponItem);
-                LoadRightWeaponDamageCollider();
+                secondarySlot.LoadWeaponModel(weaponItem);
+                LoadSecondaryWeaponDamageCollider();
             }
         }
 
         #region Handle Weapon's Damage Collider
 
-        private void LoadLeftWeaponDamageCollider()
+        private void LoadPrimaryWeaponDamageCollider()
         {
-            leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+            primaryDamageCollider = primarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
         }
 
-        private void LoadRightWeaponDamageCollider()
+        private void LoadSecondaryWeaponDamageCollider()
         {
-            rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+            secondaryDamageCollider = secondarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
         }
 
-        public void OpenLeftDamageCollider()
+        public void OpenPrimaryDamageCollider()
         {
-            leftHandDamageCollider.EnableDamageCollider();
+            primaryDamageCollider.EnableDamageCollider();
         }
 
-        public void OpenRightDamageCollider()
+        public void OpenSecondaryDamageCollider()
         {
-            rightHandDamageCollider.EnableDamageCollider();
+            secondaryDamageCollider.EnableDamageCollider();
         }
 
-        public void CloseLeftDamageCollider()
+        public void ClosePrimaryDamageCollider()
         {
-            leftHandDamageCollider.DisableDamageCollider();
+            primaryDamageCollider.DisableDamageCollider();
         }
 
-        public void CloseRightDamageCollider()
+        public void CloseSecondaryDamageCollider()
         {
-            rightHandDamageCollider.DisableDamageCollider();
+            secondaryDamageCollider.DisableDamageCollider();
         }
 
         #endregion

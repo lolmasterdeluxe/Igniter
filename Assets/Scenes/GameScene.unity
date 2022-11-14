@@ -1876,8 +1876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aece50acf5eb1eb438ce80c1151322ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightWeapon: {fileID: 11400000, guid: e9473f6cb23d21946a62667e2a3c18f6, type: 2}
-  leftWeapon: {fileID: 11400000, guid: e9473f6cb23d21946a62667e2a3c18f6, type: 2}
+  primaryWeapon: {fileID: 11400000, guid: 232f3be9256ac4d45bab8a71b1f9b25b, type: 2}
+  secondaryWeapon: {fileID: 0}
 --- !u!114 &1693405249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,7 +1890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a965ab6881da8468ec097ee5b6e2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastAttack: 
+  attackCount: 0
 --- !u!114 &1693405250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5067,8 +5067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentOverride: {fileID: 5443821287405186693}
-  isLeftHandSlot: 0
-  isRightHandSlot: 1
+  isPrimarySlot: 1
+  isSecondarySlot: 0
   currentWeaponModel: {fileID: 0}
 --- !u!114 &5443821287405186817
 MonoBehaviour:
@@ -5083,8 +5083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentOverride: {fileID: 2098101186}
-  isLeftHandSlot: 1
-  isRightHandSlot: 0
+  isPrimarySlot: 0
+  isSecondarySlot: 1
   currentWeaponModel: {fileID: 0}
 --- !u!4 &5492529734135027936
 Transform:

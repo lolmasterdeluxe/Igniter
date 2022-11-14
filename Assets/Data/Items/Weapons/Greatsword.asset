@@ -16,7 +16,11 @@ MonoBehaviour:
   itemName: Greatsword
   modelPrefab: {fileID: 8302401256556799076, guid: 4a65f174a7c0e4849b10b65e5e16f8f4, type: 3}
   isUnarmed: 0
-  OH_Light_Attack_1: 2Hand-Sword-Attack1
-  OH_Light_Attack_2: 2Hand-Sword-Attack2
-  OH_Light_Attack_3: 2Hand-Sword-Attack3
-  OH_Heavy_Attack_1: 2Hand-Sword-Attack4
+  lightAttack:
+  - 2Hand-Sword-Attack1
+  - 2Hand-Sword-Attack2
+  - 2Hand-Sword-Attack3
+  - 2Hand-Sword-Attack4
+  heavyAttack: []
+  dodgeAnimation: 2Hand-Sword-Dodge-Backward
+  rollAnimation: 2Hand-Sword-Roll-Forward

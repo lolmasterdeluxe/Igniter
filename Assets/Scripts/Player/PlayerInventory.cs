@@ -18,8 +18,8 @@ namespace IG
 
         private void Start()
         {
-            weaponSlotManager.LoadWeaponOnSlot(primaryWeapon, false);
-            weaponSlotManager.LoadWeaponOnSlot(secondaryWeapon, true);
+            weaponSlotManager.LoadWeaponOnSlot(primaryWeapon, true);
+            weaponSlotManager.LoadWeaponOnSlot(secondaryWeapon, false);
         }
     }
 }
