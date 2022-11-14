@@ -18,11 +18,13 @@ namespace IG
 
         public bool rollFlag;
         public bool sprintFlag;
+        public bool comboFlag;
         public float rollInputTimer;
 
         PlayerControls inputActions;
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
+        PlayerManager playerManager;
 
         Vector2 movementInput;
         Vector2 cameraInput;
@@ -31,6 +33,7 @@ namespace IG
         {
             playerAttacker = GetComponent<PlayerAttacker>();
             playerInventory = GetComponent<PlayerInventory>();
+            playerManager = GetComponent<PlayerManager>();
         }
 
 
@@ -95,12 +98,24 @@ namespace IG
 
             if (rb_input)
             {
-                playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
+                if (playerManager.canDoCombo)
+                {
+                    comboFlag = true;
+                    playerAttacker.HandleWeaponCombo(playerInventory.primaryWeapon);
+                    comboFlag = false;
+                }
+                else
+                {
+                    if (playerManager.canDoCombo || playerManager.isInteracting)
+                        return;
+
+                    playerAttacker.HandleLightAttack(playerInventory.primaryWeapon);
+                }
             }
 
             if (rt_input)
             {
-                playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
+                playerAttacker.HandleHeavyAttack(playerInventory.primaryWeapon);
             }
         }
     }

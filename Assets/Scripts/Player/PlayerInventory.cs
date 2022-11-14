@@ -8,8 +8,8 @@ namespace IG
     {
         WeaponSlotManager weaponSlotManager;
 
-        public WeaponItem rightWeapon;
-        public WeaponItem leftWeapon;
+        public WeaponItem primaryWeapon;
+        public WeaponItem secondaryWeapon;
 
         private void Awake()
         {
@@ -18,8 +18,8 @@ namespace IG
 
         private void Start()
         {
-            weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
-            weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
+            weaponSlotManager.LoadWeaponOnSlot(primaryWeapon, false);
+            weaponSlotManager.LoadWeaponOnSlot(secondaryWeapon, true);
         }
     }
 }

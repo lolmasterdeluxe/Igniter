@@ -28,9 +28,9 @@ namespace IG
             }
         }
 
-        public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isLeft)
+        public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isPrimary)
         {
-            if (isLeft)
+            if (isPrimary)
             {
                 leftHandSlot.LoadWeaponModel(weaponItem);
                 LoadLeftWeaponDamageCollider();

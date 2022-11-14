@@ -128,7 +128,7 @@ namespace IG
             }
         }
 
-        public void HandleRollingAndSprinting(float delta)
+        public void HandleRollingAndSprinting(float delta, WeaponItem weapon)
         {
             if (animatorHandler.anim.GetBool("isInteracting"))
                 return;
@@ -140,14 +140,14 @@ namespace IG
 
                 if (inputHandler.moveAmount > 0)
                 {
-                    animatorHandler.PlayTargetAnimation("Rolling", true);
+                    animatorHandler.PlayTargetAnimation(weapon.rollAnimation, true);
                     moveDirection.y = 0;
                     Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
                     myTransform.rotation = rollRotation;
                 }
                 else
                 {
-                    animatorHandler.PlayTargetAnimation("Backstep", true);
+                    animatorHandler.PlayTargetAnimation(weapon.dodgeAnimation, true);
                 }
             }    
         }

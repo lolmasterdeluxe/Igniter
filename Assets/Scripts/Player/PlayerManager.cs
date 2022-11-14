@@ -10,6 +10,7 @@ namespace IG
         Animator anim;
         CameraHandler cameraHandler;
         PlayerLocomotion playerLocomotion;
+        PlayerInventory playerInventory;
 
         public bool isInteracting;
 
@@ -17,6 +18,7 @@ namespace IG
         public bool isSprinting;
         public bool isInAir;
         public bool isGrounded;
+        public bool canDoCombo;
 
         private void Start()
         {
@@ -24,6 +26,7 @@ namespace IG
             inputHandler = GetComponent<InputHandler>();
             anim = GetComponentInChildren<Animator>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
+            playerInventory = GetComponent<PlayerInventory>();
         }
 
         // Update is called once per frame
@@ -31,10 +34,11 @@ namespace IG
         {
             float delta = Time.deltaTime;
             isInteracting = anim.GetBool("isInteracting");
+            canDoCombo = anim.GetBool("canDoCombo");
 
             inputHandler.TickInput(delta);
             playerLocomotion.HandleMovement(delta);
-            playerLocomotion.HandleRollingAndSprinting(delta);
+            playerLocomotion.HandleRollingAndSprinting(delta, playerInventory.primaryWeapon);
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
         }
 

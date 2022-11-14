@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5995316770607320632}
   - component: {fileID: 6421071296311842429}
   - component: {fileID: 47873310659393955}
+  - component: {fileID: 8048228211869625036}
+  - component: {fileID: 2851989569713122236}
   m_Layer: 0
   m_Name: Ken_Sword
   m_TagString: Untagged
@@ -83,6 +85,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8048228211869625036
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930094318398678348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16597317, y: 1.0378586, z: 0.07990534}
+  m_Center: {x: -0.0000036494941, y: 0.65466905, z: 0.0000018322567}
+--- !u!114 &2851989569713122236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930094318398678348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa8cf56e92ee1f4cb9baca322205670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponDamage: 25
 --- !u!1 &7633917453066396574
 GameObject:
   m_ObjectHideFlags: 0
