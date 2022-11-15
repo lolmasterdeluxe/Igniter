@@ -19,6 +19,7 @@ namespace IG
         public bool isInAir;
         public bool isGrounded;
         public bool canDoCombo;
+        public bool isSheathed;
 
         private void Start()
         {
@@ -35,6 +36,7 @@ namespace IG
             float delta = Time.deltaTime;
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
+            isSheathed = anim.GetBool("isSheathed");
 
             inputHandler.TickInput(delta);
             playerLocomotion.HandleMovement(delta);

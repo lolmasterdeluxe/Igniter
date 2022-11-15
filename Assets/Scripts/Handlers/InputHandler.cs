@@ -15,6 +15,7 @@ namespace IG
         public bool b_input;
         public bool rb_input;
         public bool rt_input;
+        public bool s_input;
 
         public bool rollFlag;
         public bool sprintFlag;
@@ -59,6 +60,7 @@ namespace IG
             MoveInput(delta);
             HandleRollInput(delta);
             HandleAttackInput(delta);
+            HandleSheathInput(delta);
         }
 
         private void MoveInput(float delta)
@@ -116,6 +118,27 @@ namespace IG
             if (rt_input)
             {
                 playerAttacker.HandleHeavyAttack(playerInventory.primaryWeapon);
+            }
+        }
+
+        private void HandleSheathInput(float delta)
+        {
+            s_input = inputActions.PlayerActions.SheathUnsheath.IsPressed();
+
+            if (s_input)
+            {
+                if (playerManager.isInteracting)
+                    return;
+
+                if (playerManager.isSheathed)
+                {
+                    playerAttacker.HandleSheath(playerInventory.primaryWeapon, false);
+                    playerAttacker.HandleLocomotionType(playerInventory.primaryWeapon);
+                }
+                else
+                {
+                    playerAttacker.HandleSheath(playerInventory.primaryWeapon, true);
+                }
             }
         }
     }

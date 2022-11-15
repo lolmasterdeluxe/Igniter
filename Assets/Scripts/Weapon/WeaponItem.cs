@@ -7,7 +7,7 @@ namespace IG
     [CreateAssetMenu(menuName = "Items/Weapon Item")]
     public class WeaponItem : Item
     {
-        public GameObject modelPrefab;
+        public GameObject modelPrefab, sheathModelPrefab;
         public bool isUnarmed;
 
         [Header("One Handed Attack Animations")]
@@ -16,6 +16,7 @@ namespace IG
 
         public string dodgeAnimation;
         public string rollAnimation;
-        
+        public string unsheathAnimation, sheathAnimation;
+        public int weaponType;
     }
 }

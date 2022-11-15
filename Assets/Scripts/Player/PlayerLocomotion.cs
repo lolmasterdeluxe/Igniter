@@ -230,21 +230,8 @@ namespace IG
             {
                 myTransform.position = targetPosition;
             }
-
-           /* if (playerManager.isGrounded)
-            {
-                if (playerManager.isInteracting || inputHandler.moveAmount > 0)
-                {
-                    // What da heck
-                    //myTransform.position = Vector3.Lerp(myTransform.position, targetPosition, delta);
-                    myTransform.position = targetPosition;
-                }
-                else
-                {
-                    myTransform.position = targetPosition;
-                }
-            }*/
         }
         #endregion
+
     }
 }

@@ -115,6 +115,16 @@ namespace IG
             anim.SetBool("canDoCombo", false);
         }
 
+        public void SetSheath(bool isTrue)
+        {
+            anim.SetBool("isSheathed", isTrue);
+        }
+
+        public void SetLocomotionType(int weaponType)
+        {
+            anim.SetInteger("weaponType", weaponType);
+        }
+
         private void OnAnimatorMove()
         {
             if (playerManager.isInteracting == false)

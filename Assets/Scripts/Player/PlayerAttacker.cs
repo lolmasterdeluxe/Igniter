@@ -36,5 +36,20 @@ namespace IG
             animatorHandler.PlayTargetAnimation(weapon.heavyAttack[0], true);
             attackCount = 0;
         }
+
+        public void HandleSheath(WeaponItem weapon, bool isTrue)
+        {
+            if (isTrue)
+                animatorHandler.PlayTargetAnimation(weapon.sheathAnimation, true);
+            else
+                animatorHandler.PlayTargetAnimation(weapon.unsheathAnimation, true);
+
+            animatorHandler.SetSheath(isTrue);
+        }
+
+        public void HandleLocomotionType(WeaponItem weapon)
+        {
+            animatorHandler.SetLocomotionType(weapon.weaponType);
+        }
     }
 }

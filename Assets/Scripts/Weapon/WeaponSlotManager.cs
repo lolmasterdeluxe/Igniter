@@ -9,8 +9,14 @@ namespace IG
         WeaponHolderSlot primarySlot;
         WeaponHolderSlot secondarySlot;
 
+        WeaponSheathSlot primarySheathSlot;
+        WeaponSheathSlot secondarySheathSlot;
+
         DamageCollider primaryDamageCollider;
         DamageCollider secondaryDamageCollider;
+
+        private bool isPrimary;
+        private WeaponItem primaryWeapon, secondaryWeapon;
 
         private void Awake()
         {
@@ -24,21 +30,63 @@ namespace IG
                 else if (weaponSlot.isSecondarySlot)
                 {
                     secondarySlot = weaponSlot;
+                }   
+            }
+
+            WeaponSheathSlot[] weaponSheathSlots = GetComponentsInChildren<WeaponSheathSlot>();
+            foreach (WeaponSheathSlot weaponSheathSlot in weaponSheathSlots)
+            {
+                if (weaponSheathSlot.isPrimarySlot)
+                {
+                    primarySheathSlot = weaponSheathSlot;
+                }
+                else if (weaponSheathSlot.isSecondarySlot)
+                {
+                    secondarySheathSlot = weaponSheathSlot;
                 }
             }
         }
 
-        public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isPrimary)
+        public void SetWeaponItemIsPrimary(WeaponItem weaponItem, bool isPrimary)
+        {
+            if (isPrimary)
+                primaryWeapon = weaponItem;
+            else
+                secondaryWeapon = weaponItem;
+
+            this.isPrimary = isPrimary;
+
+            Debug.Log("primary: " + weaponItem.itemName);
+            LoadWeaponOnSheathSlot();
+        }
+
+        public void LoadWeaponOnSlot()
         {
             if (isPrimary)
             {
-                primarySlot.LoadWeaponModel(weaponItem);
+                primarySheathSlot.UnloadWeapon();
+                primarySlot.LoadWeaponModel(primaryWeapon);
                 LoadPrimaryWeaponDamageCollider();
             }
             else
             {
-                secondarySlot.LoadWeaponModel(weaponItem);
+                secondarySheathSlot.UnloadWeapon();
+                secondarySlot.LoadWeaponModel(secondaryWeapon);
                 LoadSecondaryWeaponDamageCollider();
+            }
+        }
+
+        public void LoadWeaponOnSheathSlot()
+        {
+            if (isPrimary)
+            {
+                primarySlot.UnloadWeapon();
+                primarySheathSlot.LoadWeaponModel(primaryWeapon);
+            }
+            else
+            {
+                secondarySlot.UnloadWeapon();
+                secondarySheathSlot.LoadWeaponModel(secondaryWeapon);
             }
         }
 
