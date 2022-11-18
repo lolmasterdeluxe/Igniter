@@ -18,9 +18,13 @@ namespace IG
         private bool isPrimary;
         private WeaponItem primaryWeapon, secondaryWeapon;
 
+        QuickSlotsUI quickSlotUI;
+
         private void Awake()
         {
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
+            quickSlotUI = FindObjectOfType<QuickSlotsUI>();
+
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
             {
                 if (weaponSlot.isPrimarySlot)
@@ -58,6 +62,7 @@ namespace IG
 
             Debug.Log("primary: " + weaponItem.itemName);
             LoadWeaponOnSheathSlot();
+            quickSlotUI.UpdateWeaponQuickSlotUI(isPrimary, weaponItem);
         }
 
         public void LoadWeaponOnSlot()

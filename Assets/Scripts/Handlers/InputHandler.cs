@@ -17,6 +17,11 @@ namespace IG
         public bool rt_input;
         public bool s_input;
 
+        public bool d_Pad_Up;
+        public bool d_Pad_Down;
+        public bool d_Pad_Left;
+        public bool d_Pad_Right;
+
         public bool rollFlag;
         public bool sprintFlag;
         public bool comboFlag;
@@ -58,8 +63,14 @@ namespace IG
         public void TickInput(float delta)
         {
             MoveInput(delta);
-            HandleRollInput(delta);
-            HandleAttackInput(delta);
+
+            if (!playerManager.isSheathed)
+            {
+                HandleRollInput(delta);
+                HandleAttackInput(delta);
+            }
+
+            HandleQuickSlotsInput();
             HandleSheathInput(delta);
         }
 
@@ -139,6 +150,21 @@ namespace IG
                 {
                     playerAttacker.HandleSheath(playerInventory.primaryWeapon, true);
                 }
+            }
+        }
+
+        private void HandleQuickSlotsInput()
+        {
+            inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
+            inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
+
+            if (d_Pad_Right)
+            {
+                playerInventory.ChangePrimaryWeapon();
+            }
+            else if (d_Pad_Left)
+            {
+                playerInventory.ChangePrimaryWeapon();
             }
         }
     }

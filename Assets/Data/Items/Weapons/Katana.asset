@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ab5c59a6cab7c4c9ea1dabbc5a3ca2, type: 3}
   m_Name: Katana
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: f856e9c4cdd831c4d938e302a17cdb67, type: 3}
   itemName: Katana
   modelPrefab: {fileID: 2423502654922014087, guid: c7486f169d92db34ca2996272645b701, type: 3}
+  sheathModelPrefab: {fileID: 369501340510789568, guid: 00ec32188663afb4f8b66962f20f81d7, type: 3}
   isUnarmed: 0
-  OH_Light_Attack_1: Sword-Attack-R1
-  OH_Light_Attack_2: Sword-Attack-R2
-  OH_Light_Attack_3: Sword-Attack-R3
-  OH_Heavy_Attack_1: Sword-Attack-R4
+  lightAttack:
+  - Sword-Attack-R1
+  - Sword-Attack-R2
+  - Sword-Attack-R3
+  - Sword-Attack-R4
+  heavyAttack: []
+  dodgeAnimation: 2Hand-Sword-Dodge-Backward
+  rollAnimation: 2Hand-Sword-Roll-Forward
+  unsheathAnimation: Relax-Unsheath-R-Hips
+  sheathAnimation: Armed-Sheath-R-Hips-Relax
+  weaponType: 1

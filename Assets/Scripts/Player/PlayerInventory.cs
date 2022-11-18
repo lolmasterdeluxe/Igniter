@@ -11,6 +11,11 @@ namespace IG
         public WeaponItem primaryWeapon;
         public WeaponItem secondaryWeapon;
 
+        public WeaponItem[] weaponsInPrimarySlots = new WeaponItem[1];  
+        public WeaponItem[] weaponsInSecondarySlots = new WeaponItem[1];
+
+        public int currentPrimaryWeaponIndex = 0;
+        public int currentSecondaryWeaponIndex = 0;
         private void Awake()
         {
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
@@ -18,8 +23,28 @@ namespace IG
 
         private void Start()
         {
+            primaryWeapon = weaponsInPrimarySlots[currentPrimaryWeaponIndex];
+            secondaryWeapon = weaponsInPrimarySlots[currentSecondaryWeaponIndex];
             weaponSlotManager.SetWeaponItemIsPrimary(primaryWeapon, true);
             //weaponSlotManager.SetWeaponItemIsPrimary(secondaryWeapon, false);
+            Debug.Log("Amt of weps: " + weaponsInPrimarySlots.Length);
+        }
+
+        public void ChangePrimaryWeapon()
+        {
+            currentPrimaryWeaponIndex++;
+
+            if (currentPrimaryWeaponIndex >= weaponsInPrimarySlots.Length)
+            {
+                currentPrimaryWeaponIndex = 0;
+                weaponSlotManager.SetWeaponItemIsPrimary(weaponsInPrimarySlots[currentPrimaryWeaponIndex], true);
+            }
+
+            if (weaponsInPrimarySlots[currentPrimaryWeaponIndex] != null)
+            {
+                primaryWeapon = weaponsInPrimarySlots[currentPrimaryWeaponIndex];
+                weaponSlotManager.SetWeaponItemIsPrimary(weaponsInPrimarySlots[currentPrimaryWeaponIndex], true);
+            }
         }
     }
 }

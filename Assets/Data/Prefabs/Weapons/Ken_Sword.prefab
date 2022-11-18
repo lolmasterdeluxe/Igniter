@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 47873310659393955}
   - component: {fileID: 8048228211869625036}
   - component: {fileID: 2851989569713122236}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ken_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
