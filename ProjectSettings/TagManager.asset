@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shadow
-  - Collide
   - Enemy
+  - Interactable
   layers:
   - Default
   - TransparentFX

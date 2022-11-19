@@ -16,14 +16,17 @@ namespace IG
         DamageCollider secondaryDamageCollider;
 
         private bool isPrimary;
-        private WeaponItem primaryWeapon, secondaryWeapon;
+        public WeaponItem primaryWeapon, secondaryWeapon;
 
         QuickSlotsUI quickSlotUI;
+
+        PlayerStats playerStats;
 
         private void Awake()
         {
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             quickSlotUI = FindObjectOfType<QuickSlotsUI>();
+            playerStats = GetComponentInParent<PlayerStats>();
 
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
             {
@@ -125,6 +128,22 @@ namespace IG
         public void CloseSecondaryDamageCollider()
         {
             secondaryDamageCollider.DisableDamageCollider();
+        }
+
+
+
+        #endregion
+
+        #region Handle Weapon's Stamina Consumption
+
+        public void DrainStaminaLightAttack()
+        {
+            playerStats.TakeStaminaDamage(Mathf.RoundToInt(primaryWeapon.baseStamina * primaryWeapon.lightAttackMultiplier));
+        }
+
+        public void DrainStaminaHeavyAttack()
+        {
+            playerStats.TakeStaminaDamage(Mathf.RoundToInt(primaryWeapon.baseStamina * primaryWeapon.heavyAttackMultiplier));
         }
 
         #endregion

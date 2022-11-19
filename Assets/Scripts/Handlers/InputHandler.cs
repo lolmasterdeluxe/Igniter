@@ -12,6 +12,7 @@ namespace IG
         public float mouseX;
         public float mouseY;
 
+        public bool a_input;
         public bool b_input;
         public bool rb_input;
         public bool rt_input;
@@ -72,6 +73,7 @@ namespace IG
 
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
+            HandleInteractingButtonInput();
         }
 
         private void MoveInput(float delta)
@@ -166,6 +168,11 @@ namespace IG
             {
                 playerInventory.ChangePrimaryWeapon();
             }
+        }
+
+        private void HandleInteractingButtonInput()
+        {
+            inputActions.PlayerActions.A.performed += i => a_input = true;
         }
     }
 }

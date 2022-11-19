@@ -28,3 +28,6 @@ MonoBehaviour:
   unsheathAnimation: 2Hand-Sword-Unsheath-Back-Relax
   sheathAnimation: 2Hand-Sword-Sheath-Back-Relax
   weaponType: 0
+  baseStamina: 20
+  lightAttackMultiplier: 1
+  heavyAttackMultiplier: 2

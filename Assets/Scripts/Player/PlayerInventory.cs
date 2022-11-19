@@ -16,6 +16,8 @@ namespace IG
 
         public int currentPrimaryWeaponIndex = 0;
         public int currentSecondaryWeaponIndex = 0;
+
+        public List<WeaponItem> weaponsInventory;
         private void Awake()
         {
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();

@@ -14,9 +14,18 @@ namespace IG
         public List<string> lightAttack;
         public List<string> heavyAttack;
 
+        [Header("Movement Animations")]
         public string dodgeAnimation;
         public string rollAnimation;
-        public string unsheathAnimation, sheathAnimation;
+
+        [Header("Weapon Animations")]
+        public string unsheathAnimation;
+        public string sheathAnimation;
         public int weaponType;
+
+        [Header("Stamina Costs")]
+        public int baseStamina;
+        public float lightAttackMultiplier;
+        public float heavyAttackMultiplier;
     }
 }

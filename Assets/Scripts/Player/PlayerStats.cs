@@ -10,7 +10,14 @@ namespace IG
         public int maxHealth;
         public int currentHealth;
 
-        public HealthBar healthBar;
+        public int staminaLevel = 10;
+        public int maxStamina;
+        public int currentStamina;
+
+        [SerializeField]
+        private HealthBar healthBar;
+        [SerializeField]
+        private StaminaBar staminaBar;
 
         AnimatorHandler animatorHandler;
 
@@ -22,9 +29,12 @@ namespace IG
         private void Start()
         {
             maxHealth = SetMaxHealthFromHealthLevel();
+            maxStamina = SetMaxStaminaFromStaminaLevel();
             currentHealth = maxHealth;
+            currentStamina = maxStamina;
             healthBar.SetMaxHealth(maxHealth);
-        }
+            staminaBar.SetMaxStamina(maxStamina);
+        }                                                                                           
 
         private int SetMaxHealthFromHealthLevel()
         {
@@ -32,9 +42,15 @@ namespace IG
             return maxHealth;
         }
 
+        private int SetMaxStaminaFromStaminaLevel()
+        {
+            maxStamina = staminaLevel * 10;
+            return maxStamina;
+        }
+
         public void TakeDamage(int damage)
         {
-            currentHealth = currentHealth - damage;
+            currentHealth -= damage;
 
             healthBar.SetCurrentHealth(currentHealth);
 
@@ -46,6 +62,13 @@ namespace IG
                 animatorHandler.PlayTargetAnimation("Death", true);
                 // HANDLE PLAYER DEATH
             }
+        }
+
+        public void TakeStaminaDamage(int damage)
+        {
+            currentStamina -= damage;
+            // Set Bar
+            staminaBar.SetCurrentStamina(currentStamina);
         }
     }
 }
