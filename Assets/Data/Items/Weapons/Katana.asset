@@ -23,8 +23,11 @@ MonoBehaviour:
   - Sword-Attack-R3
   - Sword-Attack-R4
   heavyAttack: []
-  dodgeAnimation: 2Hand-Sword-Dodge-Backward
-  rollAnimation: 2Hand-Sword-Roll-Forward
+  dodgeAnimation: Armed-Dodge-Backward
+  rollAnimation: Armed-Roll-Forward
   unsheathAnimation: Relax-Unsheath-R-Hips
   sheathAnimation: Armed-Sheath-R-Hips-Relax
   weaponType: 1
+  baseStamina: 0
+  lightAttackMultiplier: 0
+  heavyAttackMultiplier: 0

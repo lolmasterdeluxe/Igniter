@@ -17,6 +17,7 @@ namespace IG
         public bool rb_input;
         public bool rt_input;
         public bool s_input;
+        public bool jump_input;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -74,6 +75,7 @@ namespace IG
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
             HandleInteractingButtonInput();
+            HandleJumpInput();
         }
 
         private void MoveInput(float delta)
@@ -173,6 +175,11 @@ namespace IG
         private void HandleInteractingButtonInput()
         {
             inputActions.PlayerActions.A.performed += i => a_input = true;
+        }
+
+        private void HandleJumpInput()
+        {
+            inputActions.PlayerActions.Jump.performed += i => jump_input = true;
         }
     }
 }

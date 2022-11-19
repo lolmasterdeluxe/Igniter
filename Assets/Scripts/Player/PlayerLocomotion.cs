@@ -231,6 +231,25 @@ namespace IG
                 myTransform.position = targetPosition;
             }
         }
+
+        public void HandleJumping()
+        {
+            if (playerManager.isInteracting)
+                return;
+
+            if (inputHandler.jump_input)
+            {
+                if (inputHandler.moveAmount > 0)
+                {
+                    moveDirection = cameraObject.forward * inputHandler.vertical;
+                    moveDirection += cameraObject.right * inputHandler.horizontal;
+                    animatorHandler.PlayTargetAnimation("Relax-Jump", true);
+                    moveDirection.y = 0;
+                    Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
+                    myTransform.rotation = jumpRotation;
+                }
+            }
+        }
         #endregion
 
     }

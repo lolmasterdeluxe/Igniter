@@ -3305,6 +3305,7 @@ MonoBehaviour:
   rb_input: 0
   rt_input: 0
   s_input: 0
+  jump_input: 0
   d_Pad_Up: 0
   d_Pad_Down: 0
   d_Pad_Left: 0
