@@ -77,6 +77,7 @@ namespace IG
             inputHandler.d_Pad_Right = false;
             inputHandler.a_input = false;
             inputHandler.jump_input = false;
+            inputHandler.inventory_input = false;
 
             if (isInAir)
             {

@@ -18,6 +18,7 @@ namespace IG
         public bool rt_input;
         public bool s_input;
         public bool jump_input;
+        public bool inventory_input;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -27,12 +28,14 @@ namespace IG
         public bool rollFlag;
         public bool sprintFlag;
         public bool comboFlag;
+        public bool inventoryFlag;
         public float rollInputTimer;
 
         PlayerControls inputActions;
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
+        UIManager uiManager;
 
         Vector2 movementInput;
         Vector2 cameraInput;
@@ -42,6 +45,7 @@ namespace IG
             playerAttacker = GetComponent<PlayerAttacker>();
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
+            uiManager = FindObjectOfType<UIManager>();
         }
 
 
@@ -76,6 +80,7 @@ namespace IG
             HandleSheathInput(delta);
             HandleInteractingButtonInput();
             HandleJumpInput();
+            HandleInventoryInput();
         }
 
         private void MoveInput(float delta)
@@ -180,6 +185,23 @@ namespace IG
         private void HandleJumpInput()
         {
             inputActions.PlayerActions.Jump.performed += i => jump_input = true;
+        }
+
+        private void HandleInventoryInput()
+        {
+            inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
+
+            if (inventory_input)
+            {
+                inventoryFlag = !inventoryFlag;
+
+                if (inventoryFlag)
+                {
+                    uiManager.OpenSelectWindow();
+                }
+                else
+                    uiManager.CloseSelectWindow();
+            }
         }
     }
 }
