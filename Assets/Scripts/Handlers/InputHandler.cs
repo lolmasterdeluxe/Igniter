@@ -198,9 +198,15 @@ namespace IG
                 if (inventoryFlag)
                 {
                     uiManager.OpenSelectWindow();
+                    uiManager.UpdateUI();
+                    uiManager.hudWindow.SetActive(false);
                 }
                 else
+                {
                     uiManager.CloseSelectWindow();
+                    uiManager.CloseAllInventoryWindow();
+                    uiManager.hudWindow.SetActive(true);
+                }
             }
         }
     }
