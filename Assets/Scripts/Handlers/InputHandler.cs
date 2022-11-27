@@ -56,6 +56,15 @@ namespace IG
                 inputActions = new PlayerControls();
                 inputActions.PlayerMovement.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
                 inputActions.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+                // Input actions
+                inputActions.PlayerActions.RB.performed += inputActions => rb_input = true;
+                inputActions.PlayerActions.RT.performed += inputActions => rt_input = true;
+                inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
+                inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
+                inputActions.PlayerActions.A.performed += i => a_input = true;
+                inputActions.PlayerActions.Jump.performed += i => jump_input = true;
+                inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
             }
 
             inputActions.Enable();
@@ -78,8 +87,6 @@ namespace IG
 
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
-            HandleInteractingButtonInput();
-            HandleJumpInput();
             HandleInventoryInput();
         }
 
@@ -95,11 +102,11 @@ namespace IG
         private void HandleRollInput(float delta)
         {
             b_input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
+            sprintFlag = b_input;
+
             if (b_input)
             {
                 rollInputTimer += delta;
-                if (rollInputTimer >= 0.5f)
-                    sprintFlag = true;
             }
             else
             {
@@ -115,9 +122,6 @@ namespace IG
 
         private void HandleAttackInput(float delta)
         {
-            inputActions.PlayerActions.RB.performed += inputActions => rb_input = true;
-            inputActions.PlayerActions.RT.performed += inputActions => rt_input = true;
-
             if (rb_input)
             {
                 if (playerManager.canDoCombo)
@@ -147,7 +151,7 @@ namespace IG
 
             if (s_input)
             {
-                if (playerManager.isInteracting)
+                if (playerManager.isInteracting || playerInventory.primaryWeapon.isUnarmed)
                     return;
 
                 if (playerManager.isSheathed)
@@ -164,33 +168,24 @@ namespace IG
 
         private void HandleQuickSlotsInput()
         {
-            inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
-            inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
-
             if (d_Pad_Right)
             {
-                playerInventory.ChangePrimaryWeapon();
+                playerInventory.ChangePrimaryWeapon(true);
             }
             else if (d_Pad_Left)
             {
-                playerInventory.ChangePrimaryWeapon();
+                playerInventory.ChangePrimaryWeapon(false);
             }
-        }
 
-        private void HandleInteractingButtonInput()
-        {
-            inputActions.PlayerActions.A.performed += i => a_input = true;
-        }
-
-        private void HandleJumpInput()
-        {
-            inputActions.PlayerActions.Jump.performed += i => jump_input = true;
+            if ((d_Pad_Left || d_Pad_Right) && !playerManager.isSheathed)
+            {
+                playerAttacker.HandleSheath(playerInventory.primaryWeapon, false);
+                playerAttacker.HandleLocomotionType(playerInventory.primaryWeapon);
+            }
         }
 
         private void HandleInventoryInput()
         {
-            inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
-
             if (inventory_input)
             {
                 inventoryFlag = !inventoryFlag;

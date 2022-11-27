@@ -43,11 +43,8 @@ namespace IG
             canDoCombo = anim.GetBool("canDoCombo");
             isSheathed = anim.GetBool("isSheathed");
             anim.SetBool("isInAir", isInAir);
-
             inputHandler.TickInput(delta);
-            playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleRollingAndSprinting(delta, playerInventory.primaryWeapon);
-            playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
             //playerLocomotion.HandleJumping();
 
             CheckForInteractableObject();
@@ -57,17 +54,13 @@ namespace IG
         {
             float delta = Time.fixedDeltaTime;
 
-            if (cameraHandler != null)
-            {
-                cameraHandler.FollowTarget(delta);
-                cameraHandler.HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
-            }
+            playerLocomotion.HandleMovement(delta);
+            playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
         }
 
         private void LateUpdate()
         {
             inputHandler.rollFlag = false;
-            inputHandler.sprintFlag = false;
             inputHandler.rb_input = false;
             inputHandler.rt_input = false;
             inputHandler.s_input = false;
@@ -78,6 +71,13 @@ namespace IG
             inputHandler.a_input = false;
             inputHandler.jump_input = false;
             inputHandler.inventory_input = false;
+
+            float delta = Time.fixedDeltaTime;
+            if (cameraHandler != null)
+            {
+                cameraHandler.FollowTarget(delta);
+                cameraHandler.HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
+            }
 
             if (isInAir)
             {
