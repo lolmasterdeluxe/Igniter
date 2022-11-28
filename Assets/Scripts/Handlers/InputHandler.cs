@@ -19,6 +19,7 @@ namespace IG
         public bool s_input;
         public bool jump_input;
         public bool inventory_input;
+        public bool lockOnInput;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -28,6 +29,7 @@ namespace IG
         public bool rollFlag;
         public bool sprintFlag;
         public bool comboFlag;
+        public bool lockOnFlag;
         public bool inventoryFlag;
         public float rollInputTimer;
 
@@ -35,6 +37,7 @@ namespace IG
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
+        CameraHandler cameraHandler;
         UIManager uiManager;
 
         Vector2 movementInput;
@@ -46,6 +49,7 @@ namespace IG
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             uiManager = FindObjectOfType<UIManager>();
+            cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
 
@@ -56,6 +60,16 @@ namespace IG
                 inputActions = new PlayerControls();
                 inputActions.PlayerMovement.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
                 inputActions.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+                // Input actions
+                inputActions.PlayerActions.RB.performed += inputActions => rb_input = true;
+                inputActions.PlayerActions.RT.performed += inputActions => rt_input = true;
+                inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
+                inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
+                inputActions.PlayerActions.A.performed += i => a_input = true;
+                inputActions.PlayerActions.Jump.performed += i => jump_input = true;
+                inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
+                inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
             }
 
             inputActions.Enable();
@@ -70,17 +84,12 @@ namespace IG
         {
             MoveInput(delta);
 
-            if (!playerManager.isSheathed)
-            {
-                HandleRollInput(delta);
-                HandleAttackInput(delta);
-            }
-
+            HandleRollInput(delta);
+            HandleAttackInput(delta);
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
-            HandleInteractingButtonInput();
-            HandleJumpInput();
             HandleInventoryInput();
+            HandleLockOnInput();
         }
 
         private void MoveInput(float delta)
@@ -94,12 +103,15 @@ namespace IG
 
         private void HandleRollInput(float delta)
         {
+            if (playerManager.isSheathed)
+                return;
+
             b_input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
+            sprintFlag = b_input;
+
             if (b_input)
             {
                 rollInputTimer += delta;
-                if (rollInputTimer >= 0.5f)
-                    sprintFlag = true;
             }
             else
             {
@@ -115,8 +127,8 @@ namespace IG
 
         private void HandleAttackInput(float delta)
         {
-            inputActions.PlayerActions.RB.performed += inputActions => rb_input = true;
-            inputActions.PlayerActions.RT.performed += inputActions => rt_input = true;
+            if (playerManager.isSheathed)
+                return;
 
             if (rb_input)
             {
@@ -147,7 +159,7 @@ namespace IG
 
             if (s_input)
             {
-                if (playerManager.isInteracting)
+                if (playerManager.isInteracting || playerInventory.primaryWeapon.isUnarmed)
                     return;
 
                 if (playerManager.isSheathed)
@@ -164,33 +176,24 @@ namespace IG
 
         private void HandleQuickSlotsInput()
         {
-            inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
-            inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
-
             if (d_Pad_Right)
             {
-                playerInventory.ChangePrimaryWeapon();
+                playerInventory.ChangePrimaryWeapon(true);
             }
             else if (d_Pad_Left)
             {
-                playerInventory.ChangePrimaryWeapon();
+                playerInventory.ChangePrimaryWeapon(false);
             }
-        }
 
-        private void HandleInteractingButtonInput()
-        {
-            inputActions.PlayerActions.A.performed += i => a_input = true;
-        }
-
-        private void HandleJumpInput()
-        {
-            inputActions.PlayerActions.Jump.performed += i => jump_input = true;
+            if ((d_Pad_Left || d_Pad_Right) && !playerManager.isSheathed)
+            {
+                playerAttacker.HandleSheath(playerInventory.primaryWeapon, false);
+                playerAttacker.HandleLocomotionType(playerInventory.primaryWeapon);
+            }
         }
 
         private void HandleInventoryInput()
         {
-            inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
-
             if (inventory_input)
             {
                 inventoryFlag = !inventoryFlag;
@@ -207,6 +210,27 @@ namespace IG
                     uiManager.CloseAllInventoryWindow();
                     uiManager.hudWindow.SetActive(true);
                 }
+            }
+        }
+
+        private void HandleLockOnInput()
+        {
+            if (lockOnInput && !lockOnFlag)
+            {
+                cameraHandler.ClearLockOnTargets();
+                lockOnInput = false;
+                cameraHandler.HandleLockOn();
+                if (cameraHandler.nearestLockOnTarget != null)
+                {
+                    cameraHandler.currentLockOnTarget = cameraHandler.nearestLockOnTarget;
+                    lockOnFlag = true;
+                }
+            }
+            else if (lockOnInput && lockOnFlag)
+            {
+                lockOnInput = false;
+                lockOnFlag = false;
+                cameraHandler.ClearLockOnTargets();
             }
         }
     }

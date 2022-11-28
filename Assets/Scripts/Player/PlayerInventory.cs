@@ -32,13 +32,21 @@ namespace IG
             Debug.Log("Amt of weps: " + weaponsInPrimarySlots.Length);
         }
 
-        public void ChangePrimaryWeapon()
+        public void ChangePrimaryWeapon(bool plus)
         {
-            currentPrimaryWeaponIndex++;
+            if (plus)
+                currentPrimaryWeaponIndex++;
+            else
+                currentPrimaryWeaponIndex--;
 
             if (currentPrimaryWeaponIndex >= weaponsInPrimarySlots.Length)
             {
                 currentPrimaryWeaponIndex = 0;
+                weaponSlotManager.SetWeaponItemIsPrimary(weaponsInPrimarySlots[currentPrimaryWeaponIndex], true);
+            }
+            else if (currentPrimaryWeaponIndex < 0)
+            {
+                currentPrimaryWeaponIndex = weaponsInPrimarySlots.Length - 1;
                 weaponSlotManager.SetWeaponItemIsPrimary(weaponsInPrimarySlots[currentPrimaryWeaponIndex], true);
             }
 
