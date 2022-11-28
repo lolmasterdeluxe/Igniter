@@ -19,6 +19,7 @@ namespace IG
         public bool s_input;
         public bool jump_input;
         public bool inventory_input;
+        public bool lockOnInput;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -28,6 +29,7 @@ namespace IG
         public bool rollFlag;
         public bool sprintFlag;
         public bool comboFlag;
+        public bool lockOnFlag;
         public bool inventoryFlag;
         public float rollInputTimer;
 
@@ -35,6 +37,7 @@ namespace IG
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
+        CameraHandler cameraHandler;
         UIManager uiManager;
 
         Vector2 movementInput;
@@ -46,6 +49,7 @@ namespace IG
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             uiManager = FindObjectOfType<UIManager>();
+            cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
 
@@ -65,6 +69,7 @@ namespace IG
                 inputActions.PlayerActions.A.performed += i => a_input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_input = true;
                 inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
+                inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
             }
 
             inputActions.Enable();
@@ -79,15 +84,12 @@ namespace IG
         {
             MoveInput(delta);
 
-            if (!playerManager.isSheathed)
-            {
-                HandleRollInput(delta);
-                HandleAttackInput(delta);
-            }
-
+            HandleRollInput(delta);
+            HandleAttackInput(delta);
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
             HandleInventoryInput();
+            HandleLockOnInput();
         }
 
         private void MoveInput(float delta)
@@ -101,6 +103,9 @@ namespace IG
 
         private void HandleRollInput(float delta)
         {
+            if (playerManager.isSheathed)
+                return;
+
             b_input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
             sprintFlag = b_input;
 
@@ -122,6 +127,9 @@ namespace IG
 
         private void HandleAttackInput(float delta)
         {
+            if (playerManager.isSheathed)
+                return;
+
             if (rb_input)
             {
                 if (playerManager.canDoCombo)
@@ -202,6 +210,27 @@ namespace IG
                     uiManager.CloseAllInventoryWindow();
                     uiManager.hudWindow.SetActive(true);
                 }
+            }
+        }
+
+        private void HandleLockOnInput()
+        {
+            if (lockOnInput && !lockOnFlag)
+            {
+                cameraHandler.ClearLockOnTargets();
+                lockOnInput = false;
+                cameraHandler.HandleLockOn();
+                if (cameraHandler.nearestLockOnTarget != null)
+                {
+                    cameraHandler.currentLockOnTarget = cameraHandler.nearestLockOnTarget;
+                    lockOnFlag = true;
+                }
+            }
+            else if (lockOnInput && lockOnFlag)
+            {
+                lockOnInput = false;
+                lockOnFlag = false;
+                cameraHandler.ClearLockOnTargets();
             }
         }
     }
