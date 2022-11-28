@@ -3046,6 +3046,8 @@ MonoBehaviour:
   minimumCollisionOffset: 0.2
   currentLockOnTarget: {fileID: 0}
   nearestLockOnTarget: {fileID: 0}
+  leftLockTarget: {fileID: 0}
+  rightLockTarget: {fileID: 0}
   maximumLockOnDistance: 30
 --- !u!1 &950845220
 GameObject:
@@ -5798,6 +5800,8 @@ MonoBehaviour:
   jump_input: 0
   inventory_input: 0
   lockOnInput: 0
+  rightStickRight_input: 0
+  rightStickLeft_input: 0
   d_Pad_Up: 0
   d_Pad_Down: 0
   d_Pad_Left: 0
@@ -5863,7 +5867,9 @@ MonoBehaviour:
   weaponsInSecondarySlots: []
   currentPrimaryWeaponIndex: 0
   currentSecondaryWeaponIndex: 0
-  weaponsInventory: []
+  weaponsInventory:
+  - {fileID: 11400000, guid: 232f3be9256ac4d45bab8a71b1f9b25b, type: 2}
+  - {fileID: 11400000, guid: e9473f6cb23d21946a62667e2a3c18f6, type: 2}
 --- !u!114 &1693405249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6782,6 +6788,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e7e8a56b240ca4ba6721a8b940d9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handEquipmentSlotUI:
+  - {fileID: 998508737}
+  - {fileID: 2034039374}
+  - {fileID: 1865219851}
+  - {fileID: 1918246038}
+  - {fileID: 630417822}
+  - {fileID: 1436972135}
+  - {fileID: 219071620}
+  - {fileID: 1796023872}
 --- !u!1 &1910566567
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,11 +19,12 @@ namespace IG
     public class EquipmentWindowUI : MonoBehaviour
     {
         private EquipmentSlot equipmentSlot;
+        [SerializeField]
         HandEquipmentSlotUI[] handEquipmentSlotUI;
 
         private void Start()
         {
-            handEquipmentSlotUI = GetComponentsInChildren<HandEquipmentSlotUI>();
+            //handEquipmentSlotUI = GetComponentsInChildren<HandEquipmentSlotUI>();
         }
 
         public void SelectEquipmentSlot(int slot)
@@ -32,7 +33,7 @@ namespace IG
         }
 
         public void LoadWeaponsOnEquipmentScreen(PlayerInventory playerInventory)
-        {
+        { 
             for (int i = 0; i < handEquipmentSlotUI.Length; ++i)
             {
                 if (handEquipmentSlotUI[i].equipmentSlot == (EquipmentSlot)i)
