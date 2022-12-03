@@ -71,9 +71,11 @@ namespace IG
                 inputActions.PlayerActions.A.performed += i => a_input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_input = true;
                 inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
-                inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
+
+                // Temporary disabled to accomodate sheath bool
+                /*inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
                 inputActions.PlayerMovement.LockOnTargetRight.performed += i => rightStickRight_input = true;
-                inputActions.PlayerMovement.LockOnTargetLeft.performed += i => rightStickLeft_input = true;
+                inputActions.PlayerMovement.LockOnTargetLeft.performed += i => rightStickLeft_input = true;*/
             }
 
             inputActions.Enable();
@@ -86,17 +88,21 @@ namespace IG
 
         public void TickInput(float delta)
         {
-            MoveInput(delta);
+            HandleMoveInput(delta);
 
-            HandleRollInput(delta);
-            HandleAttackInput(delta);
+            if (!playerManager.isSheathed)
+            {
+                HandleRollInput(delta);
+                HandleAttackInput(delta);
+                HandleLockOnInput();
+            }
+
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
             HandleInventoryInput();
-            HandleLockOnInput();
         }
 
-        private void MoveInput(float delta)
+        private void HandleMoveInput(float delta)
         {
             horizontal = movementInput.x;
             vertical = movementInput.y;
@@ -107,11 +113,10 @@ namespace IG
 
         private void HandleRollInput(float delta)
         {
-            if (playerManager.isSheathed)
-                return;
-
             b_input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
-            sprintFlag = b_input;
+
+            // Sprint disabled
+            //sprintFlag = b_input;
 
             if (b_input)
             {
@@ -131,9 +136,6 @@ namespace IG
 
         private void HandleAttackInput(float delta)
         {
-            if (playerManager.isSheathed)
-                return;
-
             if (rb_input)
             {
                 if (playerManager.canDoCombo)
@@ -174,6 +176,11 @@ namespace IG
                 else
                 {
                     playerAttacker.HandleSheath(playerInventory.primaryWeapon, true);
+
+                    // Remove lock-on upon sheating
+                    lockOnInput = false;
+                    lockOnFlag = false;
+                    cameraHandler.ClearLockOnTargets();
                 }
             }
         }
@@ -219,6 +226,10 @@ namespace IG
 
         private void HandleLockOnInput()
         {
+            lockOnInput = inputActions.PlayerActions.LockOn.WasReleasedThisFrame();
+            rightStickRight_input = inputActions.PlayerMovement.LockOnTargetRight.WasReleasedThisFrame();
+            rightStickLeft_input = inputActions.PlayerMovement.LockOnTargetLeft.WasReleasedThisFrame();
+
             if (lockOnInput && !lockOnFlag)
             {
                 lockOnInput = false;
@@ -254,6 +265,8 @@ namespace IG
                     cameraHandler.currentLockOnTarget = cameraHandler.rightLockTarget;
                 }
             }
+
+            cameraHandler.SetCameraHeight();
         }
     }
 }
