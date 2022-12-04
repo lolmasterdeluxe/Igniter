@@ -180,6 +180,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Y",
+                    "type": "Button",
+                    "id": "8bd5cd74-6686-446f-a03f-62c0920fb9fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Roll",
                     "type": "Button",
                     "id": "2a86dfa2-9d05-4546-b04b-3e6c63de3602",
@@ -340,6 +349,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48006bc3-9cd5-461c-b194-b909ac015495",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Y",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07cb9440-a047-4e60-bf90-fa197ca61f20",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Y",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

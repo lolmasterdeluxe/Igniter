@@ -8,22 +8,21 @@ namespace IG
     public class UIManager : MonoBehaviour
     {
         public PlayerInventory playerInventory;
-        EquipmentWindowUI equipmentWindowUI;
+        public EquipmentWindowUI equipmentWindowUI;
 
         [Header("UI Windows")]
         public GameObject hudWindow;
         public GameObject selectWindow;
         public GameObject weaponInventoryWindow;
+        public GameObject equipmentScreenWindow;
+
+        [Header("Equipment Window Slot Selected")]
+        public EquipmentSlot equipmentSlotSelected;
 
         [Header("Weapon Inventory")]
         public GameObject weaponInventorySlotPrefab;
         public Transform weaponInventorySlotsParent;
         WeaponInventorySlot[] weaponInventorySlots;
-
-        private void Awake()
-        {
-            equipmentWindowUI = FindObjectOfType<EquipmentWindowUI>();
-        }
 
         private void Start()
         {
@@ -67,6 +66,13 @@ namespace IG
         public void CloseAllInventoryWindow()
         {
             weaponInventoryWindow.SetActive(false);
+            equipmentScreenWindow.SetActive(false);
+            ResetAllSelectedSlots();
+        }
+
+        public void ResetAllSelectedSlots()
+        {
+            equipmentSlotSelected = 0;
         }
     }
 }

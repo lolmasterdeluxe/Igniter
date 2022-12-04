@@ -22,11 +22,6 @@ namespace IG
         [SerializeField]
         HandEquipmentSlotUI[] handEquipmentSlotUI;
 
-        private void Start()
-        {
-            //handEquipmentSlotUI = GetComponentsInChildren<HandEquipmentSlotUI>();
-        }
-
         public void SelectEquipmentSlot(int slot)
         {
             equipmentSlot = (EquipmentSlot)slot;
@@ -38,10 +33,10 @@ namespace IG
             {
                 if (handEquipmentSlotUI[i].equipmentSlot == (EquipmentSlot)i)
                 {
-                    if (i < 4)
+                    if (i < 4 && i < playerInventory.weaponsInPrimarySlots.Length)
                         handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInPrimarySlots[i]);
-                    else
-                        handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInSecondarySlots[i]);
+                    else if (i >= 4 && i - 4 < playerInventory.weaponsInSecondarySlots.Length)
+                        handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInSecondarySlots[i - 4]);
                 }
             }
         }

@@ -21,12 +21,14 @@ namespace IG
         QuickSlotsUI quickSlotUI;
 
         PlayerStats playerStats;
+        InputHandler inputHandler;
 
         private void Awake()
         {
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             quickSlotUI = FindObjectOfType<QuickSlotsUI>();
             playerStats = GetComponentInParent<PlayerStats>();
+            inputHandler = GetComponentInParent<InputHandler>();
 
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
             {

@@ -7,10 +7,16 @@ namespace IG
 {
     public class HandEquipmentSlotUI : MonoBehaviour
     {
+        UIManager uiManager;
         public Image icon;
         WeaponItem weapon;
 
         public EquipmentSlot equipmentSlot;
+
+        private void Awake()
+        {
+            uiManager = FindObjectOfType<UIManager>();
+        }
 
         public void AddItem(WeaponItem newWeapon)
         {
@@ -26,6 +32,14 @@ namespace IG
             icon.sprite = null;
             icon.enabled = false;
             gameObject.SetActive(false);
+        }
+        
+        public void SelectThisSlot(int equipmentSlotIndex)
+        {
+            if (equipmentSlot == (EquipmentSlot)equipmentSlotIndex)
+            {
+                uiManager.equipmentSlotSelected = equipmentSlot;
+            }
         }
     }
 }
