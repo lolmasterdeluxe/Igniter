@@ -6,6 +6,7 @@ namespace IG
 {
     public class WeaponSlotManager : MonoBehaviour
     {
+        PlayerManager playerManager;
         WeaponHolderSlot primarySlot;
         WeaponHolderSlot secondarySlot;
 
@@ -25,6 +26,7 @@ namespace IG
 
         private void Awake()
         {
+            playerManager = GetComponentInParent<PlayerManager>();
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             quickSlotUI = FindObjectOfType<QuickSlotsUI>();
             playerStats = GetComponentInParent<PlayerStats>();
@@ -112,27 +114,23 @@ namespace IG
             secondaryDamageCollider = secondarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
         }
 
-        public void OpenPrimaryDamageCollider()
+        public void OpenDamageCollider()
         {
-            primaryDamageCollider.EnableDamageCollider();
+            if (playerManager.isUsingPrimary)
+            {
+                primaryDamageCollider.EnableDamageCollider();
+            }
+            else if (playerManager.isUsingSecondary)
+            {
+                secondaryDamageCollider.EnableDamageCollider();
+            }
         }
 
-        public void OpenSecondaryDamageCollider()
-        {
-            secondaryDamageCollider.EnableDamageCollider();
-        }
-
-        public void ClosePrimaryDamageCollider()
+        public void CloseDamageCollider()
         {
             primaryDamageCollider.DisableDamageCollider();
-        }
-
-        public void CloseSecondaryDamageCollider()
-        {
             secondaryDamageCollider.DisableDamageCollider();
         }
-
-
 
         #endregion
 

@@ -40,6 +40,7 @@ namespace IG
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         CameraHandler cameraHandler;
+        AnimatorHandler animatorHandler;
         UIManager uiManager;
 
         Vector2 movementInput;
@@ -52,6 +53,7 @@ namespace IG
             playerManager = GetComponent<PlayerManager>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
+            animatorHandler = GetComponentInChildren<AnimatorHandler>();
         }
 
 
@@ -149,6 +151,7 @@ namespace IG
                     if (playerManager.canDoCombo || playerManager.isInteracting)
                         return;
 
+                    animatorHandler.anim.SetBool("isUsingPrimary", true);
                     playerAttacker.HandleLightAttack(playerInventory.primaryWeapon);
                 }
             }

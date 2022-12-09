@@ -11,7 +11,7 @@ namespace IG
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
             #region Handle Enemy Target Detection
-            Collider[] colliders = Physics.OverlapSphere(transform.position, enemyManager.detectionRadius, detectionLayer);
+            Collider[] colliders = Physics.OverlapSphere(enemyManager.transform.position, enemyManager.detectionRadius, detectionLayer);
 
             for (int i = 0; i < colliders.Length; ++i)
             {
@@ -19,8 +19,8 @@ namespace IG
 
                 if (characterStats != null)
                 {
-                    Vector3 targetDirection = characterStats.transform.position - transform.position;
-                    float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
+                    Vector3 targetDirection = characterStats.transform.position - enemyManager.transform.position;
+                    float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
 
                     if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
                     {

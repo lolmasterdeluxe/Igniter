@@ -42,6 +42,9 @@ namespace IG
         [SerializeField]
         float fallingSpeed = 45;
 
+        public CapsuleCollider characterCollider;
+        public CapsuleCollider characterCollisionBlockerCollider;
+
         void Start()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
@@ -55,6 +58,7 @@ namespace IG
 
             playerManager.isGrounded = true;
             ignoreForGroundCheck = ~(1 << 8 | 1 << 11);
+            Physics.IgnoreCollision(characterCollider, characterCollisionBlockerCollider, true);
         }
 
         #region Movement

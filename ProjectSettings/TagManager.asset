@@ -19,8 +19,8 @@ TagManager:
   - Walkable
   - Controller
   - Character
-  - 
-  - 
+  - Character Collision Blocker
+  - Player
   - 
   - 
   - 

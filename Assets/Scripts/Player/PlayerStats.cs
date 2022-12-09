@@ -42,6 +42,9 @@ namespace IG
 
         public void TakeDamage(int damage)
         {
+            if (isDead)
+                return;
+
             currentHealth -= damage;
 
             healthBar.SetCurrentHealth(currentHealth);
@@ -52,6 +55,7 @@ namespace IG
             {
                 currentHealth = 0;
                 animatorHandler.PlayTargetAnimation("Death", true);
+                isDead = true;
                 // HANDLE PLAYER DEATH
             }
         }

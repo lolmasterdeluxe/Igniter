@@ -24,6 +24,8 @@ namespace IG
         public bool isGrounded;
         public bool canDoCombo;
         public bool isSheathed;
+        public bool isUsingPrimary;
+        public bool isUsingSecondary;
 
         private void Start()
         {
@@ -39,10 +41,14 @@ namespace IG
         private void Update()
         {
             float delta = Time.deltaTime;
+
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
             isSheathed = anim.GetBool("isSheathed");
+            isUsingPrimary = anim.GetBool("isUsingPrimary");
+            isUsingSecondary = anim.GetBool("isUsingSecondary");
             anim.SetBool("isInAir", isInAir);
+
             inputHandler.TickInput(delta);
             playerLocomotion.HandleRollingAndSprinting(delta, playerInventory.primaryWeapon);
             //playerLocomotion.HandleJumping();

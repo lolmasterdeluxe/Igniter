@@ -11,8 +11,11 @@ namespace IG
         public EnemyAttackAction currentAttack;
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
-            Vector3 targetDirection = enemyManager.currentTarget.transform.position - transform.position;
-            float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
+            Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
+            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
+            float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
+
+            HandleRotateTowardsTarget(enemyManager);
 
             if (enemyManager.isPerformingAction)
                 return combatStanceState;
@@ -20,15 +23,15 @@ namespace IG
             if (currentAttack != null)
             {
                 // If we are too close to the enemy to perform current attack, get new attack
-                if (enemyManager.distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
+                if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
                 {
                     return this;
                 }
                 // If we are close enough to attack, then let us proceed
-                else if (enemyManager.distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
+                else if (distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
                 {
                     // If our enemy is within our attacks viewable angle, we attack
-                    if (enemyManager.viewableAngle <= currentAttack.maximumAttackAngle && enemyManager.viewableAngle >= currentAttack.minimumAttackAngle)
+                    if (viewableAngle <= currentAttack.maximumAttackAngle && viewableAngle >= currentAttack.minimumAttackAngle)
                     {
                         if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPerformingAction == false)
                         {
@@ -53,9 +56,9 @@ namespace IG
 
         private void GetNewAttack(EnemyManager enemyManager)
         {
-            Vector3 targetsDirection = enemyManager.currentTarget.transform.position - transform.position;
-            float viewableAngle = Vector3.Angle(targetsDirection, transform.forward);
-            enemyManager.distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, transform.position);
+            Vector3 targetsDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
+            float viewableAngle = Vector3.Angle(targetsDirection, enemyManager.transform.forward);
+            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
 
             int maxScore = 0;
 
@@ -63,7 +66,7 @@ namespace IG
             {
                 EnemyAttackAction enemyAttackAction = enemyAttacks[i];
 
-                if (enemyManager.distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && enemyManager.distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
+                if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
                 {
                     if (viewableAngle <= enemyAttackAction.maximumAttackAngle && viewableAngle >= enemyAttackAction.minimumAttackAngle)
                     {
@@ -78,7 +81,7 @@ namespace IG
             {
                 EnemyAttackAction enemyAttackAction = enemyAttacks[i];
 
-                if (enemyManager.distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && enemyManager.distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
+                if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
                 {
                     if (viewableAngle <= enemyAttackAction.maximumAttackAngle && viewableAngle >= enemyAttackAction.minimumAttackAngle)
                     {
@@ -93,6 +96,36 @@ namespace IG
                         }
                     }
                 }
+            }
+        }
+
+        private void HandleRotateTowardsTarget(EnemyManager enemyManager)
+        {
+            // Rotate manually
+            if (enemyManager.isPerformingAction)
+            {
+                Vector3 direction = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
+                direction.y = 0;
+                direction.Normalize();
+
+                if (direction == Vector3.zero)
+                {
+                    direction = enemyManager.transform.forward;
+                }
+
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.transform.rotation, targetRotation, enemyManager.rotationSpeed * Time.deltaTime);
+            }
+            // Rotate with pathfinding (navmesh)
+            else
+            {
+                Vector3 relativeDirection = enemyManager.transform.InverseTransformDirection(enemyManager.navmeshAgent.desiredVelocity);
+                Vector3 targetVelocity = enemyManager.enemyRigidbody.velocity;
+
+                enemyManager.navmeshAgent.enabled = true;
+                enemyManager.navmeshAgent.SetDestination(enemyManager.currentTarget.transform.position);
+                enemyManager.enemyRigidbody.velocity = targetVelocity;
+                enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.transform.rotation, enemyManager.navmeshAgent.transform.rotation, enemyManager.rotationSpeed * Time.deltaTime);
             }
         }
     }

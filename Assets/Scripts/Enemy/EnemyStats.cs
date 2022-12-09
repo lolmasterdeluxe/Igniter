@@ -27,6 +27,9 @@ namespace IG
 
         public void TakeDamage(int damage)
         {
+            if (isDead)
+                return;
+
             currentHealth = currentHealth - damage;
 
             animator.Play("Unarmed-GetHit-F1");
@@ -35,6 +38,7 @@ namespace IG
             {
                 currentHealth = 0;
                 animator.Play("Death");
+                isDead = true;
                 // HANDLE PLAYER DEATH
             }
         }
