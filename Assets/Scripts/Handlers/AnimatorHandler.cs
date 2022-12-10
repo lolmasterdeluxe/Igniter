@@ -106,6 +106,16 @@ namespace IG
             anim.SetBool("canDoCombo", false);
         }
 
+        public void EnableIsInvulnerable()
+        {
+            anim.SetBool("IsInvulerable", true);
+        }
+
+        public void DisableIsInvulnerable()
+        {
+            anim.SetBool("IsInvulerable", false);
+        }
+
         public void SetSheath(bool isTrue)
         {
             anim.SetBool("isSheathed", isTrue);

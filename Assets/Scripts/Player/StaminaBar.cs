@@ -13,13 +13,13 @@ namespace IG
         {
             slider = GetComponent<Slider>();
         }
-        public void SetMaxStamina(int maxStamina)
+        public void SetMaxStamina(float maxStamina)
         {
             slider.maxValue = maxStamina;
             slider.value = maxStamina;
         }
 
-        public void SetCurrentStamina(int currentStamina)
+        public void SetCurrentStamina(float currentStamina)
         {
             slider.value = currentStamina;
         }

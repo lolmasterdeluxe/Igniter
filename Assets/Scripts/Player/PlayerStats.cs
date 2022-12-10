@@ -6,6 +6,8 @@ namespace IG
 {
     public class PlayerStats : CharacterStats
     {
+        PlayerManager playerManager;
+
         [SerializeField]
         private HealthBar healthBar;
         [SerializeField]
@@ -13,9 +15,13 @@ namespace IG
 
         AnimatorHandler animatorHandler;
 
+        public float staminaRegenerationAmount = 1;
+        public float staminaRegenTimer = 0;
+
         private void Awake()
         {
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            playerManager = GetComponent<PlayerManager>();
         }
 
         private void Start()
@@ -34,7 +40,7 @@ namespace IG
             return maxHealth;
         }
 
-        private int SetMaxStaminaFromStaminaLevel()
+        private float SetMaxStaminaFromStaminaLevel()
         {
             maxStamina = staminaLevel * 10;
             return maxStamina;
@@ -42,7 +48,7 @@ namespace IG
 
         public void TakeDamage(int damage)
         {
-            if (isDead)
+            if (isDead || playerManager.isInvulnerable)
                 return;
 
             currentHealth -= damage;
@@ -65,6 +71,23 @@ namespace IG
             currentStamina -= damage;
             // Set Bar
             staminaBar.SetCurrentStamina(currentStamina);
+        }
+
+        public void RegenerateStamina()
+        {
+            if (playerManager.isInteracting)
+            {
+                staminaRegenTimer = 0;
+            }
+            else
+            {
+                staminaRegenTimer += Time.deltaTime;
+                if (currentStamina < maxStamina && staminaRegenTimer > 1f)
+                {
+                    currentStamina += staminaRegenerationAmount * Time.deltaTime;
+                    staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
+                }
+            }
         }
     }
 }

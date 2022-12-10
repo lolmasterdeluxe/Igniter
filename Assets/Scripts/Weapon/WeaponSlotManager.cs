@@ -128,8 +128,14 @@ namespace IG
 
         public void CloseDamageCollider()
         {
-            primaryDamageCollider.DisableDamageCollider();
-            secondaryDamageCollider.DisableDamageCollider();
+            if (playerManager.isUsingPrimary)
+            {
+                primaryDamageCollider.DisableDamageCollider();
+            }
+            else if (playerManager.isUsingSecondary)
+            {
+                secondaryDamageCollider.DisableDamageCollider();
+            }
         }
 
         #endregion

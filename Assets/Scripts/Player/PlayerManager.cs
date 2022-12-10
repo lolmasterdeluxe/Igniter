@@ -9,6 +9,7 @@ namespace IG
         InputHandler inputHandler;
         Animator anim;
         CameraHandler cameraHandler;
+        PlayerStats playerStats;
         PlayerLocomotion playerLocomotion;
         PlayerInventory playerInventory;
 
@@ -26,12 +27,14 @@ namespace IG
         public bool isSheathed;
         public bool isUsingPrimary;
         public bool isUsingSecondary;
+        public bool isInvulnerable;
 
         private void Start()
         {
             cameraHandler = CameraHandler.singleton;
             inputHandler = GetComponent<InputHandler>();
             anim = GetComponentInChildren<Animator>();
+            playerStats = GetComponent<PlayerStats>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             playerInventory = GetComponent<PlayerInventory>();
             interactableUI = FindObjectOfType<InteractableUI>();
@@ -48,10 +51,12 @@ namespace IG
             isUsingPrimary = anim.GetBool("isUsingPrimary");
             isUsingSecondary = anim.GetBool("isUsingSecondary");
             anim.SetBool("isInAir", isInAir);
+            isInvulnerable = anim.GetBool("isInvulnerable");
 
             inputHandler.TickInput(delta);
             playerLocomotion.HandleRollingAndSprinting(delta, playerInventory.primaryWeapon);
             //playerLocomotion.HandleJumping();
+            playerStats.RegenerateStamina();
 
             CheckForInteractableObject();
         }

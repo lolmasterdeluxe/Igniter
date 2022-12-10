@@ -8687,6 +8687,7 @@ MonoBehaviour:
   isSheathed: 0
   isUsingPrimary: 0
   isUsingSecondary: 0
+  isInvulnerable: 0
 --- !u!114 &1693405248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8742,6 +8743,7 @@ MonoBehaviour:
   isDead: 0
   healthBar: {fileID: 256139952}
   staminaBar: {fileID: 527662156}
+  staminaRegenerationAmount: 30
 --- !u!1 &1725913934
 GameObject:
   m_ObjectHideFlags: 0
