@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace IG
 {
@@ -15,6 +16,8 @@ namespace IG
         public GameObject selectWindow;
         public GameObject weaponInventoryWindow;
         public GameObject equipmentScreenWindow;
+        public GameObject interactWindow;
+        public TextMeshProUGUI interactWindowText;
 
         [Header("Equipment Window Slot Selected")]
         public EquipmentSlot equipmentSlotSelected;
@@ -28,6 +31,7 @@ namespace IG
         {
             weaponInventorySlots = weaponInventorySlotsParent.GetComponentsInChildren<WeaponInventorySlot>();
             equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
+            interactWindowText = interactWindow.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
 
         public void UpdateUI()

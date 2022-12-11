@@ -82,6 +82,7 @@ namespace IG
             inputHandler.a_input = false;
             inputHandler.jump_input = false;
             inputHandler.inventory_input = false;
+            inputHandler.interact_input = false;
 
             float delta = Time.fixedDeltaTime;
             if (cameraHandler != null)

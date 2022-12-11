@@ -18,8 +18,10 @@ namespace IG
 
         public bool isPerformingAction;
         public bool isInteracting;
+        public bool despawnAfterDeath;
         public float rotationSpeed = 15;
         public float maximumAttackRange = 1.5f;
+        public float despawnTimer = 3;
 
         [Header("A.I Settings")]
         public float detectionRadius = 20;
@@ -47,6 +49,7 @@ namespace IG
         private void Update()
         {
             HandleRecoveryTimer();
+            HandleDespawnAfterDeath();
 
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
         }
@@ -90,6 +93,15 @@ namespace IG
             }
         }
 
+        private void HandleDespawnAfterDeath()
+        {
+            if (despawnAfterDeath && enemyStats.isDead)
+            {
+                despawnTimer -= Time.deltaTime;
+                if (despawnTimer <= 0)
+                    Destroy(gameObject);
+            }
+        }
 
         private void OnDrawGizmosSelected()
         {

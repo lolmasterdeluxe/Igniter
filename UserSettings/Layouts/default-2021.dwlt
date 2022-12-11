@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 64
+  controlID: 132
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 65
+  controlID: 133
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -296,8 +296,8 @@ MonoBehaviour:
     y: 0
     width: 577
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -345,22 +345,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Data/Prefabs/Dungeon Layouts
+    - Assets/Data/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Data/Prefabs/Dungeon Layouts
+  - Assets/Data/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Repositories\Igniter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 230}
-    m_SelectedIDs: dcb30700
-    m_LastClickedID: 504796
-    m_ExpandedIDs: 000000009cbc00009ebc0000a0bc0000a2bc0000a4bc0000a6bc0000a8bc0000aabc0000acbc0000aebc0000b0bc0000b2bc0000b4bc0000b6bc0000b8bc0000babc0000bcbc000014bd00001cbd000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 9ed30000
+    m_LastClickedID: 54174
+    m_ExpandedIDs: 0000000090d3000092d3000094d3000096d3000098d300009ad300009cd300009ed30000a0d30000a2d30000a4d30000a8d30000acd30000aed30000b0d3000006d4000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -388,7 +388,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009cbc00009ebc0000a0bc0000a2bc0000a4bc0000a6bc0000a8bc0000aabc0000acbc0000aebc0000b0bc0000b2bc0000b4bc0000b6bc0000b8bc0000babc0000bcbc0000
+    m_ExpandedIDs: 0000000090d3000092d3000094d3000096d3000098d300009ad300009cd300009ed30000a0d30000a2d30000a4d30000a6d30000a8d30000aad30000acd30000aed30000b0d30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -415,22 +415,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000ee5b0500765e0500c8a6000018a201006880020070f101008af0010054f201003af3010020f4010044090100d40801003c090100ec080100fc0801005c090100240901004c090100e4080100f4080100ac08010064090100dc080100b408010034090100140901001c0901000c090100c4080100bc08010054090100cc0801006c0901002c09010004090100de3601004c440100c2370100a83801008c390100703a0100543b0100383c01001c3d0100023e0100e83e0100ce3f0100b44001009a410100804201006643010020f2010006f30100ecf30100d2f40100b8f501009ef601006af8010084f701000000000014fe0100122b0200f82b0200de2c0200441802002a190200101a0200f61a0200dc1b0200c21c0200a61d02008a1e0200701f020054200200382102001e22020002230200e6230200cc240200b2250200982602007e270200642802004a2902002e2a0200405f000032b9000016ba0000d69b0000d094000044900000ba920000be9a0000a49b00008a9c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Dungeon Layouts
-      m_OriginalName: Dungeon Layouts
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 504796
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -477,7 +477,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3210faff0857fcff20a0ffffd4a7ffffcea8ffffc2a9ffff00aaffffe0acffff4caffffff2b0ffff5eb1fffff6b1ffff7cb2ffffdeb6ffff9eb7ffffa2baffff58bbffff50bcffff78bfffff40c0ffffc6c0ffff6ec2ffffd4c4ffffaccaffff74cbffff44d0ffffeed0ffffb4d1ffff2cd6ffffc8d6ffff2ad8ffff1adaffff52dcffff3edeffff82dfffff2ce1ffff5ae1ffffe0e2ffffb6e5ffff70e9ffffb8ecffff90edffff68efffff36f1ffff76f2ffffeef7ffff68f8ffff12fbffff24750000
+      m_ExpandedIDs: 187de8ff027ee8ff067ee8ffc4c9efff94d7efff12fbffffda6f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -726,9 +726,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.768939, y: 0.8361192, z: -0.98668504}
+    m_Target: {x: 1.9933195, y: -1.1956267, z: 27.912113}
     speed: 2
-    m_Value: {x: -0.768939, y: 0.8361192, z: -0.98668504}
+    m_Value: {x: 1.9933195, y: -1.1956267, z: 27.912113}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -775,13 +775,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.031925604, y: 0.9634041, z: -0.13410513, w: -0.22930877}
+    m_Target: {x: 0.063221045, y: 0.029898083, z: -0.0021943552, w: 0.9973516}
     speed: 2
-    m_Value: {x: -0.03213101, y: 0.9631875, z: -0.13407497, w: -0.23078439}
+    m_Value: {x: 0.06323673, y: 0.028407622, z: -0.0020999352, w: 0.997592}
   m_Size:
-    m_Target: 2.0351508
+    m_Target: 15.558201
     speed: 2
-    m_Value: 2.0351508
+    m_Value: 15.558201
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1106,6 +1106,10 @@ MonoBehaviour:
       \"type\": \"Button\",\n                    \"id\": \"1649b633-8b90-43da-8093-ec8361af71de\",\n                   
       \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
       \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
+      },\n                {\n                    \"name\": \"Interact\",\n                   
+      \"type\": \"Button\",\n                    \"id\": \"98d68229-cc16-4ec7-9f37-0c64d95780af\",\n                   
+      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
+      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
       }\n            ],\n            \"bindings\": [\n                {\n                   
       \"name\": \"\",\n                    \"id\": \"2bf5ec34-61ed-4d61-8370-b1e9f76b6d63\",\n                   
       \"path\": \"<Gamepad>/buttonEast\",\n                    \"interactions\":
@@ -1162,6 +1166,11 @@ MonoBehaviour:
       \"path\": \"<Keyboard>/y\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"\",\n                    \"groups\": \"\",\n                   
       \"action\": \"Y\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": false\n                },\n                {\n                   
+      \"name\": \"\",\n                    \"id\": \"69a4ec71-e1a6-4562-a1d1-c60522f1304c\",\n                   
+      \"path\": \"<Keyboard>/e\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"Interact\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                }\n            ]\n        },\n       
       {\n            \"name\": \"Player Quick Slots\",\n            \"id\": \"585ac12b-3b5e-4059-be3c-c363f54aa16e\",\n           
       \"actions\": [\n                {\n                    \"name\": \"D-Pad Up\",\n                   
@@ -1702,7 +1711,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 29988
+  m_LastSelectedObjectID: -57672
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52

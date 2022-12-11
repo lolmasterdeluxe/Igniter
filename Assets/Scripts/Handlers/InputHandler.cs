@@ -22,6 +22,7 @@ namespace IG
         public bool lockOnInput;
         public bool rightStickRight_input;
         public bool rightStickLeft_input;
+        public bool interact_input;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -75,6 +76,7 @@ namespace IG
                 inputActions.PlayerActions.A.performed += i => a_input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_input = true;
                 inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
+                inputActions.PlayerActions.Interact.performed += i => interact_input = true;
 
                 // Temporary disabled to accomodate sheath bool
                 /*inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
