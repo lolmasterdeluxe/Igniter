@@ -39,6 +39,7 @@ namespace IG
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
+        PlayerStats playerStats;
         CameraHandler cameraHandler;
         AnimatorHandler animatorHandler;
         UIManager uiManager;
@@ -51,6 +52,7 @@ namespace IG
             playerAttacker = GetComponent<PlayerAttacker>();
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
+            playerStats = GetComponent<PlayerStats>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
@@ -106,6 +108,13 @@ namespace IG
 
         private void HandleMoveInput(float delta)
         {
+            if (playerStats.isDead)
+            {
+                horizontal = 0;
+                vertical = 0;
+                return;
+            }
+            
             horizontal = movementInput.x;
             vertical = movementInput.y;
             moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));

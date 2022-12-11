@@ -14,6 +14,7 @@ namespace IG
         private StaminaBar staminaBar;
 
         AnimatorHandler animatorHandler;
+        PlayerInventory playerInventory;
 
         public float staminaRegenerationAmount = 1;
         public float staminaRegenTimer = 0;
@@ -22,6 +23,7 @@ namespace IG
         {
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
             playerManager = GetComponent<PlayerManager>();
+            playerInventory = GetComponent<PlayerInventory>();
         }
 
         private void Start()
@@ -55,14 +57,13 @@ namespace IG
 
             healthBar.SetCurrentHealth(currentHealth);
 
-            animatorHandler.PlayTargetAnimation("Unarmed-GetHit-F1", true);
+            animatorHandler.PlayTargetAnimation(playerInventory.primaryWeapon.hitAnimation, true);
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
                 animatorHandler.PlayTargetAnimation("Death", true);
                 isDead = true;
-                // HANDLE PLAYER DEATH
             }
         }
 

@@ -58,7 +58,7 @@ namespace IG
 
         private void HandleStateMachine()
         {
-            if (currentState != null)
+            if (currentState != null && !enemyStats.isDead)
             {
                 State nextState = currentState.Tick(this, enemyStats, enemyAnimatorManager);
 

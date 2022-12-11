@@ -25,6 +25,7 @@ MonoBehaviour:
   heavyAttack: []
   dodgeAnimation: Armed-Dodge-Backward
   rollAnimation: Armed-Roll
+  hitAnimation: Armed-GetHit-F1
   unsheathAnimation: Relax-Unsheath-R-Hips
   sheathAnimation: Armed-Sheath-R-Hips-Relax
   weaponType: 1

@@ -25,6 +25,7 @@ MonoBehaviour:
   heavyAttack: []
   dodgeAnimation: 2Hand-Sword-Dodge-Backward
   rollAnimation: 2Hand-Sword-Roll
+  hitAnimation: 2Hand-Sword-GetHit-F1
   unsheathAnimation: 2Hand-Sword-Unsheath-Back-Relax
   sheathAnimation: 2Hand-Sword-Sheath-Back-Relax
   weaponType: 0

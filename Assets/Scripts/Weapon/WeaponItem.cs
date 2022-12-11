@@ -18,6 +18,9 @@ namespace IG
         public string dodgeAnimation;
         public string rollAnimation;
 
+        [Header("Hit Animations")]
+        public string hitAnimation;
+
         [Header("Weapon Animations")]
         public string unsheathAnimation;
         public string sheathAnimation;

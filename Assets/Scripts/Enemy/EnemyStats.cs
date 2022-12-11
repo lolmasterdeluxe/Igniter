@@ -7,10 +7,14 @@ namespace IG
     public class EnemyStats : CharacterStats
     {
         Animator animator;
+        EnemyWeaponSlotManager enemyWeaponSlotManager;
+        EnemyManager enemyManager;
 
         private void Awake()
         {
             animator = GetComponentInChildren<Animator>();
+            enemyWeaponSlotManager = GetComponentInChildren<EnemyWeaponSlotManager>();
+            enemyManager = GetComponent<EnemyManager>();
         }
 
         private void Start()
@@ -32,14 +36,15 @@ namespace IG
 
             currentHealth = currentHealth - damage;
 
-            animator.Play("Unarmed-GetHit-F1");
+            animator.Play(enemyWeaponSlotManager.primaryWeapon.hitAnimation);
+
+            enemyManager.currentRecoveryTime = 1;
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
                 animator.Play("Death");
                 isDead = true;
-                // HANDLE PLAYER DEATH
             }
         }
     }
