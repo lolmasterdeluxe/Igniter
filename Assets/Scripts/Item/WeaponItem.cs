@@ -24,11 +24,24 @@ namespace IG
         [Header("Weapon Animations")]
         public string unsheathAnimation;
         public string sheathAnimation;
-        public int weaponType;
+        public int weaponAnimationType;
 
         [Header("Stamina Costs")]
         public int baseStamina;
         public float lightAttackMultiplier;
         public float heavyAttackMultiplier;
+
+        [Header("Weapon Type")]
+        public WeaponType weaponType;
     }
+
+    public enum WeaponType
+    {
+        MeleeWeapon,
+        SpellCaster,
+        FaithCaster,
+        PyroCaster,
+        TotalWeaponType
+    }
+
 }

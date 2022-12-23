@@ -28,7 +28,8 @@ MonoBehaviour:
   hitAnimation: Armed-GetHit-F1
   unsheathAnimation: Relax-Unsheath-R-Hips
   sheathAnimation: Armed-Sheath-R-Hips-Relax
-  weaponType: 1
+  weaponAnimationType: 1
   baseStamina: 0
   lightAttackMultiplier: 0
   heavyAttackMultiplier: 0
+  weaponType: 2

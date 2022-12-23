@@ -8,6 +8,7 @@ namespace IG
     {
         WeaponSlotManager weaponSlotManager;
 
+        public SpellItem currentSpell;
         public WeaponItem primaryWeapon;
         public WeaponItem secondaryWeapon;
 

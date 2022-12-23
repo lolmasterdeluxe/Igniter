@@ -50,7 +50,7 @@ namespace IG
 
         private void Awake()
         {
-            playerAttacker = GetComponent<PlayerAttacker>();
+            playerAttacker = GetComponentInChildren<PlayerAttacker>();
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             playerStats = GetComponent<PlayerStats>();
@@ -151,20 +151,7 @@ namespace IG
         {
             if (rb_input)
             {
-                if (playerManager.canDoCombo)
-                {
-                    comboFlag = true;
-                    playerAttacker.HandleWeaponCombo(playerInventory.primaryWeapon);
-                    comboFlag = false;
-                }
-                else
-                {
-                    if (playerManager.canDoCombo || playerManager.isInteracting)
-                        return;
-
-                    animatorHandler.anim.SetBool("isUsingPrimary", true);
-                    playerAttacker.HandleLightAttack(playerInventory.primaryWeapon);
-                }
+                playerAttacker.HandleRBAction();
             }
 
             if (rt_input)
