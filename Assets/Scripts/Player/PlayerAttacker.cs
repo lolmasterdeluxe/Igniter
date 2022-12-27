@@ -94,13 +94,17 @@ namespace IG
 
         private void PerformRBMagicAction(WeaponItem weapon)
         {
+            if (playerManager.isInteracting)
+                return;
+
             if (weapon.weaponType == WeaponType.FaithCaster)
             {
                 if (playerInventory.currentSpell != null && playerInventory.currentSpell.isFaithSpell)
                 {
-                    // CHECK FOR FP
-                    // ATTEMPT TO CAST SPELL
-                    playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats);
+                    if (playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
+                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats);
+                    else
+                        animatorHandler.PlayTargetAnimation("Relax-No", true);
                 }
             }
         }

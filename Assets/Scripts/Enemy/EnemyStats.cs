@@ -9,12 +9,14 @@ namespace IG
         Animator animator;
         EnemyWeaponSlotManager enemyWeaponSlotManager;
         EnemyManager enemyManager;
+        InputHandler inputHandler;
 
         private void Awake()
         {
             animator = GetComponentInChildren<Animator>();
             enemyWeaponSlotManager = GetComponentInChildren<EnemyWeaponSlotManager>();
             enemyManager = GetComponent<EnemyManager>();
+            inputHandler = FindObjectOfType<InputHandler>();
         }
 
         private void Start()
@@ -44,6 +46,9 @@ namespace IG
             {
                 currentHealth = 0;
                 animator.Play("Death");
+
+                inputHandler.DisableLockOn();
+
                 isDead = true;
             }
         }

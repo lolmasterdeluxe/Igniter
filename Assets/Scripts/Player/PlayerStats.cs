@@ -12,6 +12,8 @@ namespace IG
         private HealthBar healthBar;
         [SerializeField]
         private StaminaBar staminaBar;
+        [SerializeField]
+        private FocusPointBar focusPointsBar;
 
         AnimatorHandler animatorHandler;
         PlayerInventory playerInventory;
@@ -24,6 +26,7 @@ namespace IG
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
             playerManager = GetComponent<PlayerManager>();
             playerInventory = GetComponent<PlayerInventory>();
+            focusPointsBar = FindObjectOfType<FocusPointBar>();
         }
 
         private void Start()
@@ -34,6 +37,12 @@ namespace IG
             currentStamina = maxStamina;
             healthBar.SetMaxHealth(maxHealth);
             staminaBar.SetMaxStamina(maxStamina);
+
+
+            maxFocusPoints = SetMaxFocusPointsFromFocusLevel();
+            currentFocusPoints = maxFocusPoints;
+            focusPointsBar.SetMaxFocusPoints(maxFocusPoints);
+            focusPointsBar.SetCurrentFocusPoints(currentFocusPoints);
         }                                                                                           
 
         private int SetMaxHealthFromHealthLevel()
@@ -46,6 +55,12 @@ namespace IG
         {
             maxStamina = staminaLevel * 10;
             return maxStamina;
+        }
+
+        private float SetMaxFocusPointsFromFocusLevel()
+        {
+            maxFocusPoints = focusLevel * 10;
+            return maxFocusPoints;
         }
 
         public void TakeDamage(int damage)
@@ -101,6 +116,16 @@ namespace IG
             }
 
             healthBar.SetCurrentHealth(currentHealth);
+        }
+
+        public void DeductFocusPoints(int focusPoints)
+        {
+            currentFocusPoints = currentFocusPoints - focusPoints;
+
+            if (currentFocusPoints < 0)
+                currentFocusPoints = 0;
+
+            focusPointsBar.SetCurrentFocusPoints(currentFocusPoints);
         }
     }
 }

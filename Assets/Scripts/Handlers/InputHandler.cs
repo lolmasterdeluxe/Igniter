@@ -179,9 +179,7 @@ namespace IG
                     playerAttacker.HandleSheath(playerInventory.primaryWeapon, true);
 
                     // Remove lock-on upon sheating
-                    lockOnInput = false;
-                    lockOnFlag = false;
-                    cameraHandler.ClearLockOnTargets();
+                    DisableLockOn();
                 }
             }
         }
@@ -268,6 +266,13 @@ namespace IG
             }
 
             cameraHandler.SetCameraHeight();
+        }
+
+        public void DisableLockOn()
+        {
+            lockOnInput = false;
+            lockOnFlag = false;
+            cameraHandler.ClearLockOnTargets();
         }
     }
 }

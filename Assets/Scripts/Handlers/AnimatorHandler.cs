@@ -86,6 +86,14 @@ namespace IG
             anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
         }
 
+        private void Update()
+        {
+            if (canRotate)
+            {
+                playerLocomotion.HandleRotation(Time.deltaTime, true);
+            }
+        }
+
         public void CanRotate()
         {
             canRotate = true;

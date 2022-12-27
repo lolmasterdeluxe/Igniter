@@ -26,8 +26,8 @@ namespace IG
 
         private float targetPosition;
         private float defaultPosition;
-        private float lookAngle;
-        private float pivotAngle;
+        public float lookAngle;
+        public float pivotAngle;
         public float minimumPivot = -35;
         public float maximumPivot = 35;
 
@@ -119,6 +119,8 @@ namespace IG
                 Vector3 eulerAngle = targetRotation.eulerAngles;
                 eulerAngle.y = 0;
                 cameraPivotTransform.localEulerAngles = eulerAngle;
+
+                lookAngle = transform.eulerAngles.y;
             }
         }
 

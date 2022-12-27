@@ -10,6 +10,9 @@ namespace IG
         public GameObject spellCastFX;
         public string spellAnimation;
 
+        [Header("Spell Cost")]
+        public int focusPointCost;
+
         [Header("Spell type")]
         public bool isFaithSpell;
         public bool isMagicSpell;
@@ -27,6 +30,7 @@ namespace IG
         public virtual void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playertStats)
         {
             Debug.Log("Successfully cast spell.");
+            playertStats.DeductFocusPoints(focusPointCost);
         }
     }
 }

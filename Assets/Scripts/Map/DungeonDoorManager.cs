@@ -26,9 +26,9 @@ namespace IG
         {
             if (doorTrigger)
             {
-                Quaternion tr = Quaternion.Euler(door.rotation.x, targetDegrees, door.rotation.z);
-                Quaternion targetRotation = Quaternion.Slerp(door.rotation, tr, rotationSpeed * Time.deltaTime);
-                door.rotation = targetRotation;
+                Quaternion tr = Quaternion.Euler(door.localRotation.x, targetDegrees, door.localRotation.z);
+                Quaternion targetRotation = Quaternion.Lerp(door.localRotation, tr, rotationSpeed * Time.deltaTime);
+                door.localRotation = targetRotation;
             }
         }
 

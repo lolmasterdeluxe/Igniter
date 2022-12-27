@@ -23,7 +23,5 @@ namespace IG
         {
             slider.value = currentStamina;
         }
-
-
     }
 }

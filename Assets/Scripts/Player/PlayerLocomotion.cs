@@ -65,7 +65,7 @@ namespace IG
         private Vector3 normalVector;
         private Vector3 targetPosition;
 
-        private void HandleRotation(float delta)
+        public void HandleRotation(float delta, bool followCamera)
         {
             if (inputHandler.lockOnFlag)
             {
@@ -110,7 +110,18 @@ namespace IG
                 targetDir.y = 0;
 
                 if (targetDir == Vector3.zero)
-                    targetDir = myTransform.forward;
+                {
+                    if (followCamera)
+                    {
+                        targetDir = cameraObject.forward;
+                        targetDir.Normalize();
+                        targetDir.y = 0;
+                    }
+                    else
+                    {
+                        targetDir = myTransform.forward;
+                    }
+                }
 
                 float rs = rotationSpeed;
 
@@ -168,12 +179,8 @@ namespace IG
             {
                 animatorHandler.UpdateAnimatorValues(inputHandler.moveAmount, 0, playerManager.isSprinting);
             }
-            
 
-            if (animatorHandler.canRotate)
-            {
-                HandleRotation(delta);
-            }
+            HandleRotation(delta, false);
         }
 
         public void HandleRollingAndSprinting(float delta, WeaponItem weapon)
