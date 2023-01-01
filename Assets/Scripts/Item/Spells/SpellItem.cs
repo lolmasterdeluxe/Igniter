@@ -22,12 +22,12 @@ namespace IG
         [TextArea]
         public string spellDescription;
 
-        public virtual void AttemptToCastSpell(AnimatorHandler animatorHandler, PlayerStats playertStats)
+        public virtual void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playertStats)
         {
             Debug.Log("Attempting to cast a spell.");
         }
 
-        public virtual void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playertStats)
+        public virtual void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playertStats)
         {
             Debug.Log("Successfully cast spell.");
             playertStats.DeductFocusPoints(focusPointCost);

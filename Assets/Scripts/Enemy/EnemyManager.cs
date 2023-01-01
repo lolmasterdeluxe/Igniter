@@ -38,6 +38,7 @@ namespace IG
             enemyStats = GetComponent<EnemyStats>();
             navmeshAgent = GetComponentInChildren<NavMeshAgent>();
             enemyRigidbody = GetComponent<Rigidbody>();
+            backStabCollider = GetComponentInChildren<BackStabCollider>();
         }
 
         private void Start()
@@ -52,6 +53,7 @@ namespace IG
             HandleDespawnAfterDeath();
 
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
+            enemyAnimatorManager.anim.SetBool("isDead", enemyStats.isDead);
         }
 
         private void FixedUpdate()

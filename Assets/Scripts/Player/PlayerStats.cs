@@ -15,7 +15,7 @@ namespace IG
         [SerializeField]
         private FocusPointBar focusPointsBar;
 
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
         PlayerInventory playerInventory;
 
         public float staminaRegenerationAmount = 1;
@@ -23,7 +23,7 @@ namespace IG
 
         private void Awake()
         {
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
             playerManager = GetComponent<PlayerManager>();
             playerInventory = GetComponent<PlayerInventory>();
             focusPointsBar = FindObjectOfType<FocusPointBar>();
@@ -61,6 +61,18 @@ namespace IG
         {
             maxFocusPoints = focusLevel * 10;
             return maxFocusPoints;
+        }
+
+        public void TakeDamageNoAnimation(int damage)
+        {
+            currentHealth -= damage;
+            healthBar.SetCurrentHealth(currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                isDead = true;
+            }
         }
 
         public void TakeDamage(int damage)

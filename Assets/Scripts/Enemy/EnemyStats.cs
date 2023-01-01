@@ -31,6 +31,19 @@ namespace IG
             return maxHealth;
         }
 
+        public void TakeDamageNoAnimation(int damage)
+        {
+            currentHealth = currentHealth - damage;
+            enemyManager.currentRecoveryTime = 1;
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                inputHandler.DisableLockOn();
+                isDead = true;
+            }
+        }
+
         public void TakeDamage(int damage)
         {
             if (isDead)

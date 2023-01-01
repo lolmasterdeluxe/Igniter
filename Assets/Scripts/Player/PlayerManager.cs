@@ -10,6 +10,7 @@ namespace IG
         Animator anim;
         CameraHandler cameraHandler;
         PlayerStats playerStats;
+        PlayerAnimatorManager playerAnimatorManager;
         PlayerLocomotion playerLocomotion;
         PlayerInventory playerInventory;
 
@@ -28,16 +29,19 @@ namespace IG
         public bool isUsingPrimary;
         public bool isUsingSecondary;
         public bool isInvulnerable;
+        public bool rotateTowardsCamera;
 
         private void Start()
         {
             cameraHandler = CameraHandler.singleton;
             inputHandler = GetComponent<InputHandler>();
+            playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
             anim = GetComponentInChildren<Animator>();
             playerStats = GetComponent<PlayerStats>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             playerInventory = GetComponent<PlayerInventory>();
             interactableUI = FindObjectOfType<InteractableUI>();
+            backStabCollider = GetComponentInChildren<BackStabCollider>();
         }
 
         // Update is called once per frame
@@ -50,10 +54,12 @@ namespace IG
             isSheathed = anim.GetBool("isSheathed");
             isUsingPrimary = anim.GetBool("isUsingPrimary");
             isUsingSecondary = anim.GetBool("isUsingSecondary");
-            anim.SetBool("isInAir", isInAir);
             isInvulnerable = anim.GetBool("isInvulnerable");
-
+            anim.SetBool("isInAir", isInAir);
+            anim.SetBool("isDead", playerStats.isDead);
+            
             inputHandler.TickInput(delta);
+            playerAnimatorManager.canRotate = anim.GetBool("canRotate");
             playerLocomotion.HandleRollingAndSprinting(delta, playerInventory.primaryWeapon);
             //playerLocomotion.HandleJumping();
             playerStats.RegenerateStamina();
@@ -67,6 +73,7 @@ namespace IG
 
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
+            playerLocomotion.HandleRotation(delta, rotateTowardsCamera);
         }
 
         private void LateUpdate()

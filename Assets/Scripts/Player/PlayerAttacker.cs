@@ -6,56 +6,60 @@ namespace IG
 {
     public class PlayerAttacker : MonoBehaviour
     {
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager playerAnimatorManager;
         InputHandler inputHandler;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         PlayerStats playerStats;
+        WeaponSlotManager weaponSlotManager;
         public int attackCount;
+
+        LayerMask backStabLayer = 1 << 14;
 
         private void Awake()
         {
-            animatorHandler = GetComponent<AnimatorHandler>();
+            playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
             inputHandler = GetComponentInParent<InputHandler>();
             playerManager = GetComponentInParent<PlayerManager>();
             playerStats = GetComponentInParent<PlayerStats>();
             playerInventory = GetComponentInParent<PlayerInventory>();
+            weaponSlotManager = GetComponent<WeaponSlotManager>();
         }
 
         public void HandleWeaponCombo(WeaponItem weapon)
         {
             if (inputHandler.comboFlag)
             {
-                animatorHandler.anim.SetBool("canDoCombo", false);
-                animatorHandler.PlayTargetAnimation(weapon.lightAttack[attackCount + 1], true);
+                playerAnimatorManager.anim.SetBool("canDoCombo", false);
+                playerAnimatorManager.PlayTargetAnimation(weapon.lightAttack[attackCount + 1], true);
                 attackCount += 1;
             }
         }
         public void HandleLightAttack(WeaponItem weapon)
         {
-            animatorHandler.PlayTargetAnimation(weapon.lightAttack[0], true);
+            playerAnimatorManager.PlayTargetAnimation(weapon.lightAttack[0], true);
             attackCount = 0;
         }
 
         public void HandleHeavyAttack(WeaponItem weapon)
         {
-            animatorHandler.PlayTargetAnimation(weapon.heavyAttack[0], true);
+            playerAnimatorManager.PlayTargetAnimation(weapon.heavyAttack[0], true);
             attackCount = 0;
         }
 
         public void HandleSheath(WeaponItem weapon, bool isTrue)
         {
             if (isTrue)
-                animatorHandler.PlayTargetAnimation(weapon.sheathAnimation, true);
+                playerAnimatorManager.PlayTargetAnimation(weapon.sheathAnimation, true);
             else
-                animatorHandler.PlayTargetAnimation(weapon.unsheathAnimation, true);
+                playerAnimatorManager.PlayTargetAnimation(weapon.unsheathAnimation, true);
 
-            animatorHandler.SetSheath(isTrue);
+            playerAnimatorManager.SetSheath(isTrue);
         }
 
         public void HandleLocomotionType(WeaponItem weapon)
         {
-            animatorHandler.SetLocomotionType(weapon.weaponAnimationType);
+            playerAnimatorManager.SetLocomotionType(weapon.weaponAnimationType);
         }
 
         #region Input Actions
@@ -87,7 +91,7 @@ namespace IG
                 if (playerManager.canDoCombo || playerManager.isInteracting)
                     return;
 
-                animatorHandler.anim.SetBool("isUsingPrimary", true);
+                playerAnimatorManager.anim.SetBool("isUsingPrimary", true);
                 HandleLightAttack(playerInventory.primaryWeapon);
             }
         }
@@ -102,17 +106,49 @@ namespace IG
                 if (playerInventory.currentSpell != null && playerInventory.currentSpell.isFaithSpell)
                 {
                     if (playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
-                        playerInventory.currentSpell.AttemptToCastSpell(animatorHandler, playerStats);
+                        playerInventory.currentSpell.AttemptToCastSpell(playerAnimatorManager, playerStats);
                     else
-                        animatorHandler.PlayTargetAnimation("Relax-No", true);
+                        playerAnimatorManager.PlayTargetAnimation("Relax-No", true);
                 }
             }
         }
 
         private void SuccessfullyCastSpell()
         {
-            playerInventory.currentSpell.SuccessfullyCastSpell(animatorHandler, playerStats);
+            playerInventory.currentSpell.SuccessfullyCastSpell(playerAnimatorManager, playerStats);
         }
         #endregion
+
+        public void AttemptBackStabOrRiposte()
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 0.5f, backStabLayer))
+            {
+                CharacterManager enemyCharacterManager = hit.transform.gameObject.GetComponentInParent<CharacterManager>();
+                DamageCollider primaryWeapon = weaponSlotManager.primaryDamageCollider;
+
+                if (enemyCharacterManager != null)
+                {
+                    // CHECK FOR TEAM I.D. (So you cant back stab friends or yourself?)
+                    playerManager.transform.position = enemyCharacterManager.backStabCollider.backStabberStandPoint.position;
+                    Vector3 rotationDirection = playerManager.transform.root.eulerAngles;
+                    rotationDirection = hit.transform.position - playerManager.transform.position;
+                    rotationDirection.y = 0;
+                    rotationDirection.Normalize();
+                    Quaternion tr = Quaternion.LookRotation(rotationDirection);
+                    Quaternion targetRotation = Quaternion.Slerp(playerManager.transform.rotation, tr, 500 * Time.deltaTime);
+                    playerManager.transform.rotation = targetRotation;
+
+                    int criticalDamage = playerInventory.primaryWeapon.criticalDamageMultiplier * primaryWeapon.currentWeaponDamage;
+                    enemyCharacterManager.pendingCriticalDamage = criticalDamage;
+
+                    playerAnimatorManager.PlayTargetAnimation("Back Stab", true);
+                    enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Back Stabbed", true);
+                    // do damage
+                }
+            }
+
+        }
     }
 }

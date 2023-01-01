@@ -21,11 +21,11 @@ namespace IG
         {
             PlayerInventory playerInventory;
             PlayerLocomotion playerLocomotion;
-            AnimatorHandler animatorHandler;
+            PlayerAnimatorManager animatorHandler;
 
             playerInventory = playerManager.GetComponent<PlayerInventory>();
             playerLocomotion = playerManager.GetComponent<PlayerLocomotion>();
-            animatorHandler = playerManager.GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = playerManager.GetComponentInChildren<PlayerAnimatorManager>();
 
             playerLocomotion.rigidbody.velocity = Vector3.zero; // Stops the player from moving whilst picking up the item
             animatorHandler.PlayTargetAnimation("Relax-Pickup", true); // Plays the animation of looting the item

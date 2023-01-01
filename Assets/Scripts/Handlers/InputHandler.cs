@@ -16,6 +16,7 @@ namespace IG
         public bool b_input;
         public bool rb_input;
         public bool rt_input;
+        public bool critical_Attack_input;
         public bool s_input;
         public bool jump_input;
         public bool inventory_input;
@@ -36,13 +37,15 @@ namespace IG
         public bool inventoryFlag;
         public float rollInputTimer;
 
+        public Transform criticalAttackRayCastStartPoint;
+
         PlayerControls inputActions;
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         PlayerStats playerStats;
         CameraHandler cameraHandler;
-        AnimatorHandler animatorHandler;
+        PlayerAnimatorManager animatorHandler;
         UIManager uiManager;
 
         Vector2 movementInput;
@@ -56,7 +59,7 @@ namespace IG
             playerStats = GetComponent<PlayerStats>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
-            animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
         }
 
 
@@ -77,6 +80,7 @@ namespace IG
                 inputActions.PlayerActions.Jump.performed += i => jump_input = true;
                 inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
                 inputActions.PlayerActions.Interact.performed += i => interact_input = true;
+                inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_input = true;
 
                 // Temporary disabled to accomodate sheath bool
                 /*inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
@@ -106,6 +110,7 @@ namespace IG
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
             HandleInventoryInput();
+            HandleCriticalAttackInput();
         }
 
         private void HandleMoveInput(float delta)
@@ -241,9 +246,7 @@ namespace IG
             }
             else if (lockOnInput && lockOnFlag)
             {
-                lockOnInput = false;
-                lockOnFlag = false;
-                cameraHandler.ClearLockOnTargets();
+                DisableLockOn();
             }
 
             if (lockOnFlag && rightStickLeft_input)
@@ -266,6 +269,15 @@ namespace IG
             }
 
             cameraHandler.SetCameraHeight();
+        }
+
+        private void HandleCriticalAttackInput()
+        {
+            if (critical_Attack_input)
+            {
+                critical_Attack_input = false;
+                playerAttacker.AttemptBackStabOrRiposte();
+            }
         }
 
         public void DisableLockOn()

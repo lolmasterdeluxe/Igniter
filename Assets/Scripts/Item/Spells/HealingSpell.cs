@@ -10,7 +10,7 @@ namespace IG
     {
         public int healAmount;
 
-        public override void AttemptToCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
+        public override void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats)
         {
             base.AttemptToCastSpell(animatorHandler, playerStats);
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animatorHandler.transform);
@@ -18,7 +18,7 @@ namespace IG
             Debug.Log("Attempting to cast a spell.");
         }
 
-        public override void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
+        public override void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats)
         {
             base.SuccessfullyCastSpell(animatorHandler, playerStats);
             GameObject instantiatedSpellFX = Instantiate(spellCastFX, animatorHandler.transform);

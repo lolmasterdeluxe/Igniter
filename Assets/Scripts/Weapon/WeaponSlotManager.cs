@@ -7,14 +7,15 @@ namespace IG
     public class WeaponSlotManager : MonoBehaviour
     {
         PlayerManager playerManager;
+        PlayerInventory playerInventory;
         WeaponHolderSlot primarySlot;
         WeaponHolderSlot secondarySlot;
 
         WeaponSheathSlot primarySheathSlot;
         WeaponSheathSlot secondarySheathSlot;
 
-        DamageCollider primaryDamageCollider;
-        DamageCollider secondaryDamageCollider;
+        public DamageCollider primaryDamageCollider;
+        public DamageCollider secondaryDamageCollider;
 
         private bool isPrimary;
         public WeaponItem primaryWeapon, secondaryWeapon;
@@ -27,6 +28,7 @@ namespace IG
         private void Awake()
         {
             playerManager = GetComponentInParent<PlayerManager>();
+            playerInventory = GetComponentInParent<PlayerInventory>();
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             quickSlotUI = FindObjectOfType<QuickSlotsUI>();
             playerStats = GetComponentInParent<PlayerStats>();
@@ -107,11 +109,13 @@ namespace IG
         private void LoadPrimaryWeaponDamageCollider()
         {
             primaryDamageCollider = primarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+            primaryDamageCollider.currentWeaponDamage = playerInventory.primaryWeapon.baseDamage;
         }
 
         private void LoadSecondaryWeaponDamageCollider()
         {
             secondaryDamageCollider = secondarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+            secondaryDamageCollider.currentWeaponDamage = playerInventory.secondaryWeapon.baseDamage;
         }
 
         public void OpenDamageCollider()
