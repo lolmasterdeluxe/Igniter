@@ -104,6 +104,8 @@ namespace IG
             }
         }
 
+        #region Player Interactions
+
         public void CheckForInteractableObject()
         {
             RaycastHit hit;
@@ -141,5 +143,14 @@ namespace IG
             }
 
         }
+
+        public void OpenChestInteraction(Transform playerStandsHereWhenOpeningChest)
+        {
+            playerLocomotion.rigidbody.velocity = Vector3.zero; // Stops the player from ice skating
+            transform.position = playerStandsHereWhenOpeningChest.position;
+            playerAnimatorManager.PlayTargetAnimation("Relax-Activate", true);
+        }    
+
+        #endregion
     }
 }

@@ -10,15 +10,18 @@ namespace IG
         private bool isWithinRange = false;
         public NPCManager npcManager;
         InputHandler inputHandler;
+        UIManager uiManager;
         private void Awake()
         {
             inputHandler = FindObjectOfType<InputHandler>();
+            uiManager = FindObjectOfType<UIManager>();
         }
         private void OnTriggerEnter(Collider collision)
         {
             if (collision.tag == "Player")
             {
                 isWithinRange = true;
+                uiManager.ActivateInteractAlertPopup("Talk to " + npcManager.characterName);
             }
         }
 
@@ -28,6 +31,7 @@ namespace IG
             {
                 isWithinRange = false;
                 npcManager.textBox.SetActive(false);
+                uiManager.DeactivateInteractAlertPopup();
             }
         }
 

@@ -16,8 +16,8 @@ namespace IG
         public GameObject selectWindow;
         public GameObject weaponInventoryWindow;
         public GameObject equipmentScreenWindow;
-        public GameObject interactWindow;
-        public TextMeshProUGUI interactWindowText;
+        public GameObject interactAlertPopUp;
+        public TextMeshProUGUI interactAlertPopUpText;
 
         [Header("Equipment Window Slot Selected")]
         public EquipmentSlot equipmentSlotSelected;
@@ -31,7 +31,6 @@ namespace IG
         {
             weaponInventorySlots = weaponInventorySlotsParent.GetComponentsInChildren<WeaponInventorySlot>();
             equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
-            interactWindowText = interactWindow.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
 
         public void UpdateUI()
@@ -77,6 +76,18 @@ namespace IG
         public void ResetAllSelectedSlots()
         {
             equipmentSlotSelected = 0;
+        }
+
+        public void ActivateInteractAlertPopup(string text)
+        {
+            interactAlertPopUp.SetActive(true);
+            interactAlertPopUpText.text = text;
+        }
+
+        public void DeactivateInteractAlertPopup()
+        {
+            interactAlertPopUp.SetActive(false);
+            interactAlertPopUpText.text = "";
         }
     }
 }

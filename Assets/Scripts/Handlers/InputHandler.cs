@@ -139,6 +139,12 @@ namespace IG
             if (b_input)
             {
                 rollInputTimer += delta;
+
+                if (playerStats.currentStamina <= 0)
+                {
+                    b_input = false;
+                    sprintFlag = false;
+                }
             }
             else
             {

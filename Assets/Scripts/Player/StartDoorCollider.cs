@@ -7,19 +7,24 @@ namespace IG
 {
     public class StartDoorCollider : MonoBehaviour
     {
-        public InputHandler inputHandler;
-        public UIManager uiManager;
-        public GameManager gameManager;
+        InputHandler inputHandler;
+        UIManager uiManager;
+        GameManager gameManager;
         [SerializeField]
         private bool isWithinRange = false;
 
+        private void Awake()
+        {
+            inputHandler = FindObjectOfType<InputHandler>();
+            uiManager = FindObjectOfType<UIManager>();
+            gameManager = FindObjectOfType<GameManager>();
+        }
         private void OnTriggerEnter(Collider collision)
         {
             if (collision.tag == "Player")
             {
-                uiManager.interactWindow.SetActive(true);
-                uiManager.interactWindowText.text = "Press E to begin a run";
                 isWithinRange = true;
+                uiManager.ActivateInteractAlertPopup("Press E to begin a run");
             }
         }
 
@@ -27,8 +32,8 @@ namespace IG
         {
             if (collision.tag == "Player")
             {
-                uiManager.interactWindow.SetActive(false);
                 isWithinRange = false;
+                uiManager.DeactivateInteractAlertPopup();
             }
         }
 
@@ -37,7 +42,7 @@ namespace IG
             if (isWithinRange && inputHandler.interact_input)
             {
                 gameManager.StartGame();
-                uiManager.interactWindow.SetActive(false);
+                uiManager.DeactivateInteractAlertPopup();
             }
         }
     }
