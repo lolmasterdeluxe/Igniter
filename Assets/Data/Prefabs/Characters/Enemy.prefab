@@ -1234,7 +1234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4520772943556251941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.25, y: 0, z: 3.25}
+  m_LocalPosition: {x: 0.25, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1298,7 +1298,9 @@ MonoBehaviour:
   focusLevel: 10
   maxFocusPoints: 0
   currentFocusPoints: 0
+  soulCount: 0
   isDead: 0
+  soulsAwardedOnDeath: 50
 --- !u!114 &4520772943556251928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1312,8 +1314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTransform: {fileID: 4520772942486760042}
-  backStabBoxCollider: {fileID: 0}
-  backStabCollider: {fileID: 7577855524768393211}
+  backStabBoxCollider: {fileID: 7577855524768393211}
+  backStabCollider: {fileID: 7577855524768393210}
   pendingCriticalDamage: 0
   currentState: {fileID: 4520772942505550656}
   currentTarget: {fileID: 0}
@@ -2008,7 +2010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7577855524768393208
 Transform:
   m_ObjectHideFlags: 0
@@ -2074,7 +2076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7577855525079585363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.75}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2397,6 +2399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4738376594076556328}
+  canRotate: 0
 --- !u!114 &4738376594076556330
 MonoBehaviour:
   m_ObjectHideFlags: 0

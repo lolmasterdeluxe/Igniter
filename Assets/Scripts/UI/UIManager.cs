@@ -82,12 +82,14 @@ namespace IG
         {
             interactAlertPopUp.SetActive(true);
             interactAlertPopUpText.text = text;
+            Debug.Log("+Alert pop up");
         }
 
         public void DeactivateInteractAlertPopup()
         {
             interactAlertPopUp.SetActive(false);
             interactAlertPopUpText.text = "";
+            Debug.Log("-Alert pop up");
         }
     }
 }

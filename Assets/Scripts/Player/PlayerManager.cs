@@ -110,22 +110,29 @@ namespace IG
         {
             RaycastHit hit;
 
-            if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out hit, 1f, cameraHandler.ignoreLayers))
+            if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out hit, 10f, cameraHandler.ignoreLayers))
             { 
                 if (hit.collider.tag == "Interactable")
                 {
                     Interactable interactableObject = hit.collider.GetComponent<Interactable>();
 
-                    if (interactableObject != null)
+                    if (interactableObject != null && interactableObject.radius >= Vector3.Distance(transform.position, hit.transform.position))
                     {
                         string interactableText = interactableObject.interactableText;
                         interactableUI.interactableText.text = interactableText;
                         interactableUIGameObject.SetActive(true);
 
-                        if (inputHandler.a_input)
+                        if (inputHandler.interact_input)
                         {
                             hit.collider.GetComponent<Interactable>().Interact(this);
                         }
+                    }
+                }
+                else
+                {
+                    if (interactableUIGameObject != null)
+                    {
+                        interactableUIGameObject.SetActive(false);
                     }
                 }
             }
@@ -136,7 +143,7 @@ namespace IG
                     interactableUIGameObject.SetActive(false);
                 }
 
-                if (itemInteractableGameObject != null && inputHandler.a_input)
+                if (itemInteractableGameObject != null && inputHandler.interact_input)
                 {
                     itemInteractableGameObject.SetActive(false);
                 }

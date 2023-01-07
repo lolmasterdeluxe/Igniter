@@ -13,14 +13,16 @@ namespace IG
         public GameObject textBox;
         public TextMeshProUGUI dialogueText;
         public TextMeshProUGUI characterNameText;
-        NPCAnimatorManager animatorManager;
+        NPCAnimatorManager npcAnimatorManager;
+        PlayerAnimatorManager playerAnimatorManager;
         public Rigidbody npcRigidbody;
         public int sentenceCounter = 0;
 
         private void Awake()
         {
-            animatorManager = GetComponentInChildren<NPCAnimatorManager>();
+            npcAnimatorManager = GetComponentInChildren<NPCAnimatorManager>();
             npcRigidbody = GetComponent<Rigidbody>();
+            playerAnimatorManager = FindObjectOfType<PlayerAnimatorManager>();
             characterNameText.text = characterName;
         }
 
@@ -29,6 +31,8 @@ namespace IG
             textBox.SetActive(true);
             sentenceCounter = 0;
             dialogueText.text = sentences[sentenceCounter];
+            playerAnimatorManager.anim.SetBool("isInteracting", true);
+            playerAnimatorManager.anim.SetBool("canRotate", false);
             PlayTalkingAnimation();
         }
 
@@ -39,6 +43,8 @@ namespace IG
             if (sentenceCounter >= sentences.Count)
             {
                 textBox.SetActive(false);
+                playerAnimatorManager.anim.SetBool("isInteracting", false);
+                playerAnimatorManager.anim.SetBool("canRotate", true);
             }
             else
             {
@@ -49,14 +55,14 @@ namespace IG
 
         private void PlayTalkingAnimation()
         {
-            if (animatorManager.randomizeAnimation)
+            if (npcAnimatorManager.randomizeAnimation)
             {
-                string talkAnimation = animatorManager.talkAnimations[Random.Range(0, animatorManager.talkAnimations.Count)];
-                animatorManager.anim.Play(talkAnimation);
+                string talkAnimation = npcAnimatorManager.talkAnimations[Random.Range(0, npcAnimatorManager.talkAnimations.Count)];
+                npcAnimatorManager.anim.Play(talkAnimation);
             }
             else
             {
-                animatorManager.anim.Play(animatorManager.talkAnimations[sentenceCounter]);
+                npcAnimatorManager.anim.Play(npcAnimatorManager.talkAnimations[sentenceCounter]);
             }
         }
 

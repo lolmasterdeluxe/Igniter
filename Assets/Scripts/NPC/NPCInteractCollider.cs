@@ -4,49 +4,26 @@ using UnityEngine;
 
 namespace IG
 {
-    public class NPCInteractCollider : MonoBehaviour
-    {
-        [SerializeField]
-        private bool isWithinRange = false;
+    public class NPCInteractCollider : ProximityInteractable
+    { 
         public NPCManager npcManager;
-        InputHandler inputHandler;
-        UIManager uiManager;
-        private void Awake()
+
+        public override void OnExit()
         {
-            inputHandler = FindObjectOfType<InputHandler>();
-            uiManager = FindObjectOfType<UIManager>();
-        }
-        private void OnTriggerEnter(Collider collision)
-        {
-            if (collision.tag == "Player")
-            {
-                isWithinRange = true;
-                uiManager.ActivateInteractAlertPopup("Talk to " + npcManager.characterName);
-            }
+            base.OnExit();
+            npcManager.textBox.SetActive(false);
         }
 
-        private void OnTriggerExit(Collider collision)
+        public override void Interact()
         {
-            if (collision.tag == "Player")
+            base.Interact();
+            if (!npcManager.textBox.activeInHierarchy)
             {
-                isWithinRange = false;
-                npcManager.textBox.SetActive(false);
-                uiManager.DeactivateInteractAlertPopup();
+                npcManager.StartDialogue();
             }
-        }
-
-        void Update()
-        {
-            if (inputHandler.interact_input && isWithinRange)
+            else
             {
-                if (!npcManager.textBox.activeInHierarchy)
-                {
-                    npcManager.StartDialogue();
-                }
-                else
-                {
-                    npcManager.ContinueDialogue();
-                }
+                npcManager.ContinueDialogue();
             }
         }
     }

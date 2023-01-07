@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 4dea852c6aea55b46a011fa75597d7ed, type: 3}
   itemName: Greatsword
-  modelPrefab: {fileID: 8302401256556799076, guid: 4a65f174a7c0e4849b10b65e5e16f8f4, type: 3}
-  sheathModelPrefab: {fileID: 8877008010825128257, guid: 36f92901c0dabee428ffe9eb536629a8, type: 3}
+  modelPrefab: {fileID: 6390251963684087319, guid: 187170cea6771ce4687df05f86631461, type: 3}
+  sheathModelPrefab: {fileID: 7386812470439062040, guid: de7b88a67d9021841a1c13fc145c7505, type: 3}
   isUnarmed: 0
+  baseDamage: 25
+  criticalDamageMultiplier: 4
   lightAttack:
   - 2Hand-Sword-Attack1
   - 2Hand-Sword-Attack2

@@ -6,14 +6,16 @@ namespace IG
 {
     public class EnemyStats : CharacterStats
     {
-        Animator animator;
+        EnemyAnimatorManager enemyAnimatorManager;
         EnemyWeaponSlotManager enemyWeaponSlotManager;
         EnemyManager enemyManager;
         InputHandler inputHandler;
 
+        public int soulsAwardedOnDeath = 50;
+
         private void Awake()
         {
-            animator = GetComponentInChildren<Animator>();
+            enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
             enemyWeaponSlotManager = GetComponentInChildren<EnemyWeaponSlotManager>();
             enemyManager = GetComponent<EnemyManager>();
             inputHandler = FindObjectOfType<InputHandler>();
@@ -51,19 +53,24 @@ namespace IG
 
             currentHealth = currentHealth - damage;
 
-            animator.Play(enemyWeaponSlotManager.primaryWeapon.hitAnimation);
+            enemyAnimatorManager.PlayTargetAnimation(enemyWeaponSlotManager.primaryWeapon.hitAnimation, true);
 
             enemyManager.currentRecoveryTime = 1;
 
             if (currentHealth <= 0)
             {
-                currentHealth = 0;
-                animator.Play("Death");
-
-                inputHandler.DisableLockOn();
-
-                isDead = true;
+                HandleDeath();
             }
+        }
+
+        public void HandleDeath()
+        {
+            currentHealth = 0;
+            enemyAnimatorManager.PlayTargetAnimation("Death", true);
+
+            inputHandler.DisableLockOn();
+
+            isDead = true;
         }
     }
 }

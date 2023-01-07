@@ -110,6 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42081f44b8928d646bf4f558768d00ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.6
+  radius: 1
   interactableText: Pick Up Item
   weapon: {fileID: 11400000, guid: e9473f6cb23d21946a62667e2a3c18f6, type: 2}
