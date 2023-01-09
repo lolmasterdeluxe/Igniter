@@ -26,7 +26,6 @@ namespace IG
             animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
             playerManager = GetComponent<PlayerManager>();
             playerInventory = GetComponent<PlayerInventory>();
-            focusPointsBar = FindObjectOfType<FocusPointBar>();
         }
 
         private void Start()

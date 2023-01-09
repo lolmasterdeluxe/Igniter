@@ -43,6 +43,7 @@ namespace IG
         {
             yield return new WaitForSeconds(1f);
             Instantiate(itemSpawner, transform);
+            gameObject.tag = "Untagged";
             Destroy(openChest);
         }
     }

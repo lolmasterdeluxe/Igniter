@@ -13,10 +13,7 @@ namespace IG
         PlayerAnimatorManager playerAnimatorManager;
         PlayerLocomotion playerLocomotion;
         PlayerInventory playerInventory;
-
-        InteractableUI interactableUI;
-        public GameObject interactableUIGameObject;
-        public GameObject itemInteractableGameObject;
+        UIManager uiManager;
 
         public bool isInteracting;
 
@@ -40,7 +37,7 @@ namespace IG
             playerStats = GetComponent<PlayerStats>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             playerInventory = GetComponent<PlayerInventory>();
-            interactableUI = FindObjectOfType<InteractableUI>();
+            uiManager = FindObjectOfType<UIManager>();
             backStabCollider = GetComponentInChildren<BackStabCollider>();
         }
 
@@ -119,8 +116,8 @@ namespace IG
                     if (interactableObject != null && interactableObject.radius >= Vector3.Distance(transform.position, hit.transform.position))
                     {
                         string interactableText = interactableObject.interactableText;
-                        interactableUI.interactableText.text = interactableText;
-                        interactableUIGameObject.SetActive(true);
+                        uiManager.interactableUI.interactableText.text = interactableText;
+                        uiManager.interactAlertPopUpSphereCast.SetActive(true);
 
                         if (inputHandler.interact_input)
                         {
@@ -130,22 +127,27 @@ namespace IG
                 }
                 else
                 {
-                    if (interactableUIGameObject != null)
+                    if (uiManager.interactAlertPopUpSphereCast != null)
                     {
-                        interactableUIGameObject.SetActive(false);
+                        uiManager.interactAlertPopUpSphereCast.SetActive(false);
+                    }
+
+                    if (uiManager.itemPopUp != null && inputHandler.interact_input)
+                    {
+                        uiManager.itemPopUp.SetActive(false);
                     }
                 }
             }
             else
             {
-                if (interactableUIGameObject != null)
+                if (uiManager.interactAlertPopUpSphereCast != null)
                 {
-                    interactableUIGameObject.SetActive(false);
+                    uiManager.interactAlertPopUpSphereCast.SetActive(false);
                 }
 
-                if (itemInteractableGameObject != null && inputHandler.interact_input)
+                if (uiManager.itemPopUp != null && inputHandler.interact_input)
                 {
-                    itemInteractableGameObject.SetActive(false);
+                    uiManager.itemPopUp.SetActive(false);
                 }
             }
 

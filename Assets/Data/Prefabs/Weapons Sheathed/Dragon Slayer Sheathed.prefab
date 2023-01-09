@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 837756862582985764}
   - component: {fileID: 7650085772216841411}
   - component: {fileID: 5986343565102656307}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GreatSword_00(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

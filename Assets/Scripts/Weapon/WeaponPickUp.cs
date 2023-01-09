@@ -22,17 +22,19 @@ namespace IG
             PlayerInventory playerInventory;
             PlayerLocomotion playerLocomotion;
             PlayerAnimatorManager animatorHandler;
+            UIManager uiManager;
 
             playerInventory = playerManager.GetComponent<PlayerInventory>();
             playerLocomotion = playerManager.GetComponent<PlayerLocomotion>();
             animatorHandler = playerManager.GetComponentInChildren<PlayerAnimatorManager>();
+            uiManager = FindObjectOfType<UIManager>();
 
             playerLocomotion.rigidbody.velocity = Vector3.zero; // Stops the player from moving whilst picking up the item
             animatorHandler.PlayTargetAnimation("Relax-Pickup", true); // Plays the animation of looting the item
             playerInventory.weaponsInventory.Add(weapon);
-            playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = weapon.itemName;
-            playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = weapon.itemIcon.texture;
-            playerManager.itemInteractableGameObject.SetActive(true);
+            uiManager.interactableUI.itemText.text = weapon.itemName;
+            uiManager.interactableUI.itemImage.texture = weapon.itemIcon.texture;
+            uiManager.itemPopUp.SetActive(true);
             Destroy(gameObject);
         }
     }

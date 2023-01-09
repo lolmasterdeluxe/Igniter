@@ -10,13 +10,16 @@ namespace IG
     {
         public PlayerInventory playerInventory;
         public EquipmentWindowUI equipmentWindowUI;
+        public InteractableUI interactableUI;
 
         [Header("UI Windows")]
         public GameObject hudWindow;
         public GameObject selectWindow;
         public GameObject weaponInventoryWindow;
         public GameObject equipmentScreenWindow;
-        public GameObject interactAlertPopUp;
+        public GameObject interactAlertPopUpSphereCast;
+        public GameObject interactAlertPopUpOnTrigger;
+        public GameObject itemPopUp;
         public TextMeshProUGUI interactAlertPopUpText;
 
         [Header("Equipment Window Slot Selected")]
@@ -80,14 +83,14 @@ namespace IG
 
         public void ActivateInteractAlertPopup(string text)
         {
-            interactAlertPopUp.SetActive(true);
+            interactAlertPopUpOnTrigger.SetActive(true);
             interactAlertPopUpText.text = text;
             Debug.Log("+Alert pop up");
         }
 
         public void DeactivateInteractAlertPopup()
         {
-            interactAlertPopUp.SetActive(false);
+            interactAlertPopUpOnTrigger.SetActive(false);
             interactAlertPopUpText.text = "";
             Debug.Log("-Alert pop up");
         }
