@@ -111,12 +111,12 @@ namespace IG
 
         public void EnableIsInvulnerable()
         {
-            anim.SetBool("IsInvulerable", true);
+            anim.SetBool("isInvulnerable", true);
         }
 
         public void DisableIsInvulnerable()
         {
-            anim.SetBool("IsInvulerable", false);
+            anim.SetBool("isInvulnerable", false);
         }
 
         public override void TakeCriticalDamageAnimationEvent()
