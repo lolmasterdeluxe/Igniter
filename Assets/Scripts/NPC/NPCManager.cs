@@ -10,9 +10,11 @@ namespace IG
     {
         public List<string> sentences;
         public string characterName;
+        public string characterTitle;
         public GameObject textBox;
         public TextMeshProUGUI dialogueText;
         public TextMeshProUGUI characterNameText;
+        public TextMeshProUGUI characterTitleText;
         NPCAnimatorManager npcAnimatorManager;
         PlayerAnimatorManager playerAnimatorManager;
         public Rigidbody npcRigidbody;
@@ -24,6 +26,7 @@ namespace IG
             npcRigidbody = GetComponent<Rigidbody>();
             playerAnimatorManager = FindObjectOfType<PlayerAnimatorManager>();
             characterNameText.text = characterName;
+            characterTitleText.text = characterTitle;
         }
 
         public void StartDialogue()
