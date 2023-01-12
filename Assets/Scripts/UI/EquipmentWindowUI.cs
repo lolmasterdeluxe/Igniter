@@ -8,12 +8,8 @@ namespace IG
     {
         PrimarySlot01,
         PrimarySlot02,
-        PrimarySlot03,
-        PrimarySlot04,
         SecondarySlot01,
         SecondarySlot02,
-        SecondarySlot03,
-        SecondarySlot04,
     }
 
     public class EquipmentWindowUI : MonoBehaviour
@@ -33,10 +29,10 @@ namespace IG
             {
                 if (handEquipmentSlotUI[i].equipmentSlot == (EquipmentSlot)i)
                 {
-                    if (i < 4 && i < playerInventory.weaponsInPrimarySlots.Length)
+                    if (i < 2 && i < playerInventory.weaponsInPrimarySlots.Length)
                         handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInPrimarySlots[i]);
-                    else if (i >= 4 && i - 4 < playerInventory.weaponsInSecondarySlots.Length)
-                        handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInSecondarySlots[i - 4]);
+                    else if (i >= 2 && i - 2 < playerInventory.weaponsInSecondarySlots.Length)
+                        handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInSecondarySlots[i - 2]);
                 }
             }
         }
