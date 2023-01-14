@@ -7,6 +7,7 @@ namespace IG
     public class PlayerStats : CharacterStats
     {
         PlayerManager playerManager;
+        PlayerAttacker playerAttacker;
 
         [SerializeField]
         private HealthBar healthBar;
@@ -26,6 +27,7 @@ namespace IG
             animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
             playerManager = GetComponent<PlayerManager>();
             playerInventory = GetComponent<PlayerInventory>();
+            playerAttacker = GetComponentInChildren<PlayerAttacker>();
         }
 
         private void Start()
@@ -66,6 +68,8 @@ namespace IG
         {
             currentHealth -= damage;
             healthBar.SetCurrentHealth(currentHealth);
+            playerAttacker.attackCount = 0;
+            animatorHandler.anim.SetBool("canDoCombo", false);
 
             if (currentHealth <= 0)
             {
@@ -84,6 +88,9 @@ namespace IG
             healthBar.SetCurrentHealth(currentHealth);
 
             animatorHandler.PlayTargetAnimation(playerInventory.primaryWeapon.hitAnimation, true);
+
+            playerAttacker.attackCount = 0;
+            animatorHandler.anim.SetBool("canDoCombo", false);
 
             if (currentHealth <= 0)
             {

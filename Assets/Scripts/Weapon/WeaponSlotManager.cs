@@ -8,8 +8,11 @@ namespace IG
     {
         PlayerManager playerManager;
         PlayerInventory playerInventory;
-        WeaponHolderSlot primarySlot;
-        WeaponHolderSlot secondarySlot;
+
+        [HideInInspector]
+        public WeaponHolderSlot primarySlot;
+        [HideInInspector]
+        public WeaponHolderSlot secondarySlot;
 
         WeaponSheathSlot primarySheathSlot;
         WeaponSheathSlot secondarySheathSlot;
@@ -104,17 +107,29 @@ namespace IG
             }
         }
 
+        public void SetWeaponBlockingTransform()
+        {
+            primarySlot.parentOverride.SetLocalPositionAndRotation(primaryWeapon.blockingOffset.transform.position, primaryWeapon.blockingOffset.transform.rotation);
+        }
+
+        public void ResetWeaponTransform()
+        {
+            primarySlot.parentOverride.SetLocalPositionAndRotation(primaryWeapon.defaultOffset.transform.position, primaryWeapon.defaultOffset.transform.rotation);
+        }
+
         #region Handle Weapon's Damage Collider
 
         private void LoadPrimaryWeaponDamageCollider()
         {
             primaryDamageCollider = primarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+            primaryDamageCollider.tag = "Player Weapon";
             primaryDamageCollider.currentWeaponDamage = playerInventory.primaryWeapon.baseDamage;
         }
 
         private void LoadSecondaryWeaponDamageCollider()
         {
             secondaryDamageCollider = secondarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+            secondaryDamageCollider.tag = "Player Weapon";
             secondaryDamageCollider.currentWeaponDamage = playerInventory.secondaryWeapon.baseDamage;
         }
 

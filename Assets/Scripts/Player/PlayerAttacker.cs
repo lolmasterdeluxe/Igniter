@@ -14,7 +14,10 @@ namespace IG
         WeaponSlotManager weaponSlotManager;
         public int attackCount;
 
-        LayerMask backStabLayer = 1 << 14;
+        [SerializeField]
+        LayerMask backStabLayer;
+        [SerializeField]
+        LayerMask riposteLayer;
 
         private void Awake()
         {
@@ -84,6 +87,20 @@ namespace IG
                 PerformRBMagicAction(playerInventory.primaryWeapon);
             }
         }
+
+        public void HandleLTAction()
+        {
+            if (playerInventory.primaryWeapon.weaponType == WeaponType.ShieldWeapon)
+            {
+                //PERFORM SHIELD WEAPON ART
+                PerformLTWeaponArt();
+            }
+            else if (playerInventory.primaryWeapon.weaponType == WeaponType.MeleeWeapon)
+            {
+                // light attack
+                PerformLTWeaponArt();
+            }
+        }
         #endregion
 
         #region Attack Actions
@@ -122,6 +139,14 @@ namespace IG
             }
         }
 
+        private void PerformLTWeaponArt()
+        {
+            if (playerManager.isInteracting)
+                return;
+
+            playerAnimatorManager.PlayTargetAnimation(playerInventory.primaryWeapon.weaponArt, true);
+        }
+
         private void SuccessfullyCastSpell()
         {
             playerInventory.currentSpell.SuccessfullyCastSpell(playerAnimatorManager, playerStats);
@@ -143,7 +168,7 @@ namespace IG
                 if (enemyCharacterManager != null)
                 {
                     // CHECK FOR TEAM I.D. (So you cant back stab friends or yourself?)
-                    playerManager.transform.position = enemyCharacterManager.backStabCollider.backStabberStandPoint.position;
+                    playerManager.transform.position = enemyCharacterManager.backStabCollider.criticalDamagerStandPosition.position;
                     Vector3 rotationDirection = playerManager.transform.root.eulerAngles;
                     rotationDirection = hit.transform.position - playerManager.transform.position;
                     rotationDirection.y = 0;
@@ -158,6 +183,30 @@ namespace IG
                     playerAnimatorManager.PlayTargetAnimation("Back Stab", true);
                     enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Back Stabbed", true);
                     // do damage
+                }
+            }
+            else if (Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 0.5f, riposteLayer))
+            {
+                CharacterManager enemyCharacterManager = hit.transform.gameObject.GetComponentInParent<CharacterManager>();
+                DamageCollider primaryWeapon = weaponSlotManager.primaryDamageCollider;
+
+                // CHECK FOR TEAM I.D.
+                if (enemyCharacterManager != null && enemyCharacterManager.canBeRiposted)
+                {
+                    playerManager.transform.position = enemyCharacterManager.riposteCollider.criticalDamagerStandPosition.position;
+                    Vector3 rotationDirection = playerManager.transform.root.eulerAngles;
+                    rotationDirection = hit.transform.position - playerManager.transform.position;
+                    rotationDirection.y = 0;
+                    rotationDirection.Normalize();
+                    Quaternion tr = Quaternion.LookRotation(rotationDirection);
+                    Quaternion targetRotation = Quaternion.Slerp(playerManager.transform.rotation, tr, 500 * Time.deltaTime);
+                    playerManager.transform.rotation = targetRotation;
+
+                    int criticalDamage = playerInventory.primaryWeapon.criticalDamageMultiplier * primaryWeapon.currentWeaponDamage;
+                    enemyCharacterManager.pendingCriticalDamage = criticalDamage;
+
+                    playerAnimatorManager.PlayTargetAnimation("Riposte", true);
+                    enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Riposted", true);
                 }
             }
 

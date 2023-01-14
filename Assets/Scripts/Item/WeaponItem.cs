@@ -7,7 +7,7 @@ namespace IG
     [CreateAssetMenu(menuName = "Items/Weapon Item")]
     public class WeaponItem : Item
     {
-        public GameObject modelPrefab, sheathModelPrefab;
+        public GameObject modelPrefab;
         public bool isUnarmed;
 
         [Header("Damage")]
@@ -30,6 +30,13 @@ namespace IG
         public string sheathAnimation;
         public int weaponAnimationType;
 
+        [Header("Animation Offsets")]
+        public GameObject defaultOffset;
+        public GameObject blockingOffset;
+
+        [Header("Weapon Art")]
+        public string weaponArt;
+
         [Header("Stamina Costs")]
         public int baseStamina;
         public float lightAttackMultiplier;
@@ -37,15 +44,24 @@ namespace IG
 
         [Header("Weapon Type")]
         public WeaponType weaponType;
+        public SheathType sheathType;
     }
 
     public enum WeaponType
     {
         MeleeWeapon,
+        ShieldWeapon,
         SpellCaster,
         FaithCaster,
         PyroCaster,
         TotalWeaponType
+    }
+
+    public enum SheathType
+    {
+        Back,
+        Hip,
+        TotalSheathType
     }
 
 }

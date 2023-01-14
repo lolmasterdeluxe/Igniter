@@ -16,6 +16,7 @@ namespace IG
         public bool b_input;
         public bool rb_input;
         public bool rt_input;
+        public bool lt_input;
         public bool critical_Attack_input;
         public bool s_input;
         public bool jump_input;
@@ -74,6 +75,7 @@ namespace IG
                 // Input actions
                 inputActions.PlayerActions.RB.performed += inputActions => rb_input = true;
                 inputActions.PlayerActions.RT.performed += inputActions => rt_input = true;
+                inputActions.PlayerActions.LT.performed += inputActions => lt_input = true;
                 inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
                 inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
                 inputActions.PlayerActions.A.performed += i => a_input = true;
@@ -168,6 +170,12 @@ namespace IG
             if (rt_input)
             {
                 playerAttacker.HandleHeavyAttack(playerInventory.primaryWeapon);
+            }
+
+            if (lt_input)
+            {
+                //Handle weapon art
+                playerAttacker.HandleLTAction();
             }
         }
 

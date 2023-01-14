@@ -6,6 +6,8 @@ namespace IG
 {
     public class WeaponSheathSlot : MonoBehaviour
     {
+        public Transform backSheathOverride;
+        public Transform hipSheathOverride;
         public bool isPrimarySlot;
         public bool isSecondarySlot;
 
@@ -38,10 +40,18 @@ namespace IG
                 return;
             }
 
-            GameObject model = Instantiate(weaponItem.sheathModelPrefab) as GameObject;
+            GameObject model = Instantiate(weaponItem.modelPrefab) as GameObject;
             if (model != null)
             {
-                model.transform.parent = transform;
+                if (weaponItem.sheathType == SheathType.Back)
+                {
+                    model.transform.parent = backSheathOverride;
+                }
+                else if (weaponItem.sheathType == SheathType.Hip)
+                {
+                    model.transform.parent = hipSheathOverride;
+                }
+
                 model.transform.localPosition = Vector3.zero;
                 model.transform.localRotation = Quaternion.identity;
                 model.transform.localScale = Vector3.one;

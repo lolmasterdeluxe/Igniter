@@ -38,7 +38,7 @@ namespace IG
             playerLocomotion = GetComponent<PlayerLocomotion>();
             playerInventory = GetComponent<PlayerInventory>();
             uiManager = FindObjectOfType<UIManager>();
-            backStabCollider = GetComponentInChildren<BackStabCollider>();
+            backStabCollider = GetComponentInChildren<CriticalDamageCollider>();
         }
 
         // Update is called once per frame
@@ -78,6 +78,7 @@ namespace IG
             inputHandler.rollFlag = false;
             inputHandler.rb_input = false;
             inputHandler.rt_input = false;
+            inputHandler.lt_input = false;
             inputHandler.s_input = false;
             inputHandler.d_Pad_Up = false;
             inputHandler.d_Pad_Down = false;
@@ -158,7 +159,7 @@ namespace IG
             playerLocomotion.rigidbody.velocity = Vector3.zero; // Stops the player from ice skating
             transform.position = playerStandsHereWhenOpeningChest.position;
             playerAnimatorManager.PlayTargetAnimation("Relax-Activate", true);
-        }    
+        }
 
         #endregion
     }

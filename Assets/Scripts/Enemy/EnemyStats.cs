@@ -36,7 +36,7 @@ namespace IG
         public void TakeDamageNoAnimation(int damage)
         {
             currentHealth = currentHealth - damage;
-            enemyManager.currentRecoveryTime = 1;
+            enemyManager.currentRecoveryTime = 2;
 
             if (currentHealth <= 0)
             {
@@ -55,7 +55,7 @@ namespace IG
 
             enemyAnimatorManager.PlayTargetAnimation(enemyWeaponSlotManager.primaryWeapon.hitAnimation, true);
 
-            enemyManager.currentRecoveryTime = 1;
+            enemyManager.currentRecoveryTime = 2;
 
             if (currentHealth <= 0)
             {

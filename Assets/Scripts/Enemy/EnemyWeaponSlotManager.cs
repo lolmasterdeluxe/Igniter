@@ -69,10 +69,14 @@ namespace IG
             if (isPrimary)
             {
                 primaryDamageCollider = primarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+                primaryDamageCollider.tag = "Enemy Weapon";
+                primaryDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
             }
             else
             {
                 secondaryDamageCollider = secondarySlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+                secondaryDamageCollider.tag = "Enemy Weapon";
+                secondaryDamageCollider.characterManager = GetComponentInParent<CharacterManager>();
             }
         }
 

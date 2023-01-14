@@ -13,7 +13,7 @@ namespace IG
             anim.applyRootMotion = isInteracting;
             anim.SetBool("canRotate", false);
             anim.SetBool("isInteracting", isInteracting);
-            anim.CrossFade(targetAnim, 0.2f);
+            anim.CrossFade(targetAnim, 0.1f);
         }
 
         public virtual void TakeCriticalDamageAnimationEvent()

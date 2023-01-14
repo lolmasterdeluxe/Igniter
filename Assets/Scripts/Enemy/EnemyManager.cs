@@ -22,6 +22,10 @@ namespace IG
         public float rotationSpeed = 15;
         public float maximumAttackRange = 1.5f;
         public float despawnTimer = 3;
+        public int weaponType = 0;
+
+        [Header("Combat Flags")]
+        public bool canDoCombo;
 
         [Header("A.I Settings")]
         public float detectionRadius = 20;
@@ -38,27 +42,31 @@ namespace IG
             enemyStats = GetComponent<EnemyStats>();
             navmeshAgent = GetComponentInChildren<NavMeshAgent>();
             enemyRigidbody = GetComponent<Rigidbody>();
-            backStabCollider = GetComponentInChildren<BackStabCollider>();
         }
 
         private void Start()
         {
             navmeshAgent.enabled = false;
             enemyRigidbody.isKinematic = false;
+            enemyAnimatorManager.anim.SetBool("isSheathed", false);
+            enemyAnimatorManager.anim.SetInteger("weaponType", weaponType);
         }
 
         private void Update()
         {
             HandleRecoveryTimer();
             HandleDespawnAfterDeath();
+            HandleStateMachine();
 
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
+            canDoCombo = enemyAnimatorManager.anim.GetBool("canDoCombo");
             enemyAnimatorManager.anim.SetBool("isDead", enemyStats.isDead);
         }
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
-            HandleStateMachine();
+            navmeshAgent.transform.localPosition = Vector3.zero;
+            navmeshAgent.transform.localRotation = Quaternion.identity;
         }
 
         private void HandleStateMachine()

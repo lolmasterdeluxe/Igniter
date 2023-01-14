@@ -15,7 +15,6 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 4dea852c6aea55b46a011fa75597d7ed, type: 3}
   itemName: Greatsword
   modelPrefab: {fileID: 6390251963684087319, guid: 187170cea6771ce4687df05f86631461, type: 3}
-  sheathModelPrefab: {fileID: 7386812470439062040, guid: de7b88a67d9021841a1c13fc145c7505, type: 3}
   isUnarmed: 0
   baseDamage: 25
   criticalDamageMultiplier: 4
@@ -31,7 +30,11 @@ MonoBehaviour:
   unsheathAnimation: 2Hand-Sword-Unsheath-Back-Relax
   sheathAnimation: 2Hand-Sword-Sheath-Back-Relax
   weaponAnimationType: 0
+  defaultOffset: {fileID: 5375379060222781454, guid: 63322adba7761914686e26c7c13fa9f7, type: 3}
+  blockingOffset: {fileID: 8834838064284200778, guid: 6f91d1e87d037604cb5884c4b6c878f0, type: 3}
+  weaponArt: GreatSword_Defense_Start_Root
   baseStamina: 20
   lightAttackMultiplier: 1
   heavyAttackMultiplier: 2
   weaponType: 0
+  sheathType: 0

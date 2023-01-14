@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Attack 02
   m_EditorClassIdentifier: 
   actionAnimation: Sword-Attack-R2
+  canCombo: 0
+  comboAction: {fileID: 11400000}
   attackScore: 3
   recoveryTime: 2
   maximumAttackAngle: 35

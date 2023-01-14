@@ -9,8 +9,23 @@ namespace IG
         public CombatStanceState combatStanceState;
         public EnemyAttackAction[] enemyAttacks;
         public EnemyAttackAction currentAttack;
+
+        private bool isComboing = false;
         public override State Tick(EnemyManager enemyManager, EnemyStats enemyStats, EnemyAnimatorManager enemyAnimatorManager)
         {
+            if (enemyManager.isInteracting && !enemyManager.canDoCombo)
+            {
+                return this;
+            }
+            else if (enemyManager.isInteracting && enemyManager.canDoCombo)
+            {
+                if (isComboing)
+                {
+                    enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
+                    isComboing = false;
+                }
+            }
+
             Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.transform.position;
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
             float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
@@ -39,9 +54,19 @@ namespace IG
                             enemyAnimatorManager.anim.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
                             enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
                             enemyManager.isPerformingAction = true;
-                            enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
-                            currentAttack = null;
-                            return combatStanceState;
+
+                            if (currentAttack.canCombo)
+                            {
+                                currentAttack = currentAttack.comboAction;
+                                return this;
+
+                            }
+                            else
+                            {
+                                enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
+                                currentAttack = null;
+                                return combatStanceState;
+                            }
                         }
                     }
                 }

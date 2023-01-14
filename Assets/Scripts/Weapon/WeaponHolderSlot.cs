@@ -57,7 +57,7 @@ namespace IG
             }
 
             currentWeaponModel = model;
-        }    
+        }
     }
     // Vector3(-0.063000001,0,-0.0410000011)
     // Vector3(0,-30.389,0)
