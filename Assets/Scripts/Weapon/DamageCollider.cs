@@ -10,13 +10,14 @@ namespace IG
         Collider damageCollider;
 
         public int currentWeaponDamage = 25;
+        public bool enableDamageColliderOnStartup = false;
 
         private void Awake()
         {
             damageCollider = GetComponent<Collider>();
             damageCollider.gameObject.SetActive(true);
             damageCollider.isTrigger = true;
-            damageCollider.enabled = false;
+            damageCollider.enabled = enableDamageColliderOnStartup;
         }
 
         public void EnableDamageCollider()
@@ -90,7 +91,7 @@ namespace IG
 
                         if (enemyStats != null)
                         {
-                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), true);
+                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock));
                             return;
                         }
                     }

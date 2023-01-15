@@ -78,7 +78,7 @@ namespace IG
             }
         }
 
-        public void TakeDamage(int damage)
+        public override void TakeDamage(int damage)
         {
             if (isDead || playerManager.isInvulnerable)
                 return;

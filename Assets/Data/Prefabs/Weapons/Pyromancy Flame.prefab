@@ -13700,9 +13700,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2032124346269306041}
   - component: {fileID: 2232680464635712981}
-  - component: {fileID: 5886858688818885808}
+  - component: {fileID: 7308268974363056707}
   - component: {fileID: 2231753064645589035}
-  - component: {fileID: 7781411343252035454}
+  - component: {fileID: 9098029693109016506}
   m_Layer: 0
   m_Name: FX_Fireball_Projectile
   m_TagString: Untagged
@@ -18522,7 +18522,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!65 &5886858688818885808
+--- !u!65 &7308268974363056707
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18533,8 +18533,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.54043376, y: 0.54539317, z: 0.5417259}
-  m_Center: {x: -0.065698415, y: -0.025147319, z: -0.04015192}
+  m_Size: {x: 0.59370196, y: 0.51293707, z: 0.5255878}
+  m_Center: {x: -0.0060071214, y: 0.009557635, z: -0.01808888}
 --- !u!199 &2231753064645589035
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -18607,7 +18607,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &7781411343252035454
+--- !u!114 &9098029693109016506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -25,7 +25,7 @@ namespace IG
             Debug.Log("Attempting to cast a spell.");
         }
 
-        public virtual void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats)
+        public virtual void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, CameraHandler cameraHandler, WeaponSlotManager weaponSlotManager)
         {
             Debug.Log("Successfully cast spell.");
             playerStats.DeductFocusPoints(focusPointCost);

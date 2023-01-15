@@ -11,6 +11,7 @@ namespace IG
         public SpellItem currentSpell;
         public WeaponItem primaryWeapon;
         public WeaponItem secondaryWeapon;
+        public ConsumableItem currentConsumable;
 
         public WeaponItem[] weaponsInPrimarySlots = new WeaponItem[1];  
         public WeaponItem[] weaponsInSecondarySlots = new WeaponItem[1];

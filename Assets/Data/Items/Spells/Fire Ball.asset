@@ -20,5 +20,8 @@ MonoBehaviour:
   focusPointCost: 0
   spellType: 2
   spellDescription: 
-  baseDamage: 0
-  projectileVelocity: 0
+  baseDamage: 75
+  projectileForwardVelocity: 500
+  projectileUpwardVelocity: 150
+  projectileMass: 25
+  isEffectedByGravity: 1

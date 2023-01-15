@@ -6,6 +6,7 @@ namespace IG
 {
     public class PlayerAttacker : MonoBehaviour
     {
+        CameraHandler cameraHandler;
         PlayerAnimatorManager playerAnimatorManager;
         PlayerEquipmentManager playerEquipmentManager;
         InputHandler inputHandler;
@@ -25,6 +26,7 @@ namespace IG
 
         private void Awake()
         {
+            cameraHandler = FindObjectOfType<CameraHandler>();
             playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             inputHandler = GetComponentInParent<InputHandler>();
@@ -144,7 +146,7 @@ namespace IG
                     if (playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
                         playerInventory.currentSpell.AttemptToCastSpell(playerAnimatorManager, playerStats, weaponSlotManager);
                     else
-                        playerAnimatorManager.PlayTargetAnimation("Relax-No", true);
+                        playerAnimatorManager.PlayTargetAnimation("Shrug", true);
                 }
             }
             else if (weapon.weaponType == WeaponType.PyroCaster)
@@ -154,7 +156,7 @@ namespace IG
                     if (playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
                         playerInventory.currentSpell.AttemptToCastSpell(playerAnimatorManager, playerStats, weaponSlotManager);
                     else
-                        playerAnimatorManager.PlayTargetAnimation("Relax-No", true);
+                        playerAnimatorManager.PlayTargetAnimation("Shrug", true);
                 }
             }
         }
@@ -169,7 +171,7 @@ namespace IG
 
         private void SuccessfullyCastSpell()
         {
-            playerInventory.currentSpell.SuccessfullyCastSpell(playerAnimatorManager, playerStats);
+            playerInventory.currentSpell.SuccessfullyCastSpell(playerAnimatorManager, playerStats, cameraHandler, weaponSlotManager);
             playerAnimatorManager.anim.SetBool("isFiringSpell", true);
         }
         #endregion

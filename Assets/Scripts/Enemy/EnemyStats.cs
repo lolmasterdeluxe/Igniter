@@ -51,7 +51,7 @@ namespace IG
             }
         }
 
-        public void TakeDamage(int damage, bool isBlocking = false)
+        public override void TakeDamage(int damage)
         {
             if (isDead)
                 return;
@@ -59,7 +59,7 @@ namespace IG
             currentHealth = currentHealth - damage;
             enemyHealthBar.SetHealth(currentHealth);
 
-            if (isBlocking)
+            if (enemyManager.isBlocking)
                 enemyAnimatorManager.PlayTargetAnimation(enemyWeaponSlotManager.primaryWeapon.blockGuardAnimation, true);
             else
                 enemyAnimatorManager.PlayTargetAnimation(enemyWeaponSlotManager.primaryWeapon.hitAnimation, true);

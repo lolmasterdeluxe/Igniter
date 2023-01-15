@@ -13,6 +13,7 @@ namespace IG
         public float mouseY;
 
         public bool a_input;
+        public bool x_input;
         public bool b_input;
         public bool rb_input;
         public bool rt_input;
@@ -45,8 +46,11 @@ namespace IG
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
+        PlayerAnimatorManager playerAnimatorManager;
+        PlayerEffectsManager playerEffectsManager;
         PlayerStats playerStats;
         BlockingCollider blockingCollider;
+        WeaponSlotManager weaponSlotManager;
         CameraHandler cameraHandler;
         PlayerAnimatorManager animatorHandler;
         UIManager uiManager;
@@ -60,6 +64,9 @@ namespace IG
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             playerStats = GetComponent<PlayerStats>();
+            playerEffectsManager = GetComponentInChildren<PlayerEffectsManager>();
+            playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
+            weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
             blockingCollider = GetComponentInChildren<BlockingCollider>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
@@ -84,6 +91,7 @@ namespace IG
                 inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
                 inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
                 inputActions.PlayerActions.A.performed += i => a_input = true;
+                inputActions.PlayerActions.X.performed += i => x_input = true;
                 inputActions.PlayerActions.Jump.performed += i => jump_input = true;
                 inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
                 inputActions.PlayerActions.Interact.performed += i => interact_input = true;
@@ -118,6 +126,7 @@ namespace IG
             HandleSheathInput(delta);
             HandleInventoryInput();
             HandleCriticalAttackInput();
+            HandleUseConsumableInput();
         }
 
         private void HandleMoveInput(float delta)
@@ -310,6 +319,16 @@ namespace IG
             {
                 critical_Attack_input = false;
                 playerAttacker.AttemptBackStabOrRiposte();
+            }
+        }
+
+        private void HandleUseConsumableInput()
+        {
+            if (x_input)
+            {
+                x_input = false;
+                // Use current consumbale
+                playerInventory.currentConsumable.AttemptToConsumeItem(playerAnimatorManager, weaponSlotManager, playerEffectsManager);
             }
         }
 

@@ -189,6 +189,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "A",
+                    "type": "Button",
+                    "id": "09c5314b-a416-435e-8727-df6b1c390821",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "X",
+                    "type": "Button",
+                    "id": "96cf2830-d746-49a1-9897-d38965e77726",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Roll",
                     "type": "Button",
                     "id": "2a86dfa2-9d05-4546-b04b-3e6c63de3602",
@@ -237,15 +255,6 @@
                     "name": "Sheath / Unsheath",
                     "type": "Button",
                     "id": "b8cf3339-1cc8-41ca-890f-8737162a637f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "A",
-                    "type": "Button",
-                    "id": "09c5314b-a416-435e-8727-df6b1c390821",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -368,17 +377,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f9657a98-6be7-45b7-97d0-b6de6ad1259e",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "A",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "fd91c8cd-9991-4042-92bb-0781eebfa206",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -495,6 +493,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "LB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6f2678f-73cb-420b-b7ea-e76e886b3596",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "X",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2a98e6a-5f86-4e1b-9fa5-5e68184d2bbf",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "X",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f9657a98-6be7-45b7-97d0-b6de6ad1259e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "A",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
