@@ -10,9 +10,9 @@ namespace IG
     {
         public int healAmount;
 
-        public override void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats)
+        public override void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager)
         {
-            base.AttemptToCastSpell(animatorHandler, playerStats);
+            base.AttemptToCastSpell(animatorHandler, playerStats, weaponSlotManager);
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animatorHandler.transform);
             animatorHandler.PlayTargetAnimation(spellAnimation, true);
             Debug.Log("Attempting to cast a spell.");

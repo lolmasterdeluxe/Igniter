@@ -14,6 +14,9 @@ namespace IG
         public int baseDamage = 25;
         public int criticalDamageMultiplier = 4;
 
+        [Header("Absorption")]
+        public float physicalDamageAbsorption;
+
         [Header("One Handed Attack Animations")]
         public List<string> lightAttack;
         public List<string> heavyAttack;
@@ -24,6 +27,7 @@ namespace IG
 
         [Header("Hit Animations")]
         public string hitAnimation;
+        public string blockGuardAnimation;
 
         [Header("Weapon Animations")]
         public string unsheathAnimation;

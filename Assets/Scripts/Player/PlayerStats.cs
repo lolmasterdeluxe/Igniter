@@ -87,7 +87,10 @@ namespace IG
 
             healthBar.SetCurrentHealth(currentHealth);
 
-            animatorHandler.PlayTargetAnimation(playerInventory.primaryWeapon.hitAnimation, true);
+            if (playerManager.isBlocking)
+                animatorHandler.PlayTargetAnimation(playerInventory.primaryWeapon.blockGuardAnimation, true);
+            else
+                animatorHandler.PlayTargetAnimation(playerInventory.primaryWeapon.hitAnimation, true);
 
             playerAttacker.attackCount = 0;
             animatorHandler.anim.SetBool("canDoCombo", false);
@@ -118,7 +121,12 @@ namespace IG
                 staminaRegenTimer += Time.deltaTime;
                 if (currentStamina < maxStamina && staminaRegenTimer > 1f)
                 {
-                    currentStamina += staminaRegenerationAmount * Time.deltaTime;
+                    // Regenerate stamina slower while blocking
+                    if (playerManager.isBlocking)
+                        currentStamina += staminaRegenerationAmount * Time.deltaTime * 0.5f;
+                    else
+                        currentStamina += staminaRegenerationAmount * Time.deltaTime;
+
                     staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
                 }
             }

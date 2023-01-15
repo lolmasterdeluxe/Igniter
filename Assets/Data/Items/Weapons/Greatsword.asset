@@ -18,6 +18,7 @@ MonoBehaviour:
   isUnarmed: 0
   baseDamage: 25
   criticalDamageMultiplier: 4
+  physicalDamageAbsorption: 50
   lightAttack:
   - 2Hand-Sword-Attack1
   - 2Hand-Sword-Attack2
@@ -27,6 +28,7 @@ MonoBehaviour:
   dodgeAnimation: 2Hand-Sword-Dodge-Backward
   rollAnimation: 2Hand-Sword-Roll
   hitAnimation: 2Hand-Sword-GetHit-F1
+  blockGuardAnimation: GreatSword_Defense_Hit_Root
   unsheathAnimation: 2Hand-Sword-Unsheath-Back-Relax
   sheathAnimation: 2Hand-Sword-Sheath-Back-Relax
   weaponAnimationType: 0

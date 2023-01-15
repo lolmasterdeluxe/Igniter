@@ -21,8 +21,13 @@ namespace IG
         public bool despawnAfterDeath;
         public float rotationSpeed = 15;
         public float maximumAttackRange = 1.5f;
-        public float despawnTimer = 3;
         public int weaponType = 0;
+
+        [Header("Combat Timers")]
+        public float despawnTimer = 3;
+        public float stunDuration = 3;
+        public float stunTimer = 3;
+        public float currentRecoveryTime = 0;
 
         [Header("Combat Flags")]
         public bool canDoCombo;
@@ -33,7 +38,9 @@ namespace IG
         public float maximumDetectionAngle = 50;
         public float minimumDetectionAngle = -50;
 
-        public float currentRecoveryTime = 0;
+        [Header("A.I. Combat Settings")]
+        public bool allowAIToPerformCombos;
+        public float comboLikelyHood;
 
         private void Awake()
         {
@@ -50,6 +57,7 @@ namespace IG
             enemyRigidbody.isKinematic = false;
             enemyAnimatorManager.anim.SetBool("isSheathed", false);
             enemyAnimatorManager.anim.SetInteger("weaponType", weaponType);
+            stunTimer = stunDuration;
         }
 
         private void Update()
@@ -61,6 +69,7 @@ namespace IG
             isInteracting = enemyAnimatorManager.anim.GetBool("isInteracting");
             canDoCombo = enemyAnimatorManager.anim.GetBool("canDoCombo");
             enemyAnimatorManager.anim.SetBool("isDead", enemyStats.isDead);
+            enemyAnimatorManager.anim.SetBool("isStunned", isStunned);
         }
 
         private void LateUpdate()
@@ -71,7 +80,7 @@ namespace IG
 
         private void HandleStateMachine()
         {
-            if (currentState != null && !enemyStats.isDead)
+            if (currentState != null && !enemyStats.isDead && !isStunned)
             {
                 State nextState = currentState.Tick(this, enemyStats, enemyAnimatorManager);
 
@@ -101,6 +110,17 @@ namespace IG
                     isPerformingAction = false;
                 }
             }
+
+            if (isStunned)
+            {
+                stunTimer -= Time.deltaTime;
+
+                if (stunTimer <= 0)
+                {
+                    stunTimer = stunDuration;
+                    isStunned = false;
+                }    
+            }
         }
 
         private void HandleDespawnAfterDeath()
@@ -112,6 +132,7 @@ namespace IG
                     Destroy(gameObject);
             }
         }
+
 
         private void OnDrawGizmosSelected()
         {

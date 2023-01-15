@@ -16,6 +16,7 @@ namespace IG
         public bool b_input;
         public bool rb_input;
         public bool rt_input;
+        public bool lb_input;
         public bool lt_input;
         public bool critical_Attack_input;
         public bool s_input;
@@ -45,6 +46,7 @@ namespace IG
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         PlayerStats playerStats;
+        BlockingCollider blockingCollider;
         CameraHandler cameraHandler;
         PlayerAnimatorManager animatorHandler;
         UIManager uiManager;
@@ -58,6 +60,7 @@ namespace IG
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             playerStats = GetComponent<PlayerStats>();
+            blockingCollider = GetComponentInChildren<BlockingCollider>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             animatorHandler = GetComponentInChildren<PlayerAnimatorManager>();
@@ -75,6 +78,8 @@ namespace IG
                 // Input actions
                 inputActions.PlayerActions.RB.performed += inputActions => rb_input = true;
                 inputActions.PlayerActions.RT.performed += inputActions => rt_input = true;
+                inputActions.PlayerActions.LB.performed += inputActions => lb_input = true;
+                inputActions.PlayerActions.LB.canceled += inputActions => lb_input = false;
                 inputActions.PlayerActions.LT.performed += inputActions => lt_input = true;
                 inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
                 inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
@@ -105,7 +110,7 @@ namespace IG
             if (!playerManager.isSheathed)
             {
                 HandleRollInput(delta);
-                HandleAttackInput(delta);
+                HandleCombatInput(delta);
                 HandleLockOnInput();
             }
 
@@ -160,7 +165,7 @@ namespace IG
             }
         }
 
-        private void HandleAttackInput(float delta)
+        private void HandleCombatInput(float delta)
         {
             if (rb_input)
             {
@@ -170,6 +175,20 @@ namespace IG
             if (rt_input)
             {
                 playerAttacker.HandleHeavyAttack(playerInventory.primaryWeapon);
+            }
+
+            if (lb_input)
+            {
+                playerAttacker.HandleLBAction();
+            }
+            else
+            {
+                playerManager.isBlocking = false;
+
+                if (blockingCollider.blockingCollider.enabled)
+                {
+                    blockingCollider.DisableBlockingCollider();
+                }
             }
 
             if (lt_input)
@@ -244,9 +263,9 @@ namespace IG
 
         private void HandleLockOnInput()
         {
-            lockOnInput = inputActions.PlayerActions.LockOn.WasReleasedThisFrame();
-            rightStickRight_input = inputActions.PlayerMovement.LockOnTargetRight.WasReleasedThisFrame();
-            rightStickLeft_input = inputActions.PlayerMovement.LockOnTargetLeft.WasReleasedThisFrame();
+            lockOnInput = inputActions.PlayerActions.LockOn.WasPressedThisFrame();
+            rightStickRight_input = inputActions.PlayerMovement.LockOnTargetRight.WasPressedThisFrame();
+            rightStickLeft_input = inputActions.PlayerMovement.LockOnTargetLeft.WasPressedThisFrame();
 
             if (lockOnInput && !lockOnFlag)
             {
@@ -263,18 +282,18 @@ namespace IG
                 DisableLockOn();
             }
 
-            if (lockOnFlag && rightStickLeft_input)
+            if (lockOnFlag && rightStickRight_input)
             {
-                rightStickLeft_input = false;
+                rightStickRight_input = false;
                 cameraHandler.HandleLockOn();
                 if (cameraHandler.leftLockTarget != null)
                 {
                     cameraHandler.currentLockOnTarget = cameraHandler.leftLockTarget;
                 }
             }
-            else if (lockOnFlag && rightStickRight_input)
+            else if (lockOnFlag && rightStickLeft_input)
             {
-                rightStickRight_input = false;
+                rightStickLeft_input = false;
                 cameraHandler.HandleLockOn();
                 if (cameraHandler.rightLockTarget != null)
                 {

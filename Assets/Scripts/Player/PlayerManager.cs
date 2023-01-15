@@ -52,9 +52,12 @@ namespace IG
             isUsingPrimary = anim.GetBool("isUsingPrimary");
             isUsingSecondary = anim.GetBool("isUsingSecondary");
             isInvulnerable = anim.GetBool("isInvulnerable");
+            isFiringSpell = anim.GetBool("isFiringSpell");
+            anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isDead", playerStats.isDead);
-            
+            anim.SetBool("isStunned", isStunned);
+
             inputHandler.TickInput(delta);
             playerAnimatorManager.canRotate = anim.GetBool("canRotate");
             playerLocomotion.HandleRollingAndSprinting(delta, playerInventory.primaryWeapon);

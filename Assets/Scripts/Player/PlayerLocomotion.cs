@@ -104,7 +104,7 @@ namespace IG
                     else
                     {
                         Vector3 rotationDirection = moveDirection;
-                        rotationDirection = cameraHandler.currentLockOnTarget.position - transform.position;
+                        rotationDirection = cameraHandler.currentLockOnTarget.transform.position - transform.position;
                         rotationDirection.y = 0;
                         rotationDirection.Normalize();
                         Quaternion tr = Quaternion.LookRotation(rotationDirection);
@@ -171,7 +171,7 @@ namespace IG
             }
             else
             {
-                if (inputHandler.moveAmount < 0.5f)
+                if (inputHandler.moveAmount <= 0.5f)
                 {
                     moveDirection *= walkingSpeed;
                     playerManager.isSprinting = false;
@@ -223,7 +223,7 @@ namespace IG
                     {
                         animatorHandler.PlayTargetAnimation(weapon.rollAnimation, true);
                         Vector3 rotationDirection = moveDirection;
-                        rotationDirection = cameraHandler.currentLockOnTarget.position - transform.position;
+                        rotationDirection = cameraHandler.currentLockOnTarget.transform.position - transform.position;
                         rotationDirection.y = 0;
                         rotationDirection.Normalize();
                         Quaternion tr = Quaternion.LookRotation(rotationDirection);

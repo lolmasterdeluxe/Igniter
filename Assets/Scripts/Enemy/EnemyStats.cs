@@ -11,6 +11,8 @@ namespace IG
         EnemyManager enemyManager;
         InputHandler inputHandler;
 
+        public UIEnemyHealthBar enemyHealthBar;
+
         public int soulsAwardedOnDeath = 50;
 
         private void Awake()
@@ -25,6 +27,7 @@ namespace IG
         {
             maxHealth = SetMaxHealthFromHealthLevel();
             currentHealth = maxHealth;
+            enemyHealthBar.SetMaxHealth(maxHealth);
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -38,6 +41,8 @@ namespace IG
             currentHealth = currentHealth - damage;
             enemyManager.currentRecoveryTime = 2;
 
+            enemyHealthBar.SetHealth(currentHealth);
+
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
@@ -46,14 +51,18 @@ namespace IG
             }
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, bool isBlocking = false)
         {
             if (isDead)
                 return;
 
             currentHealth = currentHealth - damage;
+            enemyHealthBar.SetHealth(currentHealth);
 
-            enemyAnimatorManager.PlayTargetAnimation(enemyWeaponSlotManager.primaryWeapon.hitAnimation, true);
+            if (isBlocking)
+                enemyAnimatorManager.PlayTargetAnimation(enemyWeaponSlotManager.primaryWeapon.blockGuardAnimation, true);
+            else
+                enemyAnimatorManager.PlayTargetAnimation(enemyWeaponSlotManager.primaryWeapon.hitAnimation, true);
 
             enemyManager.currentRecoveryTime = 2;
 

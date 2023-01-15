@@ -7,13 +7,17 @@ namespace IG
     public class PlayerAttacker : MonoBehaviour
     {
         PlayerAnimatorManager playerAnimatorManager;
+        PlayerEquipmentManager playerEquipmentManager;
         InputHandler inputHandler;
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         PlayerStats playerStats;
         WeaponSlotManager weaponSlotManager;
+
+        [Header("Combat Counters & Timers")]
         public int attackCount;
 
+        [Header("Critical Attack Layers")]
         [SerializeField]
         LayerMask backStabLayer;
         [SerializeField]
@@ -22,6 +26,7 @@ namespace IG
         private void Awake()
         {
             playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
+            playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
             inputHandler = GetComponentInParent<InputHandler>();
             playerManager = GetComponentInParent<PlayerManager>();
             playerStats = GetComponentInParent<PlayerStats>();
@@ -88,6 +93,11 @@ namespace IG
             }
         }
 
+        public void HandleLBAction()
+        {
+            PerformLBBlockingAction();
+        }
+
         public void HandleLTAction()
         {
             if (playerInventory.primaryWeapon.weaponType == WeaponType.ShieldWeapon)
@@ -129,10 +139,20 @@ namespace IG
 
             if (weapon.weaponType == WeaponType.FaithCaster)
             {
-                if (playerInventory.currentSpell != null && playerInventory.currentSpell.isFaithSpell)
+                if (playerInventory.currentSpell != null && playerInventory.currentSpell.spellType == SpellType.FaithSpell)
                 {
                     if (playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
-                        playerInventory.currentSpell.AttemptToCastSpell(playerAnimatorManager, playerStats);
+                        playerInventory.currentSpell.AttemptToCastSpell(playerAnimatorManager, playerStats, weaponSlotManager);
+                    else
+                        playerAnimatorManager.PlayTargetAnimation("Relax-No", true);
+                }
+            }
+            else if (weapon.weaponType == WeaponType.PyroCaster)
+            {
+                if (playerInventory.currentSpell != null && playerInventory.currentSpell.spellType == SpellType.PyroSpell)
+                {
+                    if (playerStats.currentFocusPoints >= playerInventory.currentSpell.focusPointCost)
+                        playerInventory.currentSpell.AttemptToCastSpell(playerAnimatorManager, playerStats, weaponSlotManager);
                     else
                         playerAnimatorManager.PlayTargetAnimation("Relax-No", true);
                 }
@@ -150,6 +170,19 @@ namespace IG
         private void SuccessfullyCastSpell()
         {
             playerInventory.currentSpell.SuccessfullyCastSpell(playerAnimatorManager, playerStats);
+            playerAnimatorManager.anim.SetBool("isFiringSpell", true);
+        }
+        #endregion
+
+        #region Defense Actions
+        private void PerformLBBlockingAction()
+        {
+            if (playerManager.isInteracting || playerManager.isBlocking)
+                return;
+
+            playerAnimatorManager.PlayTargetAnimation("GreatSword_Defense_Start_Root", false, true);
+            playerEquipmentManager.OpenBlockingCollider();
+            playerManager.isBlocking = true;
         }
         #endregion
 
@@ -160,7 +193,7 @@ namespace IG
 
             RaycastHit hit;
 
-            if (Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 0.5f, backStabLayer))
+            if (Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 1f, backStabLayer))
             {
                 CharacterManager enemyCharacterManager = hit.transform.gameObject.GetComponentInParent<CharacterManager>();
                 DamageCollider primaryWeapon = weaponSlotManager.primaryDamageCollider;
@@ -185,7 +218,7 @@ namespace IG
                     // do damage
                 }
             }
-            else if (Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 0.5f, riposteLayer))
+            else if (Physics.Raycast(inputHandler.criticalAttackRayCastStartPoint.position, transform.TransformDirection(Vector3.forward), out hit, 1f, riposteLayer))
             {
                 CharacterManager enemyCharacterManager = hit.transform.gameObject.GetComponentInParent<CharacterManager>();
                 DamageCollider primaryWeapon = weaponSlotManager.primaryDamageCollider;

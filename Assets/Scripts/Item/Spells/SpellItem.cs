@@ -14,23 +14,29 @@ namespace IG
         public int focusPointCost;
 
         [Header("Spell type")]
-        public bool isFaithSpell;
-        public bool isMagicSpell;
-        public bool isPyroSpell;
+        public SpellType spellType;
 
         [Header("Spell Description")]
         [TextArea]
         public string spellDescription;
 
-        public virtual void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playertStats)
+        public virtual void AttemptToCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponSlotManager)
         {
             Debug.Log("Attempting to cast a spell.");
         }
 
-        public virtual void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playertStats)
+        public virtual void SuccessfullyCastSpell(PlayerAnimatorManager animatorHandler, PlayerStats playerStats)
         {
             Debug.Log("Successfully cast spell.");
-            playertStats.DeductFocusPoints(focusPointCost);
+            playerStats.DeductFocusPoints(focusPointCost);
         }
+    }
+
+    public enum SpellType
+    {
+        FaithSpell,
+        MagicSpell,
+        PyroSpell,
+        TotalSpells
     }
 }

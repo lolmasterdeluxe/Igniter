@@ -35,13 +35,32 @@ namespace IG
            {
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
                 CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
+                BlockingCollider shield = collision.transform.GetComponentInChildren<BlockingCollider>();
 
                 if (enemyCharacterManager != null)
                 {
                     if (enemyCharacterManager.isParrying)
                     {
                         characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                        characterManager.isStunned = true;
                         return;
+                    }
+                    else if (shield != null && enemyCharacterManager.isBlocking)
+                    {
+                        float physicalDamageAfterBlock = currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
+
+                        if (playerStats != null)
+                        {
+                            playerStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock));
+                            playerStats.TakeStaminaDamage(Mathf.RoundToInt(physicalDamageAfterBlock) * 5);
+
+                            if (playerStats.currentStamina < 0)
+                            {
+                                enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Guard Break", true);
+                            }
+
+                            return;
+                        }
                     }
                 }
 
@@ -55,13 +74,25 @@ namespace IG
             {
                 EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
                 CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
+                BlockingCollider shield = collision.transform.GetComponentInChildren<BlockingCollider>();
 
                 if (enemyCharacterManager != null)
                 {
                     if (enemyCharacterManager.isParrying)
                     {
                         characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
+                        characterManager.isStunned = true;
                         return;
+                    }
+                    else if (shield != null && enemyCharacterManager.isBlocking)
+                    {
+                        float physicalDamageAfterBlock = currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
+
+                        if (enemyStats != null)
+                        {
+                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), true);
+                            return;
+                        }
                     }
                 }
 
