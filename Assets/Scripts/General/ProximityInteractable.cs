@@ -49,7 +49,7 @@ namespace IG
 
         void Update()
         {
-            if (isWithinRange && inputHandler.interact_input)
+            if (isWithinRange && inputHandler.a_input)
             {
                 Interact();
             }

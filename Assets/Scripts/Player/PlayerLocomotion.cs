@@ -329,7 +329,7 @@ namespace IG
             if (playerStats.currentStamina <= 0)
                 return;
 
-            if (inputHandler.jump_input)
+            if (inputHandler.ls_input)
             {
                 if (inputHandler.moveAmount > 0)
                 {

@@ -36,7 +36,7 @@ namespace IG
             weaponSlotManager = GetComponent<WeaponSlotManager>();
         }
 
-        public void HandleWeaponCombo(WeaponItem weapon)
+        public void HandleLightWeaponCombo(WeaponItem weapon)
         {
             if (playerStats.currentStamina <= 0)
                 return;
@@ -48,6 +48,20 @@ namespace IG
                 attackCount += 1;
             }
         }
+
+        public void HandleHeavyWeaponCombo(WeaponItem weapon)
+        {
+            if (playerStats.currentStamina <= 0)
+                return;
+
+            if (inputHandler.comboFlag)
+            {
+                playerAnimatorManager.anim.SetBool("canDoCombo", false);
+                playerAnimatorManager.PlayTargetAnimation(weapon.heavyAttack[attackCount + 1], true);
+                attackCount += 1;
+            }
+        }
+
         public void HandleLightAttack(WeaponItem weapon)
         {
             if (playerStats.currentStamina <= 0)
@@ -95,6 +109,19 @@ namespace IG
             }
         }
 
+        public void HandleRTAction()
+        {
+            if (playerInventory.primaryWeapon.weaponType == WeaponType.MeleeWeapon)
+            {
+                PerformRTMeleeAction();
+            }
+            else if (playerInventory.primaryWeapon.weaponType == WeaponType.SpellCaster || playerInventory.primaryWeapon.weaponType == WeaponType.FaithCaster || playerInventory.primaryWeapon.weaponType == WeaponType.PyroCaster)
+            {
+                // Handle Magic Action
+                PerformRBMagicAction(playerInventory.primaryWeapon);
+            }
+        }
+
         public void HandleLBAction()
         {
             PerformLBBlockingAction();
@@ -121,7 +148,7 @@ namespace IG
             if (playerManager.canDoCombo)
             {
                 inputHandler.comboFlag = true;
-                HandleWeaponCombo(playerInventory.primaryWeapon);
+                HandleLightWeaponCombo(playerInventory.primaryWeapon);
                 inputHandler.comboFlag = false;
             }
             else
@@ -131,6 +158,24 @@ namespace IG
 
                 playerAnimatorManager.anim.SetBool("isUsingPrimary", true);
                 HandleLightAttack(playerInventory.primaryWeapon);
+            }
+        }
+
+        private void PerformRTMeleeAction()
+        {
+            if (playerManager.canDoCombo)
+            {
+                inputHandler.comboFlag = true;
+                HandleHeavyWeaponCombo(playerInventory.primaryWeapon);
+                inputHandler.comboFlag = false;
+            }
+            else
+            {
+                if (playerManager.canDoCombo || playerManager.isInteracting)
+                    return;
+
+                playerAnimatorManager.anim.SetBool("isUsingPrimary", true);
+                HandleHeavyAttack(playerInventory.primaryWeapon);
             }
         }
 

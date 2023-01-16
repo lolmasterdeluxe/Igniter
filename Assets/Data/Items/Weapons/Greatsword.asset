@@ -24,7 +24,10 @@ MonoBehaviour:
   - 2Hand-Sword-Attack2
   - 2Hand-Sword-Attack3
   - 2Hand-Sword-Attack4
-  heavyAttack: []
+  heavyAttack:
+  - GreatSword_SPAttack1_Root
+  - GreatSword_SPAttack1_2_Root
+  - GreatSword_SPAttack2_Root
   dodgeAnimation: 2Hand-Sword-Dodge-Backward
   rollAnimation: 2Hand-Sword-Roll
   hitAnimation: 2Hand-Sword-GetHit-F1

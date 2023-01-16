@@ -12,21 +12,23 @@ namespace IG
         public float mouseX;
         public float mouseY;
 
-        public bool a_input;
+        public bool y_input;
         public bool x_input;
+        public bool a_input;
         public bool b_input;
-        public bool rb_input;
-        public bool rt_input;
+
         public bool lb_input;
         public bool lt_input;
-        public bool critical_Attack_input;
-        public bool s_input;
-        public bool jump_input;
-        public bool inventory_input;
-        public bool lockOnInput;
-        public bool rightStickRight_input;
-        public bool rightStickLeft_input;
-        public bool interact_input;
+        public bool ls_input;
+
+        public bool rb_input;
+        public bool rt_input;
+        public bool rs_input;
+
+        public bool rsl_input;
+        public bool rsr_input;
+
+        public bool menu_input;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -83,24 +85,36 @@ namespace IG
                 inputActions.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
 
                 // Input actions
+
+                // Sheath/Unsheath
+                inputActions.PlayerActions.Y.performed += i => y_input = true;
+                // Use Item
+                inputActions.PlayerActions.X.performed += i => x_input = true;
+                // Interact (Examine/Open/Pick-Up/Etc..)
+                inputActions.PlayerActions.A.performed += i => a_input = true;
+                // Dash/Roll/Backstep
+                // inputActions.PlayerActions.B.performed += i => b_input = true;
+
+                // Right Hand Weapon Light Attack / Heavy Attack
                 inputActions.PlayerActions.RB.performed += inputActions => rb_input = true;
+
                 inputActions.PlayerActions.RT.performed += inputActions => rt_input = true;
+                inputActions.PlayerActions.RT.canceled += inputActions => rt_input = false;
+
+                // Lock on (target switch left/target switch right)
+                /*inputActions.PlayerActions.RS.performed += inputActions => rs_input = true;
+                inputActions.PlayerActions.RSL.performed += inputActions => rsl_input = true;
+                inputActions.PlayerActions.RSR.performed += inputActions => rsr_input = true;*/
+
+                // Blocking
                 inputActions.PlayerActions.LB.performed += inputActions => lb_input = true;
                 inputActions.PlayerActions.LB.canceled += inputActions => lb_input = false;
-                inputActions.PlayerActions.LT.performed += inputActions => lt_input = true;
+                inputActions.PlayerActions.LT.performed += inputActions => lt_input = true; // UNUSED
+
                 inputActions.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
                 inputActions.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
-                inputActions.PlayerActions.A.performed += i => a_input = true;
-                inputActions.PlayerActions.X.performed += i => x_input = true;
-                inputActions.PlayerActions.Jump.performed += i => jump_input = true;
-                inputActions.PlayerActions.Inventory.performed += i => inventory_input = true;
-                inputActions.PlayerActions.Interact.performed += i => interact_input = true;
-                inputActions.PlayerActions.CriticalAttack.performed += i => critical_Attack_input = true;
 
-                // Temporary disabled to accomodate sheath bool
-                /*inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
-                inputActions.PlayerMovement.LockOnTargetRight.performed += i => rightStickRight_input = true;
-                inputActions.PlayerMovement.LockOnTargetLeft.performed += i => rightStickLeft_input = true;*/
+                inputActions.PlayerActions.MenuButton.performed += i => menu_input = true;
             }
 
             inputActions.Enable();
@@ -125,7 +139,6 @@ namespace IG
             HandleQuickSlotsInput();
             HandleSheathInput(delta);
             HandleInventoryInput();
-            HandleCriticalAttackInput();
             HandleUseConsumableInput();
         }
 
@@ -147,10 +160,10 @@ namespace IG
 
         private void HandleRollInput(float delta)
         {
-            b_input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
+            b_input = inputActions.PlayerActions.B.phase == UnityEngine.InputSystem.InputActionPhase.Started;
 
             // Sprint disabled
-            //sprintFlag = b_input;
+            // sprintFlag = b_input;
 
             if (b_input)
             {
@@ -178,12 +191,15 @@ namespace IG
         {
             if (rb_input)
             {
-                playerAttacker.HandleRBAction();
-            }
-
-            if (rt_input)
-            {
-                playerAttacker.HandleHeavyAttack(playerInventory.primaryWeapon);
+                if (rt_input)
+                {
+                    playerAttacker.HandleRTAction();
+                }
+                else
+                {
+                    playerAttacker.HandleRBAction();
+                    playerAttacker.AttemptBackStabOrRiposte();
+                }
             }
 
             if (lb_input)
@@ -209,9 +225,7 @@ namespace IG
 
         private void HandleSheathInput(float delta)
         {
-            s_input = inputActions.PlayerActions.SheathUnsheath.IsPressed();
-
-            if (s_input)
+            if (y_input)
             {
                 if (playerManager.isInteracting || playerInventory.primaryWeapon.isUnarmed)
                     return;
@@ -251,7 +265,7 @@ namespace IG
 
         private void HandleInventoryInput()
         {
-            if (inventory_input)
+            if (menu_input)
             {
                 inventoryFlag = !inventoryFlag;
 
@@ -272,13 +286,13 @@ namespace IG
 
         private void HandleLockOnInput()
         {
-            lockOnInput = inputActions.PlayerActions.LockOn.WasPressedThisFrame();
-            rightStickRight_input = inputActions.PlayerMovement.LockOnTargetRight.WasPressedThisFrame();
-            rightStickLeft_input = inputActions.PlayerMovement.LockOnTargetLeft.WasPressedThisFrame();
+            rs_input = inputActions.PlayerActions.RS.WasPressedThisFrame();
+            rsr_input = inputActions.PlayerActions.RSR.WasPressedThisFrame();
+            rsl_input = inputActions.PlayerActions.RSL.WasPressedThisFrame();
 
-            if (lockOnInput && !lockOnFlag)
+            if (rs_input && !lockOnFlag)
             {
-                lockOnInput = false;
+                rs_input = false;
                 cameraHandler.HandleLockOn();
                 if (cameraHandler.nearestLockOnTarget != null)
                 {
@@ -286,23 +300,23 @@ namespace IG
                     lockOnFlag = true;
                 }
             }
-            else if (lockOnInput && lockOnFlag)
+            else if (rs_input && lockOnFlag)
             {
                 DisableLockOn();
             }
 
-            if (lockOnFlag && rightStickRight_input)
+            if (lockOnFlag && rsr_input)
             {
-                rightStickRight_input = false;
+                rsr_input = false;
                 cameraHandler.HandleLockOn();
                 if (cameraHandler.leftLockTarget != null)
                 {
                     cameraHandler.currentLockOnTarget = cameraHandler.leftLockTarget;
                 }
             }
-            else if (lockOnFlag && rightStickLeft_input)
+            else if (lockOnFlag && rsl_input)
             {
-                rightStickLeft_input = false;
+                rsl_input = false;
                 cameraHandler.HandleLockOn();
                 if (cameraHandler.rightLockTarget != null)
                 {
@@ -311,15 +325,6 @@ namespace IG
             }
 
             cameraHandler.SetCameraHeight();
-        }
-
-        private void HandleCriticalAttackInput()
-        {
-            if (critical_Attack_input)
-            {
-                critical_Attack_input = false;
-                playerAttacker.AttemptBackStabOrRiposte();
-            }
         }
 
         private void HandleUseConsumableInput()
@@ -334,7 +339,7 @@ namespace IG
 
         public void DisableLockOn()
         {
-            lockOnInput = false;
+            rs_input = false;
             lockOnFlag = false;
             cameraHandler.ClearLockOnTargets();
         }

@@ -79,18 +79,20 @@ namespace IG
         private void LateUpdate()
         {
             inputHandler.rollFlag = false;
+
+            inputHandler.y_input = false;
+            inputHandler.x_input = false;
+            inputHandler.a_input = false;
+
             inputHandler.rb_input = false;
-            inputHandler.rt_input = false;
             inputHandler.lt_input = false;
-            inputHandler.s_input = false;
+
             inputHandler.d_Pad_Up = false;
             inputHandler.d_Pad_Down = false;
             inputHandler.d_Pad_Left = false;
             inputHandler.d_Pad_Right = false;
-            inputHandler.a_input = false;
-            inputHandler.jump_input = false;
-            inputHandler.inventory_input = false;
-            inputHandler.interact_input = false;
+
+            inputHandler.menu_input = false;
 
             float delta = Time.fixedDeltaTime;
             if (cameraHandler != null)
@@ -123,7 +125,7 @@ namespace IG
                         uiManager.interactableUI.interactableText.text = interactableText;
                         uiManager.interactAlertPopUpSphereCast.SetActive(true);
 
-                        if (inputHandler.interact_input)
+                        if (inputHandler.a_input)
                         {
                             hit.collider.GetComponent<Interactable>().Interact(this);
                         }
@@ -136,7 +138,7 @@ namespace IG
                         uiManager.interactAlertPopUpSphereCast.SetActive(false);
                     }
 
-                    if (uiManager.itemPopUp != null && inputHandler.interact_input)
+                    if (uiManager.itemPopUp != null && inputHandler.a_input)
                     {
                         uiManager.itemPopUp.SetActive(false);
                     }
@@ -149,7 +151,7 @@ namespace IG
                     uiManager.interactAlertPopUpSphereCast.SetActive(false);
                 }
 
-                if (uiManager.itemPopUp != null && inputHandler.interact_input)
+                if (uiManager.itemPopUp != null && inputHandler.a_input)
                 {
                     uiManager.itemPopUp.SetActive(false);
                 }
