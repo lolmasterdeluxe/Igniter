@@ -13705,7 +13705,7 @@ GameObject:
   - component: {fileID: 9098029693109016506}
   m_Layer: 0
   m_Name: FX_Fireball_Projectile
-  m_TagString: Untagged
+  m_TagString: Player Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18621,6 +18621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterManager: {fileID: 0}
   currentWeaponDamage: 25
+  enableDamageColliderOnStartup: 0
 --- !u!1 &4317022655308192474
 GameObject:
   m_ObjectHideFlags: 0

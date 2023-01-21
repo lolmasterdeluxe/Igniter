@@ -27,6 +27,7 @@ namespace IG
         public bool isUsingSecondary;
         public bool isInvulnerable;
         public bool rotateTowardsCamera;
+        public bool isCameraLocked;
 
         private void Start()
         {
@@ -95,7 +96,7 @@ namespace IG
             inputHandler.menu_input = false;
 
             float delta = Time.fixedDeltaTime;
-            if (cameraHandler != null)
+            if (cameraHandler != null && !isCameraLocked)
             {
                 cameraHandler.FollowTarget(delta);
                 cameraHandler.HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);

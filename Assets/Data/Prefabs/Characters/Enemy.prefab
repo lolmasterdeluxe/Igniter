@@ -3895,7 +3895,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 720
   m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -4182,6 +4182,7 @@ MonoBehaviour:
   currentFocusPoints: 0
   soulCount: 0
   isDead: 0
+  idleState: {fileID: 4520772942505550656}
   enemyHealthBar: {fileID: 1033667463}
   soulsAwardedOnDeath: 50
 --- !u!114 &4520772943556251928
@@ -4205,6 +4206,7 @@ MonoBehaviour:
   isBlocking: 0
   isStunned: 0
   pendingCriticalDamage: 0
+  isFiringSpell: 0
   currentState: {fileID: 4520772942505550656}
   currentTarget: {fileID: 0}
   navmeshAgent: {fileID: 4520772943118524717}
@@ -4214,15 +4216,15 @@ MonoBehaviour:
   despawnAfterDeath: 1
   rotationSpeed: 50
   maximumAttackRange: 1.5
+  weaponType: 1
   despawnTimer: 3
   stunDuration: 5
   stunTimer: 5
-  weaponType: 1
+  currentRecoveryTime: 0
   canDoCombo: 0
   detectionRadius: 5
   maximumDetectionAngle: 50
   minimumDetectionAngle: -50
-  currentRecoveryTime: 0
   allowAIToPerformCombos: 1
   comboLikelyHood: 100
 --- !u!114 &4520772943556251931

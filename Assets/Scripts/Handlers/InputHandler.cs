@@ -225,7 +225,8 @@ namespace IG
 
         private void HandleSheathInput(float delta)
         {
-            if (y_input)
+            playerAttacker.HandleSheathtimer();
+            if (y_input || rb_input)
             {
                 if (playerManager.isInteracting || playerInventory.primaryWeapon.isUnarmed)
                     return;
@@ -235,7 +236,7 @@ namespace IG
                     playerAttacker.HandleSheath(playerInventory.primaryWeapon, false);
                     playerAttacker.HandleLocomotionType(playerInventory.primaryWeapon);
                 }
-                else
+                else if (y_input)
                 {
                     playerAttacker.HandleSheath(playerInventory.primaryWeapon, true);
 
@@ -268,6 +269,9 @@ namespace IG
             if (menu_input)
             {
                 inventoryFlag = !inventoryFlag;
+                playerAnimatorManager.anim.SetBool("isInteracting", inventoryFlag);
+                playerAnimatorManager.anim.SetBool("canRotate", !inventoryFlag);
+                playerManager.isCameraLocked = inventoryFlag;
 
                 if (inventoryFlag)
                 {

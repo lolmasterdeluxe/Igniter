@@ -17,6 +17,7 @@ namespace IG
 
         [Header("Combat Counters & Timers")]
         public int attackCount;
+        public float sheathTimer;
 
         [Header("Critical Attack Layers")]
         [SerializeField]
@@ -93,6 +94,21 @@ namespace IG
         public void HandleLocomotionType(WeaponItem weapon)
         {
             playerAnimatorManager.SetLocomotionType(weapon.weaponAnimationType);
+        }
+
+        public void HandleSheathtimer()
+        {
+            sheathTimer += Time.deltaTime;
+            if (inputHandler.moveAmount > 0 || inputHandler.x_input || inputHandler.y_input || inputHandler.b_input || inputHandler.rb_input || inputHandler.lb_input || inputHandler.rt_input || inputHandler.lt_input || inputHandler.rs_input)
+            {
+                sheathTimer = 0;
+            }
+
+            if (!playerManager.isSheathed && sheathTimer > 10f)
+            {
+                HandleSheath(playerInventory.primaryWeapon, true);
+                inputHandler.DisableLockOn();
+            }
         }
 
         #region Input Actions
@@ -291,5 +307,6 @@ namespace IG
             }
 
         }
+
     }
 }

@@ -35,18 +35,18 @@ namespace IG
            if (collision.tag == "Player" && gameObject.tag == "Enemy Weapon")
            {
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
-                CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
+                CharacterManager playerCharacterManager = collision.GetComponent<CharacterManager>();
                 BlockingCollider shield = collision.transform.GetComponentInChildren<BlockingCollider>();
 
-                if (enemyCharacterManager != null)
+                if (playerCharacterManager != null)
                 {
-                    if (enemyCharacterManager.isParrying)
+                    if (playerCharacterManager.isParrying)
                     {
                         characterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Parried", true);
                         characterManager.isStunned = true;
                         return;
                     }
-                    else if (shield != null && enemyCharacterManager.isBlocking)
+                    else if (shield != null && playerCharacterManager.isBlocking)
                     {
                         float physicalDamageAfterBlock = currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
 
@@ -57,7 +57,7 @@ namespace IG
 
                             if (playerStats.currentStamina < 0)
                             {
-                                enemyCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Guard Break", true);
+                                playerCharacterManager.GetComponentInChildren<AnimatorManager>().PlayTargetAnimation("Guard Break", true);
                             }
 
                             return;
@@ -74,7 +74,7 @@ namespace IG
             if (collision.tag == "Enemy" && gameObject.tag == "Player Weapon")
             {
                 EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-                CharacterManager enemyCharacterManager = collision.GetComponent<CharacterManager>();
+                EnemyManager enemyCharacterManager = collision.GetComponent<EnemyManager>();
                 BlockingCollider shield = collision.transform.GetComponentInChildren<BlockingCollider>();
 
                 if (enemyCharacterManager != null)

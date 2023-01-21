@@ -41,5 +41,10 @@ namespace IG
             }
             #endregion
         }
+
+        public void SetEnemyTarget(EnemyManager enemyManager, CharacterStats characterStats)
+        {
+            enemyManager.currentTarget = characterStats;
+        }
     }
 }
