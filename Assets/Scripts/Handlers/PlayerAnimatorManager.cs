@@ -162,6 +162,8 @@ namespace IG
             anim.SetFloat("Horizontal", 0);
             anim.SetFloat("Vertical", 0);
             playerManager.isCameraLocked = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         public void UnfreezePlayer()
@@ -171,6 +173,8 @@ namespace IG
             anim.SetFloat("Horizontal", 0);
             anim.SetFloat("Vertical", 0);
             playerManager.isCameraLocked = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnAnimatorMove()

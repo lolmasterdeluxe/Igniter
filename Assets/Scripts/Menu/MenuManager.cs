@@ -39,7 +39,7 @@ namespace IG
             menuScreen.SetActive(false);
             controlsScreen.SetActive(true);
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("GameScene");
             // Wait until the asynchronous scene fully loads

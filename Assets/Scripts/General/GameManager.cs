@@ -37,6 +37,13 @@ namespace IG
             inputHandler = FindObjectOfType<InputHandler>();
         }
 
+        private void Start()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Application.targetFrameRate = 60;
+        }
+
         public void StartGame()
         {
             dungeonManager.gameObject.SetActive(true);
