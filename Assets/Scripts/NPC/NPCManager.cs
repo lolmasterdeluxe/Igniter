@@ -17,6 +17,7 @@ namespace IG
         public TextMeshProUGUI characterTitleText;
         NPCAnimatorManager npcAnimatorManager;
         PlayerAnimatorManager playerAnimatorManager;
+        UIManager uiManager;
         public Rigidbody npcRigidbody;
         public int sentenceCounter = 0;
 
@@ -24,6 +25,7 @@ namespace IG
         {
             npcAnimatorManager = GetComponentInChildren<NPCAnimatorManager>();
             npcRigidbody = GetComponent<Rigidbody>();
+            uiManager = FindObjectOfType<UIManager>();
             playerAnimatorManager = FindObjectOfType<PlayerAnimatorManager>();
             characterNameText.text = characterName;
             characterTitleText.text = characterTitle;
@@ -31,6 +33,7 @@ namespace IG
 
         public void StartDialogue()
         {
+            uiManager.interactAlertPopUpOnTrigger.SetActive(false);
             textBox.SetActive(true);
             sentenceCounter = 0;
             dialogueText.text = sentences[sentenceCounter];
@@ -45,6 +48,7 @@ namespace IG
             
             if (sentenceCounter >= sentences.Count)
             {
+                uiManager.interactAlertPopUpOnTrigger.SetActive(true);
                 textBox.SetActive(false);
                 playerAnimatorManager.anim.SetBool("isInteracting", false);
                 playerAnimatorManager.anim.SetBool("canRotate", true);

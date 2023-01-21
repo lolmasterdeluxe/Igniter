@@ -20,12 +20,15 @@ namespace IG
 
         public override void AttemptToConsumeItem(PlayerAnimatorManager playerAnimatorManager, WeaponSlotManager weaponSlotManager, PlayerEffectsManager playerEffectsManager)
         {
-            GameObject flask = Instantiate(itemModel, weaponSlotManager.primarySlot.transform);
-            base.AttemptToConsumeItem(playerAnimatorManager, weaponSlotManager, playerEffectsManager);
-            playerEffectsManager.currentParticleFX = recoveryFX;
-            playerEffectsManager.amountToBeHealed = healthRecoverAmount;
-            playerEffectsManager.instantiatedFXModel = flask;
-            weaponSlotManager.primarySlot.UnloadWeapon();
+            if (currentItemAmount > 0)
+            {
+                GameObject flask = Instantiate(itemModel, weaponSlotManager.primarySlot.transform);
+                base.AttemptToConsumeItem(playerAnimatorManager, weaponSlotManager, playerEffectsManager);
+                playerEffectsManager.currentParticleFX = recoveryFX;
+                playerEffectsManager.amountToBeHealed = healthRecoverAmount;
+                playerEffectsManager.instantiatedFXModel = flask;
+                weaponSlotManager.primarySlot.UnloadWeapon();
+            }
         }
     }
 }

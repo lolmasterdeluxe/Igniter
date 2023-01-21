@@ -82,7 +82,6 @@ namespace IG
             inputHandler.rollFlag = false;
 
             inputHandler.y_input = false;
-            inputHandler.x_input = false;
             inputHandler.a_input = false;
 
             inputHandler.rb_input = false;

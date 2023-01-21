@@ -74,7 +74,6 @@ namespace IG
 
             Debug.Log("primary: " + weaponItem.itemName);
             LoadWeaponOnSheathSlot();
-            quickSlotUI.UpdateWeaponQuickSlotUI(isPrimary, weaponItem);
         }
 
         public void LoadWeaponOnSlot()

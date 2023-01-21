@@ -7,6 +7,8 @@ public class DungeonManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> dungeonLayouts;
     [SerializeField]
+    private GameObject dungeonRestRoom;
+    [SerializeField]
     private GameObject initialDungeon;
     [SerializeField]
     private int numberOfRooms = 1;
@@ -15,9 +17,14 @@ public class DungeonManager : MonoBehaviour
 
     public void CreateDungeonLayout()
     {
-        for (int i = 0; i <= numberOfRooms; ++i)
+        for (int i = 0; i <= numberOfRooms + 1; ++i)
         {
-            GameObject currentDungeon = Instantiate(dungeonLayouts[Random.Range(0, dungeonLayouts.Count)], dungeonLayoutParent);
+            GameObject currentDungeon;
+            // Initialize rest room as final room
+            if (i == numberOfRooms + 1)
+                currentDungeon = Instantiate(dungeonRestRoom, dungeonLayoutParent);
+            else
+                currentDungeon = Instantiate(dungeonLayouts[Random.Range(0, dungeonLayouts.Count)], dungeonLayoutParent);
             Transform entry = currentDungeon.transform.GetChild(0);
             Transform exit = initialDungeon.transform.GetChild(0).GetChild(0);
 

@@ -30,6 +30,7 @@ namespace IG
             primaryWeapon = weaponsInPrimarySlots[currentPrimaryWeaponIndex];
             secondaryWeapon = weaponsInPrimarySlots[currentSecondaryWeaponIndex];
             weaponSlotManager.SetWeaponItemIsPrimary(primaryWeapon, true);
+            currentConsumable.currentItemAmount = currentConsumable.maxItemAmount;
             //weaponSlotManager.SetWeaponItemIsPrimary(secondaryWeapon, false);
             Debug.Log("Amt of weps: " + weaponsInPrimarySlots.Length);
         }

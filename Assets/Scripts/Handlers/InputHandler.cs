@@ -41,6 +41,7 @@ namespace IG
         public bool lockOnFlag;
         public bool inventoryFlag;
         public float rollInputTimer;
+        public float consumeDelay;
 
         public Transform criticalAttackRayCastStartPoint;
 
@@ -269,18 +270,17 @@ namespace IG
             if (menu_input)
             {
                 inventoryFlag = !inventoryFlag;
-                playerAnimatorManager.anim.SetBool("isInteracting", inventoryFlag);
-                playerAnimatorManager.anim.SetBool("canRotate", !inventoryFlag);
-                playerManager.isCameraLocked = inventoryFlag;
 
                 if (inventoryFlag)
                 {
+                    playerAnimatorManager.FreezePlayer();
                     uiManager.OpenSelectWindow();
                     uiManager.UpdateUI();
                     uiManager.hudWindow.SetActive(false);
                 }
                 else
                 {
+                    playerAnimatorManager.UnfreezePlayer();
                     uiManager.CloseSelectWindow();
                     uiManager.CloseAllInventoryWindow();
                     uiManager.hudWindow.SetActive(true);
@@ -333,9 +333,11 @@ namespace IG
 
         private void HandleUseConsumableInput()
         {
-            if (x_input)
+            consumeDelay += Time.deltaTime;
+            if (x_input && consumeDelay > 1f)
             {
                 x_input = false;
+                consumeDelay = 0;
                 // Use current consumbale
                 playerInventory.currentConsumable.AttemptToConsumeItem(playerAnimatorManager, weaponSlotManager, playerEffectsManager);
             }

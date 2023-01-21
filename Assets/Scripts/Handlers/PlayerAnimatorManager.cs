@@ -8,8 +8,8 @@ namespace IG
     {
         PlayerManager playerManager;
         PlayerStats playerStats;
-        private InputHandler inputHandler;
-        private PlayerLocomotion playerLocomotion;
+        InputHandler inputHandler;
+        PlayerLocomotion playerLocomotion;
         private int vertical;
         private int horizontal;
 
@@ -18,7 +18,7 @@ namespace IG
             playerManager = GetComponentInParent<PlayerManager>();
             playerStats = GetComponentInParent<PlayerStats>();
             anim = GetComponent<Animator>();
-            inputHandler = GetComponentInParent<InputHandler>();
+            inputHandler = GetComponent<InputHandler>();
             playerLocomotion = GetComponentInParent<PlayerLocomotion>();
             vertical = Animator.StringToHash("Vertical");
             horizontal = Animator.StringToHash("Horizontal");
@@ -153,6 +153,24 @@ namespace IG
         public void SetLocomotionType(int weaponType)
         {
             anim.SetInteger("weaponType", weaponType);
+        }
+
+        public void FreezePlayer()
+        {
+            anim.SetBool("isInteracting", true);
+            anim.SetBool("canRotate", false);
+            anim.SetFloat("Horizontal", 0);
+            anim.SetFloat("Vertical", 0);
+            playerManager.isCameraLocked = true;
+        }
+
+        public void UnfreezePlayer()
+        {
+            anim.SetBool("isInteracting", false);
+            anim.SetBool("canRotate", true);
+            anim.SetFloat("Horizontal", 0);
+            anim.SetFloat("Vertical", 0);
+            playerManager.isCameraLocked = false;
         }
 
         private void OnAnimatorMove()

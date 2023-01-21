@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace IG
 {
@@ -158,6 +159,11 @@ namespace IG
             for (int i = 0; i < colliders.Length; i++)
             {
                 CharacterManager character = colliders[i].GetComponent<CharacterManager>();
+                CharacterStats characterStats = colliders[i].GetComponent<CharacterStats>();
+
+                if (characterStats != null)
+                    if (characterStats.isDead)
+                        return;
 
                 if (character != null)
                 {
@@ -197,9 +203,6 @@ namespace IG
 
                 if (inputHandler.lockOnFlag)
                 {
-                    /*Vector3 relativeEnemyPosition = currentLockOnTarget.transform.InverseTransformPoint(availableTargets[k].transform.position);
-                    var distanceFromLeftTarget = currentLockOnTarget.transform.position.x - availableTargets[k].transform.position.x;
-                    var distanceFromRightTarget = currentLockOnTarget.transform.position.x + availableTargets[k].transform.position.x;*/
                     Vector3 relativeEnemyPosition = currentLockOnTarget.transform.InverseTransformPoint(availableTargets[k].transform.position);
                     var distanceFromLeftTarget = relativeEnemyPosition.x;
                     var distanceFromRightTarget = relativeEnemyPosition.x;

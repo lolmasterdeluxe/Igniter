@@ -8,6 +8,7 @@ namespace IG
     {
         PlayerManager playerManager;
         PlayerAttacker playerAttacker;
+        GameManager gameManager;
 
         [SerializeField]
         private HealthBar healthBar;
@@ -28,6 +29,7 @@ namespace IG
             playerManager = GetComponent<PlayerManager>();
             playerInventory = GetComponent<PlayerInventory>();
             playerAttacker = GetComponentInChildren<PlayerAttacker>();
+            gameManager = FindObjectOfType<GameManager>();
         }
 
         private void Start()
@@ -74,6 +76,7 @@ namespace IG
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
+                gameManager.ActivateDeathScreen();
                 isDead = true;
             }
         }
@@ -99,6 +102,7 @@ namespace IG
             {
                 currentHealth = 0;
                 animatorHandler.PlayTargetAnimation("Death", true);
+                gameManager.ActivateDeathScreen();
                 isDead = true;
             }
         }

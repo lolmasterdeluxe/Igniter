@@ -2,43 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace IG
 {
     public class QuickSlotsUI : MonoBehaviour
     {
-        public Image primaryWeaponIcon;
-        public Image secondaryWeaponIcon;
+        PlayerInventory playerInventory;
+        public List<Image> quickSlotIcon;
+        public List<TextMeshProUGUI> quickSlotItemAmount;
+        public TextMeshProUGUI quickSlot1itemName;
 
-        public void UpdateWeaponQuickSlotUI(bool isPrimary, WeaponItem weapon)
+        private void Start()
         {
-            if (isPrimary)
-            {
-                if (weapon.itemIcon != null)
-                {
-                    primaryWeaponIcon.sprite = weapon.itemIcon;
-                    primaryWeaponIcon.enabled = true;
-                }
-                else
-                {
-                    primaryWeaponIcon.sprite = null;
-                    primaryWeaponIcon.enabled = false;
-                }
-                
-            }
-            else
-            {
-                if (weapon.itemIcon != null)
-                {
-                    secondaryWeaponIcon.sprite = weapon.itemIcon;
-                    secondaryWeaponIcon.enabled = true;
-                }
-                else
-                {
-                    secondaryWeaponIcon.sprite = null;
-                    secondaryWeaponIcon.enabled = false;
-                }
-            }
+            playerInventory = FindObjectOfType<PlayerInventory>();
+        }
+
+        private void Update()
+        {
+            UpdateWeaponQuickSlotUI();
+        }
+
+        public void UpdateWeaponQuickSlotUI()
+        {
+            quickSlotIcon[0].sprite = playerInventory.currentConsumable.itemIcon;
+            quickSlotItemAmount[0].text = playerInventory.currentConsumable.currentItemAmount.ToString();
+            quickSlot1itemName.text = playerInventory.currentConsumable.itemName;
         }
     }
 

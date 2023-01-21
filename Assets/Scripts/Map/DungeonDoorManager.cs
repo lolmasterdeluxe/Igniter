@@ -15,6 +15,13 @@ namespace IG
         public float rotationSpeed = 10;
         public bool doorTrigger = false;
         public bool isExit = false;
+        public bool isGameEnd = false;
+        GameManager gameManager;
+
+        private void Awake()
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
 
         private void Update()
         {
@@ -29,6 +36,9 @@ namespace IG
                 Quaternion tr = Quaternion.Euler(door.localRotation.x, targetDegrees, door.localRotation.z);
                 Quaternion targetRotation = Quaternion.Lerp(door.localRotation, tr, rotationSpeed * Time.deltaTime);
                 door.localRotation = targetRotation;
+
+                if (isGameEnd)
+                    gameManager.ActivateEndScreen();
             }
         }
 
