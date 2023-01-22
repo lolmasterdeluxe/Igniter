@@ -84,6 +84,8 @@ namespace IG
 
         public void ActivateDeathScreen()
         {
+            playerAnimatorManager.FreezePlayer();
+            inputHandler.enabled = false;
             deathScreen.gameObject.SetActive(true);
             deathScreen.DOFade(1, 1);
         }
@@ -91,6 +93,7 @@ namespace IG
         public void ActivateEndScreen()
         {
             playerAnimatorManager.FreezePlayer();
+            inputHandler.enabled = false;
             endScreen.gameObject.SetActive(true);
             endScreen.DOFade(1, 1);
         }
