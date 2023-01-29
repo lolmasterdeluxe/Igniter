@@ -8,10 +8,14 @@ namespace IG
     {
         WeaponSlotManager weaponSlotManager;
 
+        [Header("Quick Slot Items")]
         public SpellItem currentSpell;
         public WeaponItem primaryWeapon;
         public WeaponItem secondaryWeapon;
         public ConsumableItem currentConsumable;
+
+        [Header("Current Equipment")]
+        public HelmetEquipment currentHelmetEquipment;
 
         public WeaponItem[] weaponsInPrimarySlots = new WeaponItem[1];  
         public WeaponItem[] weaponsInSecondarySlots = new WeaponItem[1];
