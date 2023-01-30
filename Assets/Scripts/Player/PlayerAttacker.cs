@@ -99,7 +99,7 @@ namespace IG
         public void HandleSheathtimer()
         {
             sheathTimer += Time.deltaTime;
-            if (inputHandler.moveAmount > 0 || inputHandler.x_input || inputHandler.y_input || inputHandler.b_input || inputHandler.rb_input || inputHandler.lb_input || inputHandler.rt_input || inputHandler.lt_input || inputHandler.rs_input)
+            if (inputHandler.moveAmount > 0 || inputHandler.x_input || inputHandler.y_input || inputHandler.b_input || inputHandler.rb_input || inputHandler.lb_input || inputHandler.rt_input || inputHandler.lt_input || inputHandler.rs_input || inputHandler.inventoryFlag)
             {
                 sheathTimer = 0;
             }
