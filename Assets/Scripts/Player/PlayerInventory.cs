@@ -16,6 +16,9 @@ namespace IG
 
         [Header("Current Equipment")]
         public HelmetEquipment currentHelmetEquipment;
+        public TorsoEquipment currentTorsoEquipment;
+        public LegEquipment currentLegEquipment;
+        public HandEquipment currentHandEquipment;
 
         public WeaponItem[] weaponsInPrimarySlots = new WeaponItem[1];  
         public WeaponItem[] weaponsInSecondarySlots = new WeaponItem[1];
