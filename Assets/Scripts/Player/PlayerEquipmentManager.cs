@@ -8,6 +8,7 @@ namespace IG
     {
         InputHandler inputHandler;
         PlayerInventory playerInventory;
+        PlayerStats playerStats;
 
         [Header("Equipment Model Changers")]
         // Head Equipment
@@ -44,6 +45,8 @@ namespace IG
         {
             inputHandler = GetComponentInParent<InputHandler>();
             playerInventory = GetComponentInParent<PlayerInventory>();
+            playerStats = GetComponentInParent<PlayerStats>();
+
             helmetModelChanger = GetComponentInChildren<HelmetModelChanger>();
             torsoModelChanger = GetComponentInChildren<TorsoModelChanger>();
             hipModelChanger = GetComponentInChildren<HipModelChanger>();
@@ -66,9 +69,16 @@ namespace IG
             helmetModelChanger.UnEquipHelmetModels();
 
             if (playerInventory.currentHelmetEquipment != null)
+            {
                 helmetModelChanger.EquipHelmetModelByName(playerInventory.currentHelmetEquipment.helmetModelName);
+                playerStats.physicalDamageAbsorptionHead = playerInventory.currentHelmetEquipment.physicalDefense;
+                Debug.Log("Head Absorption: " + playerStats.physicalDamageAbsorptionHead + "%");
+            }
             else
+            {
                 helmetModelChanger.EquipHelmetModelByName(defaultHeadModel);
+                playerStats.physicalDamageAbsorptionHead = 0;
+            }
 
             // TORSO EQUIPMENT
             torsoModelChanger.UnEquipTorsoModels();
@@ -80,12 +90,15 @@ namespace IG
                 torsoModelChanger.EquipTorsoModelByName(playerInventory.currentTorsoEquipment.torsoModelName);
                 leftUpperArmModelChanger.EquipLeftUpperArmModelByName(playerInventory.currentTorsoEquipment.upperLeftArmModelName);
                 rightUpperArmModelChanger.EquipRightUpperArmModelByName(playerInventory.currentTorsoEquipment.upperRightArmModelName);
+                playerStats.physicalDamageAbsorptionBody = playerInventory.currentTorsoEquipment.physicalDefense;
+                Debug.Log("Body Absorption: " + playerStats.physicalDamageAbsorptionBody + "%");
             }
             else
             {
                 helmetModelChanger.EquipHelmetModelByName(defaultTorsoModel);
                 leftUpperArmModelChanger.EquipLeftUpperArmModelByName(defaultLeftUpperArmModel);
                 rightUpperArmModelChanger.EquipRightUpperArmModelByName(defaultRightUpperArmModel);
+                playerStats.physicalDamageAbsorptionBody = 0;
             }
 
             // LEG EQUIPMENT
@@ -98,12 +111,15 @@ namespace IG
                 hipModelChanger.EquipHipModelByName(playerInventory.currentLegEquipment.hipModelName);
                 leftLegModelChanger.EquipLeftLegModelByName(playerInventory.currentLegEquipment.leftLegName);
                 rightLegModelChanger.EquipRightLegModelByName(playerInventory.currentLegEquipment.rightLegName);
+                playerStats.physicalDamageAbsorptionLegs = playerInventory.currentLegEquipment.physicalDefense;
+                Debug.Log("Legs Absorption: " + playerStats.physicalDamageAbsorptionLegs + "%");
             }
             else
             {
                 hipModelChanger.EquipHipModelByName(defaultHipModel);
                 leftLegModelChanger.EquipLeftLegModelByName(defaultLeftLegModel);
                 rightLegModelChanger.EquipRightLegModelByName(defaultRightLegModel);
+                playerStats.physicalDamageAbsorptionLegs = 0;
             }
 
             // HAND EQUIPMENT
@@ -114,11 +130,14 @@ namespace IG
             {
                 leftHandModelChanger.EquipLeftHandModelByName(playerInventory.currentHandEquipment.leftHandModelName);
                 rightHandModelChanger.EquipRightHandModelByName(playerInventory.currentHandEquipment.rightHandModelName);
+                playerStats.physicalDamageAbsorptionHands = playerInventory.currentHandEquipment.physicalDefense;
+                Debug.Log("Hands Absorption: " + playerStats.physicalDamageAbsorptionHands + "%");
             }
             else
             {
                 leftHandModelChanger.EquipLeftHandModelByName(defaultLeftHandModel);
                 rightHandModelChanger.EquipRightHandModelByName(defaultRightHandModel);
+                playerStats.physicalDamageAbsorptionHands = 0;
             }
         }
 

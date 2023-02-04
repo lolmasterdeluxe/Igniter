@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemName: Black Pants
-  physicalDefense: 0
+  physicalDefense: 5
   hipModelName: Metal Belt
   leftLegName: Black Pants Left
   rightLegName: Black Pants Right

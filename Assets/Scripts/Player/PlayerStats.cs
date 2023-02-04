@@ -83,11 +83,10 @@ namespace IG
 
         public override void TakeDamage(int damage)
         {
-            if (isDead || playerManager.isInvulnerable)
+            if (playerManager.isInvulnerable)
                 return;
 
-            currentHealth -= damage;
-
+            base.TakeDamage(damage);
             healthBar.SetCurrentHealth(currentHealth);
 
             if (playerManager.isBlocking)

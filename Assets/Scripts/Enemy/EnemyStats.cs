@@ -54,10 +54,7 @@ namespace IG
 
         public override void TakeDamage(int damage)
         {
-            if (isDead)
-                return;
-
-            currentHealth = currentHealth - damage;
+            base.TakeDamage(damage);
             enemyHealthBar.SetHealth(currentHealth);
 
             if (enemyManager.isBlocking)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemName: Steel Gloves
-  physicalDefense: 0
+  physicalDefense: 5
   leftHandModelName: Steel Glove Left
   rightHandModelName: Steel Glove Right
   lowerLeftArmModelName: 

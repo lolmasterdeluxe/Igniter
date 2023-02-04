@@ -32,7 +32,7 @@ namespace IG
 
         private void OnTriggerEnter(Collider collision)
         {
-           if (collision.tag == "Player" && gameObject.tag == "Enemy Weapon")
+            if (collision.tag == "Player" && gameObject.tag == "Enemy Weapon")
            {
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
                 CharacterManager playerCharacterManager = collision.GetComponent<CharacterManager>();
@@ -101,6 +101,12 @@ namespace IG
                 {
                     enemyStats.TakeDamage(currentWeaponDamage);
                 }
+            }
+
+            if (collision.tag == "Illusionary Wall")
+            {
+                IllusionaryWall illusionaryWall = collision.GetComponent<IllusionaryWall>();
+                illusionaryWall.wallHasBeenHit = true;
             }
         }
     }
