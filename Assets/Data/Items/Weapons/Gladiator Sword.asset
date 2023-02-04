@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ab5c59a6cab7c4c9ea1dabbc5a3ca2, type: 3}
+  m_Name: Gladiator Sword
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  itemName: Gladiator Sword
+  modelPrefab: {fileID: 9013116735647384808, guid: d77565096dbc4474ca704ebf1727766f, type: 3}
+  isUnarmed: 0
+  baseDamage: 50
+  criticalDamageMultiplier: 8
+  physicalDamageAbsorption: 50
+  lightAttack:
+  - Protector_Attack_Combo01_1_Root
+  - Protector_Attack_Combo01_2_Root
+  - Protector_Attack_Combo01_3_Root
+  - Protector_Attack_Combo01_4_Root
+  heavyAttack:
+  - Protector_Attack01_Root
+  - Protector_Attack02_Root
+  - Protector_Attack03_Root
+  dodgeAnimation: Protector_Step_B_Root
+  rollAnimation: Protector_Dodge
+  hitAnimation: Protector_Hit_F
+  blockGuardAnimation: Protector_Defense_Start
+  unsheathAnimation: Protector_Equip_Root
+  sheathAnimation: Protector_Unarm_Root
+  weaponAnimationType: 2
+  defaultOffset: {fileID: 0}
+  blockingOffset: {fileID: 0}
+  weaponArt: 
+  baseStamina: 15
+  lightAttackMultiplier: 1
+  heavyAttackMultiplier: 2
+  weaponType: 0
+  sheathType: 0
