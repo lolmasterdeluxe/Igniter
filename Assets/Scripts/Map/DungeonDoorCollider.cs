@@ -4,21 +4,17 @@ using UnityEngine;
 
 namespace IG
 {
-    [RequireComponent(typeof(DungeonDoorManager))]
     public class DungeonDoorCollider : MonoBehaviour
     {
+        [SerializeField]
         private DungeonDoorManager dungeonDoorManager;
-
-        private void Awake()
-        {
-            dungeonDoorManager = GetComponent<DungeonDoorManager>();
-        }
 
         private void OnTriggerEnter(Collider collision)
         {
             if (collision.tag == "Player")
             {
-                dungeonDoorManager.doorTrigger = true;
+                dungeonDoorManager.doorEntryTrigger = true;
+                Destroy(this);
             }
         }
     }

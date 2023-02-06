@@ -73,5 +73,10 @@ namespace IG
             }
         }
 
+        public void DisplayUpgrades()
+        {
+
+        }
+
     }
 }
